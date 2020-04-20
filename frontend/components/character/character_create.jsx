@@ -10,8 +10,8 @@ class CharacterCreateForm extends React.Component {
             name: "",
             race: "Dragonborn",
             class: "Barbarian",
-            hit_points: 1,
-            armor_class: 10,
+            hitPoints: 1,
+            armorClass: 10,
             str: 8,
             dex: 8,
             con: 8,
@@ -19,32 +19,30 @@ class CharacterCreateForm extends React.Component {
             wis: 8,
             cha: 8,
             lvl: 1,
-            allow_magic: false,
+            allowMagic: false,
             proficiencies: []
         };
         
         this.handleSubmit = this.handleSubmit.bind(this);
         this.determineArmorClass = this.determineArmorClass.bind(this);
         this.determineStartHp = this.determineStartHp.bind(this);
-    }
-
-    rollStats(){
-        // Randomize stats with 4d6 drop 1 
+        this.randomizeStats = this.randomizeStats.bind(this);
+        this.statRoller = this.statRoller.bind(this);
     }
 
     handleInput(type){
         if (type === 'class'){
             switch(e.target.value){
                 case "Monk":
-                    this.setState({ allow_magic: false })
+                    this.setState({ allowMagic: false })
                 case "Fighter":
-                    this.setState({ allow_magic: false })
+                    this.setState({ allowMagic: false })
                 case "Rogue":
-                    this.setState({ allow_magic: false })
+                    this.setState({ allowMagic: false })
                 case "Barbarian":
-                    this.setState({ allow_magic: false })
+                    this.setState({ allowMagic: false })
                 default:
-                    this.setState({ allow_magic: true })
+                    this.setState({ allowMagic: true })
             }
         }
 
@@ -70,14 +68,55 @@ class CharacterCreateForm extends React.Component {
         }
     }
 
+    statRoller(){
+        let numbers = [Math.floor((Math.random()*6) + 1),
+            Math.floor((Math.random()*6) + 1), 
+            Math.floor((Math.random()*6) + 1), 
+            Math.floor((Math.random()*6) + 1)
+        ];
+        let topThree = numbers.sort().slice(1);
+        return topThree.reduce((a, b) => a + b)
+    }
+
+    randomizeStats(){
+        this.setState({str: this.statRoller()})
+        this.setState({dex: this.statRoller()})
+        this.setState({con: this.statRoller()})
+        this.setState({int: this.statRoller()})
+        this.setState({wis: this.statRoller()})
+        this.setState({cha: this.statRoller()})
+    }
+
+    handleProfCheckbox(skill){
+        let skillAlreadyInProfs = false;
+        let profIdx = 0;
+        this.state.proficiencies.forEach((pro, idx) => {
+            if (skill === pro){
+                skillAlreadyInProfs = true;
+                profIdx = idx;
+            }
+        })
+
+        if (skillAlreadyInProfs) {
+            let { proficiencies }= this.state;
+            // create first half, second half, and concat
+            let cutFirstHalf = proficiencies.slice();
+            let cutSecondHalf = proficiencies.slice(profIdx + 1);
+
+            this.setState({proficiencies: cutFirstHalf.concat(cutSecondHalf)})
+        } else {
+
+        }
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         const { con } = this.state;
 
         // Change AC to be 10 + dex modifier when submitting char
-        this.setState({armor_class: this.determineArmorClass()});
+        this.setState({armorClass: this.determineArmorClass()});
         // Set Hitpoints 
-        this.setState({hit_points: this.determineStartHp() + Math.floor((con - 10)/2)});
+        this.setState({hitPoints: this.determineStartHp() + Math.floor((con - 10)/2)});
 
         // 
         // Check with Rory about whether "character" is the right input
@@ -90,13 +129,14 @@ class CharacterCreateForm extends React.Component {
         });
 
         // Where do we send the user after the submission? User dashboard? 
-        // this.props.createCharacter(formData)
+        this.props.createCharacter(formData)
         //     .then(() => this.props.history.push(`/areas/${area}`));
     }
 
     render(){
         const races = ["Dragonborn", "Dwarf", "Elf", "Half-Elf", "Halfling", "Human", "Gnome", "Tiefling"]
         const klasses = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"]
+        const skills = ["Athletics", "Acrobatics", "Animal Handling", "Arcana", "Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", "Performance", "Persuasion", "Religion", "Sleight of Hand", "Stealth", "Survival"]
 
         return(
             <div className="create-form">
@@ -207,17 +247,18 @@ class CharacterCreateForm extends React.Component {
                             className="create-form-input"/>
                     <br />
 
-                    {
-                    
-                    
-                    /* add backgrounds and proficiencies */
-                    
-                    
-                    
-                    
-                    
-                    }
 
+                    <label>Proficiencies: </label>
+                        <div className="proficiencies-checkbox-container">
+                            {
+                                skills.map(skill => (
+                                    <>
+                                        <input type="checkbox" id={skill} name={skill} value={skill} onChange={() => handleProfCheckbox(skill)}/>
+                                        <label for={skill}>{skill}</label><br />
+                                    </>
+                                ))
+                            }
+                        </div>
                     <input type="submit" onClick={this.handleSubmit} value="Create Character" />
                 </form>
             </div>
