@@ -1,5 +1,5 @@
 const validArr = arr => {
-    return typeof arr === 'array';
+    return Array.isArray(arr);
   }
   
   module.exports = validArr;
