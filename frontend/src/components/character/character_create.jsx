@@ -1,8 +1,5 @@
 import React from 'react';
 
-
-// Change AC to be 10 + dex modifier when submitting char
-
 class CharacterCreateForm extends React.Component {
     constructor(props) {
         super(props);
@@ -111,22 +108,15 @@ class CharacterCreateForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const { con } = this.state;
-
         // Change AC to be 10 + dex modifier when submitting char
         this.setState({armorClass: this.determineArmorClass()});
         // Set Hitpoints 
         this.setState({hitPoints: this.determineStartHp() + Math.floor((con - 10)/2)});
 
-        // 
-        // Check with Rory about whether "character" is the right input
-        // 
-        // 
-        // 
         let formData = new FormData();
         Object.keys(this.state).forEach(attribute => {
             formData.append(`character[${attribute}]`, this.state[attribute]);
         });
-
         // Where do we send the user after the submission? User dashboard? 
         this.props.createCharacter(formData)
         //     .then(() => this.props.history.push(`/areas/${area}`));
