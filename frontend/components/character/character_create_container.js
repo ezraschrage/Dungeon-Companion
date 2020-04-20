@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-// import { createCharacter } from '../../actions/character_actions';
+import { createCharacter } from '../../actions/character_actions';
 import CharacterCreateForm from './character_create';
 
 const mapStateToProps = (state) => {
