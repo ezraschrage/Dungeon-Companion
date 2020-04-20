@@ -50,11 +50,11 @@ module.exports = function validateCharacterInput(data) {
         errors.klass = 'Must choose a Class';
     }
 
-    if(data.hitPoints <= 0 && data.hitPoints > 500){
+    if(data.hitPoints <= 0 || data.hitPoints > 500){
         errors.text = 'Hit points must be between 1 and 500';
     }
 
-    if(data.armorClass <= 0 && data.armorClass > 30){
+    if(data.armorClass <= 0 || data.armorClass > 30){
         errors.armorClass = 'Armor class must be between 1 and 30';
     }
     
