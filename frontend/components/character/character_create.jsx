@@ -88,9 +88,10 @@ class CharacterCreateForm extends React.Component {
     }
 
     handleProfCheckbox(skill){
+        let { proficiencies }= this.state;
         let skillAlreadyInProfs = false;
         let profIdx = 0;
-        this.state.proficiencies.forEach((pro, idx) => {
+        proficiencies.forEach((pro, idx) => {
             if (skill === pro){
                 skillAlreadyInProfs = true;
                 profIdx = idx;
@@ -98,14 +99,12 @@ class CharacterCreateForm extends React.Component {
         })
 
         if (skillAlreadyInProfs) {
-            let { proficiencies }= this.state;
             // create first half, second half, and concat
-            let cutFirstHalf = proficiencies.slice();
+            let cutFirstHalf = proficiencies.slice(0, profIdx);
             let cutSecondHalf = proficiencies.slice(profIdx + 1);
-
             this.setState({proficiencies: cutFirstHalf.concat(cutSecondHalf)})
         } else {
-
+            proficiencies.concat(skill)
         }
     }
 
