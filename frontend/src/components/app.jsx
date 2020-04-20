@@ -4,12 +4,12 @@ import { Route, Switch } from 'react-router-dom';
 import LoginFormContainer from './session_forms/login_form_container';
 import SignupFormContainer from './session_forms/signup_form_container';
 
-import MainPage from './main/main_page';
+// import MainPage from './main/main_page';
 
 const App = () => (
     <div>
         <Switch>
-            <AuthRoute exact path="/" component={MainPage} />
+            {/* <AuthRoute exact path="/" component={MainPage} /> */}
             <Route exact path="/login" component={LoginFormContainer} />
             <Route exact path="/signup" component={SignupFormContainer} />
         </Switch>
