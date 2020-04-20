@@ -6,7 +6,7 @@ class CharacterCreateForm extends React.Component {
         this.state = {
             name: "",
             race: "Dragonborn",
-            class: "Barbarian",
+            klass: "Barbarian",
             hitPoints: 1,
             armorClass: 10,
             str: 8,
@@ -28,7 +28,7 @@ class CharacterCreateForm extends React.Component {
     }
 
     handleInput(type){
-        if (type === 'class'){
+        if (type === 'klass'){
             switch(e.target.value){
                 case "Monk":
                     this.setState({ allowMagic: false })
@@ -156,7 +156,7 @@ class CharacterCreateForm extends React.Component {
                     <label>Class:</label>
                     <br />
                         <div>
-                            <select id="class" name="class" onChange={this.handleInput('class')}>
+                            <select id="klass" name="klass" onChange={this.handleInput('klass')}>
                                 {klasses.map(klass => (
                                     <option key={klass} value={klass}>{klass}</option>
                                 ))}
