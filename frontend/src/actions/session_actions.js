@@ -26,6 +26,10 @@ export const receiveErrors = errors => ({
     errors
 });
 
+export const receiveUserSignIn = () => ({
+    type: RECEIVE_USER_SIGN_IN
+});
+
 export const signup = user => dispatch => (
     APIUtil.signup(user).then(() => (
         dispatch(receiveUserSignIn())
