@@ -34,6 +34,42 @@ router.post('/',
   
       newCharacter.save().then(character => res.json(character));
     }
-  );
+);
 
-  module.exports = router;
+router.get('/',  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Character.find({user: req.user.id})
+    .sort({date: -1})
+    .then(characters => res.json(characters))
+    .catch(err => res.status(404).json({noCharactersFound: 'No Characters found'}));
+  }
+);
+
+router.get('/:id', passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+      Character.findById(req.params.id)
+      .then(character => res.json(character))
+      .catch( err => res.status(404).json({noCharacterFound: 'No Character found with that id'}))
+  }
+);
+
+router.patch('/:id', passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    //fix this
+      Character.update({character: req.body.character}, {where: {id: req.params.id}})
+      .then(character => res.json(character))
+      .catch( err => res.status(404).json({noCharacterFound: 'No Character found with that id'}))
+  }
+);
+
+router.delete('/:id', passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+      Character.findByIdAndRemove({id: req.params.id})
+      .then( () => res.json({characterDeleted: 'Character Deleted'}))
+      .catch( err => res.status(404).json({noCharacterFound: 'No Character found with that id'}))
+  }
+);
+
+
+
+module.exports = router;
