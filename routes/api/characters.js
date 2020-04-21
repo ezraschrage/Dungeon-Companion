@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
 const passport = require('passport');
 const Character = require('../../models/Character');
 const validateCharacterInput = require('../../validation/characters');
@@ -53,6 +52,17 @@ router.get('/:id', passport.authenticate('jwt', { session: false }),
   }
 );
 
+
+router.get('/search',  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Character.find({
+      name: { "$regex": req.body.name, "$options": "i" } 
+    })
+    .sort({date: -1})
+    .then(characters => res.json(characters))
+    .catch(err => res.status(404).json({noCharactersFound: 'No Characters found'}));
+  }
+);
 router.patch('/:id', passport.authenticate('jwt', { session: false }),
   (req, res) => {
 
