@@ -55,7 +55,12 @@ router.get('/:id', passport.authenticate('jwt', { session: false }),
 
 router.patch('/:id', passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    //fix this
+
+      const { errors, isValid } = validateCharacterInput(req.body);
+        
+      if (!isValid) {
+        return res.status(400).json(errors);
+      }
       Character.findByIdAndUpdate(req.params.id, req.body, {useFindAndModify: false})
       .then(character => res.json(character))
       .catch( err => res.status(404).json({noCharacterFound: 'No Character found with that id'}))
@@ -64,7 +69,7 @@ router.patch('/:id', passport.authenticate('jwt', { session: false }),
 
 router.delete('/:id', passport.authenticate('jwt', { session: false }),
   (req, res) => {
-      Character.findByIdAndRemove({id: req.params.id})
+      Character.findByIdAndRemove(req.params.id)
       .then( () => res.json({characterDeleted: 'Character Deleted'}))
       .catch( err => res.status(404).json({noCharacterFound: 'No Character found with that id'}))
   }
