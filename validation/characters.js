@@ -85,8 +85,8 @@ module.exports = function validateCharacterInput(data) {
         errors.lvl = 'Level must be between 1 and 20';
     }
 
-    if(data.proficiencies.length != 3){
-        errors.proficiencies = 'You need to have three proficiencies';
+    if(data.proficiencies.length < 2){
+        errors.proficiencies = 'You need to have atleast 2 proficiencies';
     }
 
     return {
