@@ -14,9 +14,20 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
         username: req.user.username,
         email: req.user.email
       });
-  })
+})
 
-router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
+
+router.get('/search',  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    User.find({
+      username: { "$regex": req.body.username, "$options": "i" } 
+    })
+    .sort({date: -1})
+    .then(users => res.json(users))
+    .catch(err => res.status(404).json({noUsersFound: 'No Users found'}));
+  }
+);
+
 
 router.post('/register', (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);
