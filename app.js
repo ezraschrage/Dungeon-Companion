@@ -6,7 +6,9 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const users = require("./routes/api/users");
 const characters = require("./routes/api/characters");
+const games = require("./routes/api/games");
 const path = require('path');
+
 
 
 
@@ -25,6 +27,8 @@ app.use(bodyParser.json());
 
 app.use("/api/users", users);
 app.use("/api/characters", characters);
+app.use("/api/games", games);
+
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 
