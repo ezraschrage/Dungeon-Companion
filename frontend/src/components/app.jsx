@@ -4,12 +4,13 @@ import { Route, Switch } from 'react-router-dom';
 import LoginFormContainer from './session_forms/login_form_container';
 import SignupFormContainer from './session_forms/signup_form_container';
 import NavContainer from './nav/nav_container';
-
+import Modal from './modal/modal';
 // import MainPage from './main/main_page';
 
 const App = () => (
     <div>
         <NavContainer />
+        <Modal />
 
         {/* <Switch> */}
             {/* <AuthRoute exact path="/" component={MainPage} /> */}

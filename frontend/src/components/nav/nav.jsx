@@ -7,8 +7,8 @@ const Nav = ({ currentUser, logout, openLoginModal, openSignupModal }) => {
     const signedOutNav = () => (
         <nav className="header">
             <h1>Dungeon Companion</h1>
-            <button className="loginModal" onCLick={openLoginModal}>Log In</button>
-            <button className="signupModal" onCLick={openSignupModal}>Sign Up</button>
+            <button className="loginModal" onClick={openLoginModal}>Log In</button>
+            <button className="signupModal" onClick={openSignupModal}>Sign Up</button>
         </nav>
     );
 

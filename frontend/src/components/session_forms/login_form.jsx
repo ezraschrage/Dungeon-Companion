@@ -33,6 +33,7 @@ class LoginForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state)
         this.props.login(user)
+            .then(this.props.history.push('/login'))
             .then(this.props.closeModal)
     }
 
