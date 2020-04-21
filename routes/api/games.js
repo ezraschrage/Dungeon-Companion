@@ -34,6 +34,17 @@ router.get('/dm',  passport.authenticate('jwt', { session: false }),
   }
 );
 
+router.get('/search',  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Game.find({
+      title: { "$regex": req.body.title, "$options": "i" } 
+    })
+    .sort({date: -1})
+    .then(games => res.json(games))
+    .catch(err => res.status(404).json({noGamesFound: 'No Games found'}));
+  }
+);
+
 router.get('/:id', passport.authenticate('jwt', { session: false }),
   (req, res) => {
       Game.findById(req.params.id)
