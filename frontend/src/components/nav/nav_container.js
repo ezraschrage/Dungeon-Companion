@@ -13,7 +13,7 @@ const msp = (state) => {
 
 const mdp = dispatch => ({
     login: user => dispatch(login(user)),
-    signup: user => dipatch(signup(user)),
+    signup: user => dispatch(signup(user)),
     logout: () => dispatch(logout()),
     openLoginModal: () => dispatch(openModal("loginForm")),
     openSignupModal: () => dispatch(openModal("signupForm")),
