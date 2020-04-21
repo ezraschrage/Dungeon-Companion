@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const users = require("./routes/api/users");
 const characters = require("./routes/api/characters");
+const path = require('path');
 
 
 
@@ -26,3 +27,10 @@ app.use("/api/users", users);
 app.use("/api/characters", characters);
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('frontend/build'));
+    app.get('/', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+    })
+}
