@@ -26,8 +26,8 @@ export const receiveErrors = errors => ({
     errors
 });
 
-export const logoutUser = () => ({
-    type: RECEIVE_USER_LOGOUT
+export const receiveUserSignIn = () => ({
+    type: RECEIVE_USER_SIGN_IN
 });
 
 export const signup = user => dispatch => (
