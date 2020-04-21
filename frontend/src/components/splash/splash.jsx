@@ -1,14 +1,26 @@
-import { connect } from "react-redux";
-import { login, signup } from '../../actions/session_actions';
-import Splash from './splash';
 
-const msp = (state) => ({
-    errors: state.errors.session
-});
+import React from 'react';
+import { render } from 'react-dom';
 
-const mdp = dipsatch => ({
-    login: user => dispatch(login(user)),
-    signup: user => dispatch(signup(user))
-});
 
-export default connect(msp, mdp)(Splash)
+class Splash extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+
+
+    render() {
+        return (
+            <div>
+                <div className="mainDiv">
+
+                </div>
+            </div>
+        )
+    }
+
+
+
+}
+
+export default Splash;

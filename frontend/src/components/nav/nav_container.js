@@ -13,9 +13,11 @@ const msp = (state) => {
 
 const mdp = dispatch => ({
     login: user => dispatch(login(user)),
+    signup: user => dipatch(signup(user)),
     logout: () => dispatch(logout()),
-    openLoginModal: modal => dispatch(openModal(modal))
-    // signup: user => dispatch(signup(user))
+    openLoginModal: () => dispatch(openModal("loginForm")),
+    openSignupModal: () => dispatch(openModal("signupForm")),
+    closeModal: () => dispatch(closeModal())
 });
 
 export default connect(msp, mdp)(Nav)

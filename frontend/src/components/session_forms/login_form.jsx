@@ -15,13 +15,13 @@ class LoginForm extends React.Component {
         this.renderErrors = this.renderErrors.bind(this);
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.currentUser === true) {
-            this.props.history.push('/login');
-        }
+    // componentWillReceiveProps(nextProps) {
+    //     if (nextProps.currentUser === true) {
+    //         this.props.history.push('/login');
+    //     }
 
-        this.setState({ errors: nextProps.errors })
-    }
+    //     this.setState({ errors: nextProps.errors })
+    // }
 
     update(field) {
         return e => this.setState({
@@ -31,13 +31,9 @@ class LoginForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-
-        let user = {
-            username: this.state.username,
-            password: this.state.password
-        };
-
-        this.props.login(user);
+        const user = Object.assign({}, this.state)
+        this.props.login(user)
+            .then(this.props.closeModal)
     }
 
     renderErrors() {
@@ -73,6 +69,9 @@ class LoginForm extends React.Component {
                         <br />
                         <input className="submitButton" type="submit" value="Submit" />
                         {this.renderErrors()}
+                        <div className="signup" onClick={() => {this.props.signupForm()}}>
+                            Not a member? Sign up!
+                        </div>
                     </div>
                 </form>
             </div>

@@ -13,7 +13,7 @@ const mdp = (dispatch) => {
     return {
         signup: user => dispatch(signup(user)),
         loginForm: () => dispatch(openModal("loginForm")),
-        signupForm: () => dispatch(openModal("signupForm")),
+        // signupForm: () => dispatch(openModal("signupForm")),
         closeModal: () => dispatch(closeModal())
     }
 }
