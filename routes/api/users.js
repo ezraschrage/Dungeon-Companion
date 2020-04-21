@@ -16,7 +16,6 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
       });
 })
 
-
 router.get('/search',  passport.authenticate('jwt', { session: false }),
   (req, res) => {
     User.find({
@@ -27,7 +26,6 @@ router.get('/search',  passport.authenticate('jwt', { session: false }),
     .catch(err => res.status(404).json({noUsersFound: 'No Users found'}));
   }
 );
-
 
 router.post('/register', (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);
