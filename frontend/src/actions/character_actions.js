@@ -1,4 +1,4 @@
-import APIUtil from '../util/character_api_util';
+import * as APIUtil from '../util/character_api_util';
 
 export const RECEIVE_CHARACTER = "RECEIVE_CHARACTER";
 

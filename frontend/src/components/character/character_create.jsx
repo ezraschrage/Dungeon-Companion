@@ -1,4 +1,5 @@
 import React from 'react';
+import createImg from '../../assets/images/create-cut.jpg';
 
 class CharacterCreateForm extends React.Component {
     constructor(props) {
@@ -25,25 +26,24 @@ class CharacterCreateForm extends React.Component {
         this.determineStartHp = this.determineStartHp.bind(this);
         this.randomizeStats = this.randomizeStats.bind(this);
         this.statRoller = this.statRoller.bind(this);
+        this.handleProfCheckbox = this.handleProfCheckbox.bind(this)
     }
 
     handleInput(type){
-        if (type === 'klass'){
-            switch(e.target.value){
-                case "Monk":
-                    this.setState({ allowMagic: false })
-                case "Fighter":
-                    this.setState({ allowMagic: false })
-                case "Rogue":
-                    this.setState({ allowMagic: false })
-                case "Barbarian":
-                    this.setState({ allowMagic: false })
-                default:
-                    this.setState({ allowMagic: true })
-            }
-        }
-
         return (e) => {
+            if (type === 'klass'){
+                switch(e.target.value){
+                    case "Monk":
+                    case "Fighter":
+                    case "Rogue":
+                    case "Barbarian":
+                        this.setState({ allowMagic: false })
+                        break
+                    default:
+                        this.setState({ allowMagic: true })
+                }
+            }
+
             this.setState({ [type]: e.target.value });
         };
     }
@@ -75,7 +75,8 @@ class CharacterCreateForm extends React.Component {
         return topThree.reduce((a, b) => a + b)
     }
 
-    randomizeStats(){
+    randomizeStats(e){
+        e.preventDefault();
         this.setState({str: this.statRoller()})
         this.setState({dex: this.statRoller()})
         this.setState({con: this.statRoller()})
@@ -101,8 +102,9 @@ class CharacterCreateForm extends React.Component {
             let cutSecondHalf = proficiencies.slice(profIdx + 1);
             this.setState({proficiencies: cutFirstHalf.concat(cutSecondHalf)})
         } else {
-            proficiencies.concat(skill)
+            proficiencies.push(skill)
         }
+        // console.log(this.state.proficiencies)
     }
 
     handleSubmit(e) {
@@ -123,133 +125,186 @@ class CharacterCreateForm extends React.Component {
     }
 
     render(){
-        const races = ["Dragonborn", "Dwarf", "Elf", "Half-Elf", "Halfling", "Human", "Gnome", "Tiefling"]
-        const klasses = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"]
-        const skills = ["Athletics", "Acrobatics", "Animal Handling", "Arcana", "Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", "Performance", "Persuasion", "Religion", "Sleight of Hand", "Stealth", "Survival"]
+        const races = ["Dragonborn", "Dwarf", "Elf", "Half-Elf", "Halfling", "Human", "Gnome", 
+        "Tiefling"]
+        const klasses = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", 
+                        "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"]
+        const skills = ["Athletics", "Acrobatics", "Animal Handling", "Arcana", "Deception", 
+                    "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", 
+                    "Performance", "Persuasion", "Religion", "Sleight of Hand", "Stealth", "Survival"]
 
         return(
-            <div className="create-form">
-                <h1>New Character</h1>
-                <hr />
-                <form>
-                    <label>Name:</label>
-                    <br />
-                        <input
-                            type="text"
-                            value={this.state.name}
-                            onChange={this.handleInput('name')}
-                            className="create-form-input"
-                        />
-                    <br />
+            <div className="character-create">
+                <div className="character-create-img-container">
+                    <img src={createImg} />
+                </div>
 
-                    <label>Race:</label>
-                    <br />
-                        <div>
-                            <select id="race" name="race" onChange={this.handleInput('race')}>
-                                {races.map(race => (
-                                    <option key={race} value={race}>{race}</option>
-                                ))}
-                            </select>
+                <div className="character-create-form">
+                    <h1>Create a Character</h1>
+                    <hr />
+                    <form>
+
+                    <label className="form-sub-header">Vitals: </label>
+                    <div className="vitals-container">
+                        <div className="create-field">
+                            <label>Name: </label>
+                            <br />
+                                <input
+                                    type="text"
+                                    value={this.state.name}
+                                    onChange={this.handleInput('name')}
+                                    className="create-form-input"
+                                />
                         </div>
-                    <br />
+                        <br />
 
-                    <label>Class:</label>
-                    <br />
-                        <div>
-                            <select id="klass" name="klass" onChange={this.handleInput('klass')}>
-                                {klasses.map(klass => (
-                                    <option key={klass} value={klass}>{klass}</option>
-                                ))}
-                            </select>
+                        <div className="create-field">
+                            <label>Race: </label>
+                            <br />
+                            <div>
+                                <select id="race" name="race" onChange={this.handleInput('race')}>
+                                    {races.map((race, i) => (
+                                        <option key={i} value={race}>{race}</option>
+                                    ))}
+                                </select>
+                            </div>
                         </div>
-                    <br />
+                        <br />
 
-                    <label>Strength:</label>
-                    <br />
-                        <input 
-                            value={this.state.str} 
-                            onChange={this.handleInput('str')} 
-                            type="number" 
-                            id="str" 
-                            name="str" 
-                            step="1" min="3" max="18"
-                            className="create-form-input"/>
-                    <br />
-
-                    <label>Dexterity:</label>
-                    <br />
-                        <input 
-                            value={this.state.dex} 
-                            onChange={this.handleInput('dex')} 
-                            type="number" 
-                            id="dex" 
-                            name="dex" 
-                            step="1" min="3" max="18"
-                            className="create-form-input"/>
-                    <br />
-
-                    <label>Constitution:</label>
-                    <br />
-                        <input 
-                            value={this.state.con} 
-                            onChange={this.handleInput('con')} 
-                            type="number" 
-                            id="con" 
-                            name="con" 
-                            step="1" min="3" max="18"
-                            className="create-form-input"/>
-                    <br />
-
-                    <label>Intelligence:</label>
-                    <br />
-                        <input 
-                            value={this.state.int} 
-                            onChange={this.handleInput('int')} 
-                            type="number" 
-                            id="int" 
-                            name="int" 
-                            step="1" min="3" max="18"
-                            className="create-form-input"/>
-                    <br />
-
-                    <label>Wisdom:</label>
-                    <br />
-                        <input 
-                            value={this.state.wis} 
-                            onChange={this.handleInput('wis')} 
-                            type="number" 
-                            id="wis" 
-                            name="wis" 
-                            step="1" min="3" max="18"
-                            className="create-form-input"/>
-                    <br />
-
-                    <label>Charisma:</label>
-                    <br />
-                        <input 
-                            value={this.state.cha} 
-                            onChange={this.handleInput('cha')} 
-                            type="number" 
-                            id="cha" 
-                            name="cha" 
-                            step="1" min="3" max="18"
-                            className="create-form-input"/>
-                    <br />
-
-
-                    <label>Proficiencies: </label>
-                        <div className="proficiencies-checkbox-container">
-                            {
-                                skills.map(skill => (
-                                    <>
-                                        <input type="checkbox" id={skill} name={skill} value={skill} onChange={() => handleProfCheckbox(skill)}/>
-                                        <label for={skill}>{skill}</label><br />
-                                    </>
-                                ))
-                            }
+                        <div className="create-field">
+                            <label>Class: </label>
+                            <br />
+                            <div>
+                                <select id="klass" name="klass" onChange={this.handleInput('klass')}>
+                                    {klasses.map(klass => (
+                                        <option key={klass} value={klass}>{klass}</option>
+                                    ))}
+                                </select>
+                            </div>
                         </div>
-                    <input type="submit" onClick={this.handleSubmit} value="Create Character" />
-                </form>
+                        <br />
+
+                        <button onClick={this.randomizeStats}>Roll for Stats</button>
+                        <br />
+
+                        <div className="create-field">
+                            <label>Strength: </label>
+                            <br />
+                            <input 
+                                value={this.state.str} 
+                                onChange={this.handleInput('str')} 
+                                type="number" 
+                                id="str" 
+                                name="str" 
+                                step="1" min="3" max="18"
+                                className="create-form-input"/>
+                        </div>
+                        <br />
+
+                        <div className="create-field">
+                            <label>Dexterity: </label>
+                            <br />
+                            <input 
+                                value={this.state.dex} 
+                                onChange={this.handleInput('dex')} 
+                                type="number" 
+                                id="dex" 
+                                name="dex" 
+                                step="1" min="3" max="18"
+                                className="create-form-input"/>
+                        </div>
+                        <br />
+
+                        <div className="create-field">
+                            <label>Constitution: </label>
+                            <br />
+                            <input 
+                                value={this.state.con} 
+                                onChange={this.handleInput('con')} 
+                                type="number" 
+                                id="con" 
+                                name="con" 
+                                step="1" min="3" max="18"
+                                className="create-form-input"/>
+                        </div>
+                        <br />
+
+                        <div className="create-field">
+                            <label>Intelligence: </label>
+                            <br />
+                            <input 
+                                value={this.state.int} 
+                                onChange={this.handleInput('int')} 
+                                type="number" 
+                                id="int" 
+                                name="int" 
+                                step="1" min="3" max="18"
+                                className="create-form-input"/>
+                        </div>
+                        <br />
+
+                        <div className="create-field">
+                            <label>Wisdom: </label>
+                            <br />
+                            <input 
+                                value={this.state.wis} 
+                                onChange={this.handleInput('wis')} 
+                                type="number" 
+                                id="wis" 
+                                name="wis" 
+                                step="1" min="3" max="18"
+                                className="create-form-input"/>
+                        </div>
+                        <br />
+
+                        <div className="create-field">
+                            <label>Charisma: </label>
+                            <br />
+                            <input 
+                                value={this.state.cha} 
+                                onChange={this.handleInput('cha')} 
+                                type="number" 
+                                id="cha" 
+                                name="cha" 
+                                step="1" min="3" max="18"
+                                className="create-form-input"/>
+                        </div>
+                    </div>
+                        <br />
+
+                        <hr />
+
+                        <label className="form-sub-header">Proficiencies &#40;choose two&#41;: </label>
+                            <div className="proficiencies-checkbox-container">
+                                <ul>
+                                {  
+                                    skills.map(skill => (
+                                        <li key={skill}>
+                                            <input 
+                                                className="sub-prof"
+                                                type="checkbox" 
+                                                id={skill} 
+                                                name={skill} 
+                                                value={skill} 
+                                                onChange={() => this.handleProfCheckbox(skill)}
+                                            />
+                                            <label>{skill}</label><br />
+                                        </li>
+                                    ))
+                                }
+                                </ul>
+                            </div>
+                            <hr />
+                            <div className="submit-container">
+                                <input 
+                                    id="create-button" 
+                                    type="submit" 
+                                    onClick={this.handleSubmit} 
+                                    value="Create Character" 
+                                />
+                            </div>
+                    </form>
+                </div>
             </div>
         )
     }

@@ -2,11 +2,6 @@ import { connect } from 'react-redux';
 import { createCharacter } from '../../actions/character_actions';
 import CharacterCreateForm from './character_create';
 
-const mapStateToProps = (state) => {
-    // return {
-    //     currentUser: state.session.user,
-    // };
-};
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -14,4 +9,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CharacterCreateForm);
+export default connect(null, mapDispatchToProps)(CharacterCreateForm);
