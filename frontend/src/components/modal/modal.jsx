@@ -1,6 +1,6 @@
 import React from 'react';
 import { openModal, closeModal } from '../../actions/modal_actions';
-import { connect, connectAdvanced } from 'react-redux';
+import { connect } from 'react-redux';
 import SignupFormContainer from '../session_forms/signup_form_container';
 import LoginFormContainer from '../session_forms/login_form_container';
 import './modal.css';
@@ -21,10 +21,10 @@ function Modal({ modal, closeModal }) {
         default:
             return null;
     }
-
+// debugger
     return (
             <div className="modal-background" onClick={closeModal}>
-                <div className="modal-child" onCLick={e => e.stopPropagation()}>
+                <div className="modal-child" onClick={e => e.stopPropagation()}>
                     { component }
                 </div>
             </div>
