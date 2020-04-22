@@ -67,7 +67,7 @@ router.patch('/edit/:id', passport.authenticate('jwt', { session: false }),
   }
 );
 
-router.patch('/addPlayer/:id', passport.authenticate('jwt', { session: false }),
+router.post('/addPlayer/:id', passport.authenticate('jwt', { session: false }),
   (req, res) => {
  
       Game.findById(req.params.id)
@@ -84,7 +84,7 @@ router.patch('/addPlayer/:id', passport.authenticate('jwt', { session: false }),
   }
 );
 
-router.patch('/addMonster/:id', passport.authenticate('jwt', { session: false }),
+router.post('/addMonster/:id', passport.authenticate('jwt', { session: false }),
   (req, res) => {
  
       Game.findById(req.params.id)
