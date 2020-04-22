@@ -7,19 +7,20 @@ import NavContainer from './nav/nav_container';
 import Modal from './modal/modal';
 import SplashContainer from './splash/splash_container'
 import UserProfileCOntainer from './user_profile/user_profile_container';
+import CharacterCreateContainer from './character/character_create_container'
 // import MainPage from './main/main_page';
 
 const App = () => (
     <div>
         <NavContainer />
         <Modal />
-      
 
         <AuthRoute exact path="/" component={SplashContainer} />
         <ProtectedRoute exact path="/profile" component={UserProfileCOntainer} />
- 
-   
- </div>
+        <AuthRoute exact path="/create/character" component={CharacterCreateContainer} />
+
+    </div>
+
 );
 
 export default App;
