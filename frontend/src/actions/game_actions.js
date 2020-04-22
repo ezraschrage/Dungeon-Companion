@@ -1,21 +1,21 @@
 import * as APIUtil from '../util/character_api_util';
 
-export const RECEIVE_CHARACTER = "RECEIVE_CHARACTER";
-export const REMOVE_CHARACTER = "REMOVE_CHARACTER";
-export const RECEIVE_CHARACTERS = "RECEIVE_CHARACTERS";
+export const RECEIVE_GAME = "RECEIVE_GAME";
+export const REMOVE_GAME = "REMOVE_GAME";
+export const RECEIVE_GAMES = "RECEIVE_GAMES";
 export const RECEIVE_ENTITIES_ERRORS = "RECEIVE_ENTITIES_ERRORS";
 
-export const receiveCharacter = character => ({
-    type: RECEIVE_CHARACTER,
+export const receiveGame = character => ({
+    type: RECEIVE_GAME,
     character
 });
 
 export const receiveCharacters = characters => ({
-    type: RECEIVE_CHARACTERS,
+    type: RECEIVE_CHARACTER,
     characters
 });
 
-export const removeCharacter = charId => ({
+export const removeCharacters = charId => ({
     type: REMOVE_CHARACTER,
     charId
 });
@@ -55,9 +55,9 @@ export const updateCharacter = (character, charId) => dispatch => (
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
-export const deleteCharacter = (charId) => dispatch => (
+export const deleteCharacters = (charId) => dispatch => (
     APIUtil.deleteCharacter(charId)
-        .then(charId => dispatch(removeCharacter(charId)))
+        .then(charId => dispatch(removeCharacters(charId)))
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
