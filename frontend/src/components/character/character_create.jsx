@@ -115,13 +115,9 @@ class CharacterCreateForm extends React.Component {
         // Set Hitpoints 
         this.setState({hitPoints: this.determineStartHp() + Math.floor((con - 10)/2)});
 
-        let formData = new FormData();
-        Object.keys(this.state).forEach(attribute => {
-            formData.append(`character[${attribute}]`, this.state[attribute]);
-        });
         // Where do we send the user after the submission? User dashboard? 
-        this.props.createCharacter(formData)
-        //     .then(() => this.props.history.push(`/areas/${area}`));
+        this.props.createCharacter(this.state)
+        .then((data) => this.props.history.push(`/characters/${data.character._id}`) );
     }
 
     render(){

@@ -1,16 +1,16 @@
 import { RECEIVE_CHARACTER,RECEIVE_CHARACTERS, REMOVE_CHARACTER } from '../actions/character_actions';
 
-const CharacterReducer = (state = {}, action) => {
+const CharactersReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState;
     switch(action.type){
         case RECEIVE_CHARACTER:
-            newState = Object.assign({}, state, {[action.character.data.id]: action.character.data} )
+            newState = Object.assign({}, state, {[action.character._id]: action.character} )
             return newState;
         case RECEIVE_CHARACTERS:
             newState = Object.assign({}, state); 
-            action.characters.data.forEach(element => {
-                newState[element.id] = element;
+            action.characters.forEach(element => {
+                newState[element._id] = element;
             });
             return newState;
         case REMOVE_CHARACTER:
@@ -22,4 +22,4 @@ const CharacterReducer = (state = {}, action) => {
     }
 }
 
-export default CharacterReducer;
+export default CharactersReducer;

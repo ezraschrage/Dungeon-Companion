@@ -27,55 +27,55 @@ export const receiveErrors = errors => ({
 
 export const createGame = data => dispatch => (
     APIUtil.createGame(data)
-        .then(game => dispatch(receiveGame(game)))
+        .then(game => dispatch(receiveGame(game.data)))
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
 export const getGame = gameId => dispatch => (
     APIUtil.getGame(gameId)
-        .then(game => dispatch(receiveGame(game)))
+        .then(game => dispatch(receiveGame(game.data)))
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
 export const getDMGames = () => dispatch => (
     APIUtil.getDMGames()
-        .then(games => dispatch(receiveGames(games)))
+        .then(games => dispatch(receiveGames(games.data)))
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
 export const searchGames = (title) => dispatch => (
     APIUtil.searchGames(title)
-        .then(games => dispatch(receiveGames(games)))
+        .then(games => dispatch(receiveGames(games.data)))
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
 export const updateGame = (game, gameId) => dispatch => (
     APIUtil.updateGame(game, gameId)
-        .then(game => dispatch(receiveGame(game)))
+        .then(game => dispatch(receiveGame(game.data)))
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
 export const playTurnGame = (game, gameId) => dispatch => (
     APIUtil.playTurnGame(game, gameId)
-        .then(game => dispatch(receiveGame(game)))
+        .then(game => dispatch(receiveGame(game.data)))
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
 export const addPlayerGame = (player, gameId) => dispatch => (
     APIUtil.addPlayerGame(player, gameId)
-        .then(game => dispatch(receiveGame(game)))
+        .then(game => dispatch(receiveGame(game.data)))
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
 export const addMonsterGame = (monster, gameId) => dispatch => (
     APIUtil.addMonsterGame(monster, gameId)
-        .then(game => dispatch(receiveGame(game)))
+        .then(game => dispatch(receiveGame(game.data)))
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
 export const deleteGame = (gameId) => dispatch => (
     APIUtil.deleteGame(gameId)
-        .then(gameId => dispatch(removeGame(gameId)))
+        .then(gameId => dispatch(removeGame(gameId.data)))
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
