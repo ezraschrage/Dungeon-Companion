@@ -1,0 +1,102 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal-child {
+  background-color: $sec-color;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 400px;
+  width: 400px;
+  border-radius: 12px;
+  border: 3px solid $sec-highlight;
+  box-shadow: 0 0 10px 7px $light-sec-highlight;
+  position: relative;
+}
+
+.loginForm {
+    text-align: center;
+    margin-top: 50px;
+   
+}
+
+.loginField {
+      display: inline-block;
+}
+
+.signupForm {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.signupField {
+    display: inline-block;
+}
+
+.inputBox {
+    display: block;
+    position: relative;
+    padding: 7px 5px;
+    width: 270px;
+    font-size: 18px;
+    border: 1px solid $baby-pink;
+    border-radius: 3px;
+    font-weight: 600;
+    background: $back-tone;
+    font-family: ribato;
+    outline: none;
+    color: $light-sec-highlight;
+}
+.inputBox:focus {
+    border: 2px solid $baby-pink;   
+    border-style: inset 0 0 1 1;    
+}
+::placeholder {
+    color: $light-sec-highlight;
+}
+
+.submitButton {
+    background-color: $back-tone;
+    font-size: 18px;
+    font-family: ribato;
+    font-weight: 600;
+    width: 85px;
+    height: 40px;
+    border-radius: 4px;
+    line-height: 22px;
+    cursor: pointer;
+    border: 0;
+    color: $light-sec-highlight;
+    border: 1px solid $baby-pink;
+    outline: none;
+}
+
+.submitButton:hover {
+    background-color:  rgb(75, 73, 73);
+}
+
+.submitButton:focus {
+    border: 2px solid $baby-pink;   
+    border-style: inset 0 0 1 1;    
+}
+
+.login {
+    color: $light-sec-highlight;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.loginText {
+    margin-bottom: 30px;
+    color: $baby-pink;
+    font-size: 30px;
+    cursor: default;
+}
