@@ -9,7 +9,7 @@ class UserProfile extends React.Component {
     render() {
         return (
         <div>{`Welcome ${this.props.currentUser.username}`}
-        <Link to='/characters'>Your characters</Link></div>
+        <Link to='/characters'>Manage Characters</Link></div>
         )
     }
 }
