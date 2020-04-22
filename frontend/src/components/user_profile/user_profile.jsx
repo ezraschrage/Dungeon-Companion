@@ -7,7 +7,7 @@ class UserProfile extends React.Component {
     }
     render() {
         return (
-        <div>{`Welcome ${this.props.currentUser}`}</div>
+        <div>{`Welcome ${this.props.currentUser.username}`}</div>
         )
     }
 }

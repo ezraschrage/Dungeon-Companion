@@ -2,7 +2,7 @@ import { RECEIVE_USER_LOGOUT, RECEIVE_USER_SIGN_IN, RECEIVE_CURRENT_USER } from 
 
 const initialState = {
     isAuthenticated: false,
-    user: {}
+    user: undefined,
 };
 
 export default function(state = initialState, action) {

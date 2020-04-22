@@ -18,8 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentTime = Date.now() / 1000;
     if (decodedUser.exp < currentTime) {
       store.dispatch(logout());
-      // where are we sending a user after logout?
-      window.location.href = '/login';
+      window.location.href = '/';
     }
   } else {
     store = configureStore({});
