@@ -28,7 +28,7 @@ export const addMonsterGame = (monster, gameId) =>{
     return axios.post(`/api/games/addMonster/${gameId}`, monster);
 }
 
-export const updateGame = (game, gameId) =>{
+export const playTurnGame = (game, gameId) =>{
     return axios.patch(`/api/games/playturn/${gameId}`, game);
 }
 

@@ -1,23 +1,23 @@
-import * as APIUtil from '../util/character_api_util';
+import * as APIUtil from '../util/game_api_util';
 
 export const RECEIVE_GAME = "RECEIVE_GAME";
 export const REMOVE_GAME = "REMOVE_GAME";
 export const RECEIVE_GAMES = "RECEIVE_GAMES";
 export const RECEIVE_ENTITIES_ERRORS = "RECEIVE_ENTITIES_ERRORS";
 
-export const receiveGame = character => ({
+export const receiveGame = game => ({
     type: RECEIVE_GAME,
-    character
+    game
 });
 
-export const receiveCharacters = characters => ({
-    type: RECEIVE_CHARACTER,
-    characters
+export const receiveGames = games => ({
+    type: RECEIVE_GAMES,
+    games
 });
 
-export const removeCharacters = charId => ({
-    type: REMOVE_CHARACTER,
-    charId
+export const removeGame = gameId => ({
+    type: REMOVE_GAME,
+    gameId
 });
 
 export const receiveErrors = errors => ({
@@ -25,39 +25,57 @@ export const receiveErrors = errors => ({
     errors
 });
 
-export const createCharacter = data => dispatch => (
-    APIUtil.createCharacter(data)
-        .then(char => dispatch(receiveCharacter(char)))
+export const createGame = data => dispatch => (
+    APIUtil.createGame(data)
+        .then(game => dispatch(receiveGame(game)))
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
-export const getCharacter = charId => dispatch => (
-    APIUtil.getCharacter(charId)
-        .then(char => dispatch(receiveCharacter(char)))
+export const getGame = gameId => dispatch => (
+    APIUtil.getGame(gameId)
+        .then(game => dispatch(receiveGame(game)))
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
-export const getCharacters = () => dispatch => (
-    APIUtil.getCharacters()
-        .then(chars => dispatch(receiveCharacters(chars)))
+export const getDMGames = () => dispatch => (
+    APIUtil.getDMGames()
+        .then(games => dispatch(receiveGames(games)))
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
-export const searchCharacters = (name) => dispatch => (
-    APIUtil.searchCharacters(name)
-        .then(chars => dispatch(receiveCharacters(chars)))
+export const searchGames = (title) => dispatch => (
+    APIUtil.searchGames(title)
+        .then(games => dispatch(receiveGames(games)))
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
-export const updateCharacter = (character, charId) => dispatch => (
-    APIUtil.updateCharacter(character, charId)
-        .then(char => dispatch(receiveCharacter(char)))
+export const updateGame = (game, gameId) => dispatch => (
+    APIUtil.updateGame(game, gameId)
+        .then(game => dispatch(receiveGame(game)))
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
-export const deleteCharacters = (charId) => dispatch => (
-    APIUtil.deleteCharacter(charId)
-        .then(charId => dispatch(removeCharacters(charId)))
+export const playTurnGame = (game, gameId) => dispatch => (
+    APIUtil.playTurnGame(game, gameId)
+        .then(game => dispatch(receiveGame(game)))
+        .catch(err => dispatch(receiveErrors(err.response.data)))
+);
+
+export const addPlayerGame = (player, gameId) => dispatch => (
+    APIUtil.addPlayerGame(player, gameId)
+        .then(game => dispatch(receiveGame(game)))
+        .catch(err => dispatch(receiveErrors(err.response.data)))
+);
+
+export const addMonsterGame = (monster, gameId) => dispatch => (
+    APIUtil.addMonsterGame(monster, gameId)
+        .then(game => dispatch(receiveGame(game)))
+        .catch(err => dispatch(receiveErrors(err.response.data)))
+);
+
+export const deleteGame = (gameId) => dispatch => (
+    APIUtil.deleteGame(gameId)
+        .then(gameId => dispatch(removeGame(gameId)))
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
