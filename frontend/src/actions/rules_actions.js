@@ -15,18 +15,18 @@ export const receiveMonster = monster => ({
 
 export const fetchMonsters = () => dispatch => (
     APIUtil.getMonsters().then(monsters => (
-        dispatch(receiveMonsters(monsters))
+        dispatch(receiveMonsters(monsters.data))
     ))
 );
 
 export const fetchMonster = monster => dispatch => (
     APIUtil.getMonster(monster).then(monster => (
-        dispatch(receiveMonster(monster))
+        dispatch(receiveMonster(monster.data))
     ))
 );
 
 export const searchMonsters = monster => dispatch => (
     APIUtil.searchMonster(monster).then(monster => (
-        dispatch(receiveMonster(monster))
+        dispatch(receiveMonsters(monster.data.results))
     ))
 );

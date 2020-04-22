@@ -19,8 +19,8 @@ module.exports = function validateGameInput(data) {
     }
 
     for (let i = 0; i < data.monsters.length; i++) {
-        if(!data.monsters[i].id){
-            errors.monsterId = "A monster's id is required"
+        if(!data.monsters[i].Name){
+            errors.monsterName = "A monster's name is required"
         }
         if(!data.monsters[i].hp){
             errors.monsterHp = "A monster's Hp is required"
