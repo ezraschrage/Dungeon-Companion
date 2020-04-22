@@ -13,7 +13,7 @@ class Splash extends React.Component {
         return (
             <div>
                 <div className="mainDiv">
-
+                    <div>This is splash page</div>
                 </div>
             </div>
         )
