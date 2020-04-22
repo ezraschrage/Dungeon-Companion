@@ -5,18 +5,32 @@ import { withRouter } from 'react-router-dom';
 
 const Nav = ({ currentUser, logout, openLoginModal, openSignupModal }) => {
     const signedOutNav = () => (
-        <nav className="header">
-            <h1>Dungeon Companion</h1>
-            <button className="loginModal" onClick={openLoginModal}>Log In</button>
-            <button className="signupModal" onClick={openSignupModal}>Sign Up</button>
-        </nav>
+      <nav className="header">
+        <div className="logo">
+          <h1>Dungeon Companion</h1>
+        </div>
+        <div className="sessionButtons">
+          <button className="sessionButton" onClick={openLoginModal}>
+            Log In
+          </button>
+          <button className="sessionButton" onClick={openSignupModal}>
+            Sign Up
+          </button>
+        </div>
+      </nav>
     );
 
     const loggeddInNav = () => (
-        <nav className="header-group">
-            <h1>Dungeon Companion</h1>
-            <button className="logout-button" onClick={logout}>Log Out</button>
-        </nav>
+      <nav className="header">
+        <div className="logo">
+          <h1>Dungeon Companion</h1>
+        </div>
+        <div className="sessionButtons">
+          <button className="button" onClick={logout}>
+            Log Out
+          </button>
+        </div>
+      </nav>
     );
 
     return currentUser ? loggeddInNav() : signedOutNav();

@@ -52,8 +52,8 @@ class SignupForm extends React.Component {
         return (
           <div>
             <form className="signupForm" onSubmit={this.handleSubmit}>
-              <div className="signupForm">
-                <br />
+              <div className="signupField">
+                <div className="loginText">Sign Up</div>
                 <input
                   type="text"
                   value={this.state.username}
@@ -79,11 +79,16 @@ class SignupForm extends React.Component {
                   className="inputBox"
                 />
                 <br />
-                <input className="SubmitButton" type="submit" value="Submit" />
+                <input className="submitButton" type="submit" value="Submit" />
                 {this.renderErrors()}
-                    <div className="login" onClick={() => {this.props.loginForm()}}>
-                        Already a member? Sign in!
-                    </div>
+                <div
+                  className="login"
+                  onClick={() => {
+                    this.props.loginForm();
+                  }}
+                >
+                  Already a member? Sign in!
+                </div>
               </div>
             </form>
           </div>

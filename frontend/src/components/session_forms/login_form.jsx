@@ -54,10 +54,11 @@ class LoginForm extends React.Component {
             <div>
                 <form className="loginForm" onSubmit={this.handleSubmit}>
                     <div className="loginField">
+                        <div className="loginText">Sign In</div>
                         <input type="text"
                             value={this.state.username}
                             onChange={this.update('username')}
-                            placeholder="username"
+                            placeholder="Username"
                             className="inputBox"
                         />
                         <br />
@@ -70,7 +71,7 @@ class LoginForm extends React.Component {
                         <br />
                         <input className="submitButton" type="submit" value="Submit" />
                         {this.renderErrors()}
-                        <div className="signup" onClick={() => {this.props.signupForm()}}>
+                        <div className="login" onClick={() => {this.props.signupForm()}}>
                             Not a member? Sign up!
                         </div>
                     </div>

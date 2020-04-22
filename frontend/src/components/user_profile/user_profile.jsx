@@ -10,9 +10,9 @@ class UserProfile extends React.Component {
         return (
         <div>
             {`Welcome ${this.props.currentUser.username}`}
-            <Link to='/characters'>Your Characters</Link>
+            <Link to='/characters'>Manage Characters</Link>
             <Link to='/games'>Your Games</Link>
-        </div>
+         </div>
         )
     }
 }
