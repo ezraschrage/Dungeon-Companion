@@ -1,0 +1,116 @@
+@import "./variables.scss";
+
+.character-create{
+    display: flex;
+    // height: 100%;
+    // width: 100%;
+}
+
+.character-create-img-container {
+    height: auto;
+    width: auto;
+    // background-color: greenyellow;
+    border-right: 3px solid $sec-highlight;
+}
+
+.character-create-form {
+    display: flex;
+    box-sizing: border-box;
+    background-color: $main-color;
+    height: auto;
+    width: 50%;
+    background-color: #230C33;
+    color: white;
+    padding: 30px;
+    font-family: 'Roboto', sans-serif;
+    border-left: 3px solid $main-highlight;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.character-create-form h1 {
+    width: 100%;
+    font-family: 'Righteous', 'Roboto', sans-serif;
+    font-size: 56px;
+    color: $main-highlight;
+    text-align: center;
+}
+
+
+.character-create-form hr {
+    border-top: 1px solid $main-highlight;
+    border-bottom: 1px solid $sec-highlight;
+}
+
+.character-create-img-container img {
+    // height: 100%;
+}
+
+.character-create-form label {
+    font-size: 25px;
+    margin: 0 20px 0 0;
+    font-family: 'Righteous', 'Roboto', sans-serif;
+}
+
+.character-create-form input {
+    border-radius: 3px;
+    font-size: larger;
+}
+
+.create-field {
+    display: flex;
+    width: 50%;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.proficiencies-checkbox-container ul {
+    list-style: none;
+    background-color: $back-tone;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.vitals-container {
+    list-style: none;
+    background-color: $back-tone;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.proficiencies-checkbox-container li {
+    width: 50%;
+    text-align: center;
+    margin: 2px;
+}
+
+#create-button {
+    align-items: center;
+    width: 50%;
+}
+
+.sub-prof {
+    font-size: 20px;
+}
+
+.submit-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly
+}
+
+// .form-sub-header {
+//     font-size: 50px;
+// }
