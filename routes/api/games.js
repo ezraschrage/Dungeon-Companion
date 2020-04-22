@@ -90,7 +90,7 @@ router.post('/addMonster/:id', passport.authenticate('jwt', { session: false }),
       Game.findById(req.params.id)
       .then(game => {
         game.monsters.push({
-            id: req.body.id,
+            name: req.body.name,
             hp: req.body.hp,
             initiative: req.body.initiative,
         });
