@@ -6,7 +6,7 @@ const EntitiesErrorsReducer = (state = _nullErrors, action) => {
     Object.freeze(state);
     switch(action.type) {
         case RECEIVE_ENTITIES_ERRORS:
-            return action.errors;
+            return Object.values(action.errors);
         case RECEIVE_CHARACTER:
         case RECEIVE_CHARACTERS:
             return _nullErrors;
