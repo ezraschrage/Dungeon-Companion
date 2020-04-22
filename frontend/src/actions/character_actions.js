@@ -12,3 +12,4 @@ export const createCharacter = data => dispatch => (
         .then(char => dispatch(receiveCharacter(char)))
         .catch(err => console.log(err))
 );
+
