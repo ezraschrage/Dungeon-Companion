@@ -5,12 +5,12 @@ const GamesReducer = (state = {}, action) => {
     let newState;
     switch(action.type){
         case RECEIVE_GAME:
-            newState = Object.assign({}, state, {[action.game.data.id]: action.game.data} )
+            newState = Object.assign({}, state, {[action.game._id]: action.game} )
             return newState;
         case RECEIVE_GAMES:
             newState = Object.assign({}, state); 
-            action.games.data.forEach(element => {
-                newState[element.id] = element;
+            action.games.forEach(element => {
+                newState[element._id] = element;
             });
             return newState;
         case REMOVE_GAME:

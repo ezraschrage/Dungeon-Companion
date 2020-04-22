@@ -27,37 +27,37 @@ export const receiveErrors = errors => ({
 
 export const createCharacter = data => dispatch => (
     APIUtil.createCharacter(data)
-        .then(char => dispatch(receiveCharacter(char)))
+        .then(char => dispatch(receiveCharacter(char.data)))
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
 export const getCharacter = charId => dispatch => (
     APIUtil.getCharacter(charId)
-        .then(char => dispatch(receiveCharacter(char)))
+        .then(char => dispatch(receiveCharacter(char.data)))
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
 export const getCharacters = () => dispatch => (
     APIUtil.getCharacters()
-        .then(chars => dispatch(receiveCharacters(chars)))
+        .then(chars => dispatch(receiveCharacters(chars.data)))
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
 export const searchCharacters = (name) => dispatch => (
     APIUtil.searchCharacters(name)
-        .then(chars => dispatch(receiveCharacters(chars)))
+        .then(chars => dispatch(receiveCharacters(chars.data)))
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
 export const updateCharacter = (character, charId) => dispatch => (
     APIUtil.updateCharacter(character, charId)
-        .then(char => dispatch(receiveCharacter(char)))
+        .then(char => dispatch(receiveCharacter(char.data)))
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
 export const deleteCharacter = (charId) => dispatch => (
     APIUtil.deleteCharacter(charId)
-        .then(charId => dispatch(removeCharacter(charId)))
+        .then(charId => dispatch(removeCharacter(charId.data)))
         .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
