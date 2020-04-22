@@ -30,7 +30,10 @@ class SignupForm extends React.Component {
     }
 
     handleSubmit(e) {
+<<<<<<< HEAD
         // debugger
+=======
+>>>>>>> 725d295aa718f2931e755936c34073af8b6db423
         e.preventDefault();
         this.props.signup(this.state)
             .then(this.props.history.push('/profile'))
