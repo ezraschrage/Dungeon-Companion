@@ -184,7 +184,7 @@ class CharacterCreateForm extends React.Component {
                         </div>
                         <br />
 
-                        <button onClick={this.randomizeStats}>Roll for Stats</button>
+                        <button onClick={this.randomizeStats} id="stats-roll-button">Roll for Stats!</button>
                         <br />
 
                         <div className="create-field">
