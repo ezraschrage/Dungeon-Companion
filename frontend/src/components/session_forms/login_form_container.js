@@ -6,7 +6,6 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 const msp = (state) => ({
     errors: state.errors.session,
     // currentUser: state.sesion.user
-    // formType: 'login'
 });
 
 const mdp = (dispatch) => ({

@@ -142,7 +142,7 @@ class CharacterCreateForm extends React.Component {
                 <div className="character-create-form">
                     <h1>Create a Character</h1>
                     <hr />
-                    <form>
+                    <form onSubmit={this.handleSubmit}> 
 
                     <label className="form-sub-header">Vitals: </label>
                     <div className="vitals-container">
@@ -298,8 +298,7 @@ class CharacterCreateForm extends React.Component {
                             <div className="submit-container">
                                 <input 
                                     id="create-button" 
-                                    type="submit" 
-                                    onClick={this.handleSubmit} 
+                                    type="submit"  
                                     value="Create Character" 
                                 />
                             </div>
