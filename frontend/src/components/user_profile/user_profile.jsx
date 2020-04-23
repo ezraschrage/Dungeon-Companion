@@ -18,7 +18,7 @@ class UserProfile extends React.Component {
     render() {
         return (
           <div className="main">
-            <div classNmae="profileImage">
+            <div className="profileImage">
               <div className="userName">{`Welcome ${this.props.currentUser.username}`}</div>
               <div className="yourChars" onClick={this.handleClick}>
                 <div><img className="character" src={charImage} alt="image of character" /></div>
