@@ -2,12 +2,11 @@
     display: flex;
     background-color: $main-color;
     width: 100%;
-    height: 70px;
+    height: 60px;
     justify-content: space-between;
     vertical-align: middle;
     border-bottom: 3px solid $sec-highlight;
-    padding: 10px;
-    padding-right: 10px;
+    padding-top: 10px;
     outline: 3px solid $third-highlight;
    
 }
@@ -19,6 +18,10 @@
     -webkit-text-fill-color: $sec-highlight;
     -webkit-text-stroke: 1px $third-highlight;
     cursor: default;
+}
+
+.sessionButtons {
+    overflow: hidden;
 }
 
 .sessionButton {
@@ -71,3 +74,12 @@ button:hover {
     background-color: $light-sec-highlight;
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    padding-left: 10px;
+    overflow: hidden;
+}
