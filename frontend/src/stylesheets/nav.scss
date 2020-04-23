@@ -2,7 +2,7 @@
     display: flex;
     background-color: $main-color;
     width: 100%;
-    height: 60px;
+    height: 10%;
     justify-content: space-between;
     vertical-align: middle;
     border-bottom: 3px solid $sec-highlight;
@@ -10,7 +10,7 @@
     outline: 3px solid $third-highlight;
    
 }
-.profileLogo a {
+.logo a {
     text-decoration: none;
     font-family: 'Righteous', 'Roboto', sans-serif;
     font-size: 55px;
@@ -27,6 +27,9 @@
     -webkit-text-fill-color: $sec-highlight;
     -webkit-text-stroke: 1px $third-highlight;
     cursor: pointer;
+        padding-left: 10px;
+    overflow: hidden;
+    justify-self: left;
 }
 
 .sessionButtons {
@@ -36,12 +39,12 @@
 .sessionButton {
    width: 80px;
     height: 40px;
-    padding: 20px;
+
     width: 80px;
     height: 40px;
     padding: 10px;
     margin-right: 10px;
-    margin-top: 15px;
+    margin-top: 5px;
     border-radius: 14px;
     color: $main-color;
     font-family: ribato;
@@ -87,9 +90,11 @@ button:hover {
 .profileButton {
      display: inline-block;
      padding: 10px;
-     margin-right: 43%;
-     border-left: 1px solid $light-sec-highlight;
-    border-right:  1px solid $light-sec-highlight;
+    //  margin-right: 43%;
+    //  border-left: 1px solid $light-sec-highlight;
+    // border-right:  1px solid $light-sec-highlight;
+    justify-self: right;
+    width: 100px;
 
 }
 
@@ -110,12 +115,4 @@ button:hover {
     background-color: rgb(85, 4, 122);
     border-radius: 8px;
 }
-.header {
-    display: flex;
-    justify-content: space-between;
-}
 
-.logo {
-    padding-left: 10px;
-    overflow: hidden;
-}

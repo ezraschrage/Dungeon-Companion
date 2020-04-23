@@ -22,7 +22,7 @@ const Nav = ({ currentUser, logout, openLoginModal, openSignupModal }) => {
 
     const loggeddInNav = () => (
       <nav className="header">
-        <div className="profileLogo">
+        <div className="logo">
           <h1> <Link to='/profile'>Dungeon Companion</Link></h1>
         </div>
         <div className="profileButton"><Link to='/profile'>Profile</Link></div>
