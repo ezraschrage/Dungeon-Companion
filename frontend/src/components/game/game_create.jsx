@@ -5,15 +5,17 @@ class GameCreate extends React.Component{
         super(props);
         this.state = {
             title: '',
-            players: [],
+            players: {},
             monsters: [],
             monstCount: 0,
             playersCount: 0,
-            searchWord: '',
+            searchMonstWord: '',
+            searchPlayerWord: '',
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.getMonsters = this.getMonsters.bind(this);
         this.addMonster = this.addMonster.bind(this);
+        this.addCharacter = this.addCharacter.bind(this);
         this.timer = null;
     }
     
@@ -25,9 +27,10 @@ class GameCreate extends React.Component{
         e.preventDefault();
         const newGame = {
             title: this.state.title,
-            players: this.state.players,
-            monster: this.state.monsters,
+            players: Object.values(this.state.players),
+            monsters: this.state.monsters,
         }
+        debugger
         this.props.createGame(newGame)
         .then((data) => this.props.history.push(`/games/${data.game._id}`) )
     }
@@ -39,11 +42,11 @@ class GameCreate extends React.Component{
     }
 
     getMonsters(e){
-        this.setState({searchWord: e.target.value});
+        this.setState({searchMonstWord: e.target.value});
         clearTimeout(this.timer);
         const search = this.props.searchMonsters;
         const name = e.target.value;
-        this.timer = setTimeout( () => {search(name)}, 600);
+        this.timer = setTimeout( () => {if(name !== '') search(name)}, 600);
     }
 
     addMonster(monster){
@@ -60,6 +63,20 @@ class GameCreate extends React.Component{
         }
     }
 
+    addCharacter(character){
+        return (e) =>{
+            if(this.state.players){
+                this.state.players[character._id] = {
+                    name: character.name,
+                    initiative: Math.floor((Math.random()*20) + 1) + Math.floor((character.dex - 10)/2),
+                    hp: character.hitPoints,
+                    id: character._id,
+                };
+                this.setState({playersCount: Object.keys(this.state.players).length})
+            }
+        }
+    }
+
     render(){
         return (<div>
             Create a game
@@ -72,7 +89,7 @@ class GameCreate extends React.Component{
                 <button>Make Game</button>
             </form>
             <ul>Players Chosen: {this.state.playersCount}
-                {this.state.players.map(player => (<li>
+                {Object.values(this.state.players).map(player => (<li>
                     {player.name}
                 </li> ))}
             </ul>
@@ -81,9 +98,21 @@ class GameCreate extends React.Component{
                     {monster.name}
                 </li> ))}
             </ul>
+            <div>Players
+                <label htmlFor=""> Find Player
+                    <input type="text" value={this.state.searchPlayWord} onChange={this.getPlayers} />
+                    </label>
+                <ul>
+                    Players
+                    {this.props.characters.map(character => (<li> 
+                        {character.name}
+                        <button onClick={this.addCharacter(character)}>Add Player</button>
+                    </li>))}
+                </ul>
+            </div>
             <div>Monster list
                 <label htmlFor=""> Find Monster
-                    <input type="text" value={this.state.searchWord} onChange={this.getMonsters} />
+                    <input type="text" value={this.state.searchMonstWord} onChange={this.getMonsters} />
                     </label>
                 <ul>
                     monsters
