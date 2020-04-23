@@ -21,8 +21,6 @@ class CharacterIndex extends React.Component{
         const character = this.props.character;
         return (
             <div className='character-show-main'>
-                Character Stats:
-               
                 <div className="character-show-left">
                     <h2>{character.name}</h2>
                     <p>Race: {character.race}</p>
