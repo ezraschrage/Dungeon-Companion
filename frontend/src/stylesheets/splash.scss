@@ -1,22 +1,56 @@
 .mainDiv {
   width: 100%;
-  height: 100%;
+  height: 80%;
 //   position: fixed;
+display: flex;
+flex-direction: column;
+align-items: left;
+justify-content: space-between;
 }
 
-.splashImage {
-    width: 100%;
-    height: 100%;
+.mainDiv > div {
+    color: $light-sec-highlight;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    font-weight: bold;
+    
 }
 
-.splashImage img {
-    border-top: 3px solid $third-highlight;
-    width: 100%;
-    height: 100%;
+.medium-main {
+    font-size: 25px;
+    color: $light-sec-highlight;
+    font-family: 'Roboto', sans-serif;
+    padding: 15px;
+    font-weight: bold;
+    width: 50%;
 }
+
+.large-main {
+    font-size: 40px;
+    width: 100%;
+}
+
+// .splashImage {
+//     width: 100%;
+//     height: 100%;
+// }
+
+// .splashImage img {
+//     border-top: 3px solid $third-highlight;
+//     width: 100%;
+//     height: 100%;
+// }
 
 .splash-container {
     background-image: url(../assets/images/orc3.jpg);
-    min-height: 900px;
-    background-repeat: no-repeat;
+    
+  display: flex;
+  height: 80vh;
+  width: 100vw;
+  justify-content: center;
+  box-sizing: border-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 600px;
 }
