@@ -11,11 +11,15 @@ class GameCreate extends React.Component{
             playersCount: 0,
             searchMonstWord: '',
             searchPlayerWord: '',
+            monsterInfo: null,
+            characterInfo: null,
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.getMonsters = this.getMonsters.bind(this);
         this.addMonster = this.addMonster.bind(this);
         this.addCharacter = this.addCharacter.bind(this);
+        this.showMonster = this.showMonster.bind(this);
+        this.showCharacter = this.showCharacter.bind(this);
         this.timer = null;
     }
     
@@ -49,6 +53,19 @@ class GameCreate extends React.Component{
         this.timer = setTimeout( () => {if(name !== '') search(name)}, 600);
     }
 
+    showMonster(monster){
+        return (e) => {
+            this.props.fetchMonster(monster.index)
+            .then((newMonst) => this.setState({monsterInfo: newMonst.monster }))
+        }
+    }
+
+    showCharacter(character){
+        return (e) => {
+            this.setState({characterInfo: character });
+        }
+    }
+
     addMonster(monster){
         return (e) =>{
             this.props.fetchMonster(monster.index)
@@ -78,8 +95,43 @@ class GameCreate extends React.Component{
     }
 
     render(){
+        const monsterInfo = this.state.monsterInfo ? (<div>
+            <ul>
+                <h2>More Monster Info</h2>
+                <h3>Name: {this.state.monsterInfo.name}</h3>
+                <h3>Armor Class: {this.state.monsterInfo.armor_class}</h3>
+                <h3>Challenge Rating: {this.state.monsterInfo.challenge_rating}</h3>
+                <ul>
+                    Actions
+                    {this.state.monsterInfo.actions.map(action => (
+                       <li>{action.name} : {action.desc}</li> 
+                    ))}
+                </ul>
+                <h3>Hit Points: {this.state.monsterInfo.hit_points} </h3>
+
+            </ul>
+        </div> ) : null;
+
+        const characterInfo = this.state.characterInfo ? (
+            <div>
+                Character Stats:
+                <h1>Name: {this.state.characterInfo.name}</h1>
+                <h1>Race: {this.state.characterInfo.race}</h1>
+                <h1>Class: {this.state.characterInfo.klass}</h1>
+                <h1>Hit Points: {this.state.characterInfo.hitPoints}</h1>
+                <h1>Strength: {this.state.characterInfo.str}</h1>
+                <h1>Dexterity: {this.state.characterInfo.dex}</h1>
+                <h1>Constitution: {this.state.characterInfo.con}</h1>
+                <h1>Intelligence: {this.state.characterInfo.int}</h1>
+                <h1>Wisdom: {this.state.characterInfo.wis}</h1>
+                <h1>Charisma: {this.state.characterInfo.cha}</h1>
+                <h1>Level: {this.state.characterInfo.lvl}</h1>
+                <h1>Allow Magic: {this.state.characterInfo.allowMagic}</h1>
+                <h1>Proficiencies: {this.state.characterInfo.proficiencies.map(prof => (<p>{prof}</p>))}</h1>
+            </div>) : null; 
+
         return (<div>
-            Create a game
+            <h1>Create a game</h1>
             <form action="" onSubmit={this.handleSubmit} >
                 <label htmlFor="">
                     Title: 
@@ -106,10 +158,12 @@ class GameCreate extends React.Component{
                     Players
                     {this.props.characters.map(character => (<li> 
                         {character.name}
+                        <button onClick={this.showCharacter(character)}>More Info</button>
                         <button onClick={this.addCharacter(character)}>Add Player</button>
                     </li>))}
                 </ul>
             </div>
+            {characterInfo}
             <div>Monster list
                 <label htmlFor=""> Find Monster
                     <input type="text" value={this.state.searchMonstWord} onChange={this.getMonsters} />
@@ -118,10 +172,12 @@ class GameCreate extends React.Component{
                     monsters
                     {this.props.monsters.map(monster => (<li> 
                         {monster.name}
+                        <button onClick={this.showMonster(monster)}>More Info</button>
                         <button onClick={this.addMonster(monster)}>Add Monster</button>
                     </li>))}
                 </ul>
             </div>
+            {monsterInfo}
         </div>)
     }
 }
