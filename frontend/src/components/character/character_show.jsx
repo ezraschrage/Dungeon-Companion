@@ -41,7 +41,7 @@ class CharacterIndex extends React.Component{
                 </div>
                 <div className="character-show-right">
                     <Link to={`/characters/edit/${this.props.character._id}`}>Edit Character</Link>
-                    <button onClick={this.sendDelete}>Delete Character</button> //need this
+                    <button onClick={this.sendDelete}>Delete Character</button>
                 </div>
             </div>
         )
