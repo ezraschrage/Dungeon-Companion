@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import splashImage from '../../assets/images/download.jpeg';
+
 
 
 class Splash extends React.Component {
@@ -12,10 +12,10 @@ class Splash extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="splash-container">
                 <div className="mainDiv">
                     <div className="splashImage">
-                        <img src={splashImage} alt="image of dragons"/>
+                        {/* Spot for copy */}
                     </div>
                 </div>
             </div>

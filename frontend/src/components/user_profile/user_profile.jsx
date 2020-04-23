@@ -8,11 +8,14 @@ class UserProfile extends React.Component {
     }
     render() {
         return (
+
           <div classNmae="profileImage">
-            <div calssName="userName">{`Welcome ${this.props.currentUser.username}`}</div>
+            <div className="userName">{`Welcome ${this.props.currentUser.username}`}</div>
             <div className="yourChars"><Link to="/characters">Your characters</Link></div>
-          </div>
-        );
+            <Link to='/games'>Your Games</Link>
+         </div>
+        )
+
     }
 }
 export default UserProfile;
