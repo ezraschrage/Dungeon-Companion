@@ -8,7 +8,7 @@ const validArr = require('./valid-arr');
 module.exports = function validateCharacterInput(data) {
     let errors = {};
     
-    const races = ["Dragonborn", "Dwarf", "Elf", "Half-Elf", "Halfling", "Human", "Gnome", "Tiefling"]
+    const races = ["Dragonborn", "Dwarf", "Elf", "Half-Elf", "Half-Orc", "Halfling", "Human", "Gnome", "Tiefling"]
     const klasses = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"]
   
     data.name = validText(data.name) ? data.name : '';
