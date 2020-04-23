@@ -5,6 +5,11 @@ class CharacterCreateForm extends React.Component {
     constructor(props) {
         super(props);
         const proficienciesList = {} 
+        if(this.props.character){
+            this.props.character.proficiencies.forEach(pro => {
+                proficienciesList[pro] = pro;
+            });
+        }
         this.state = { 
             ...this.props.character,
             proficienciesList,

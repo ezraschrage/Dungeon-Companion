@@ -8,6 +8,7 @@ import {withRouter} from 'react-router-dom';
 const msp = (state,ownProps) =>({
     game: state.entities.games[ownProps.match.params.gameId],
     characters: state.entities.characters,
+    monsters: state.entities.monsters,
 });
 
 const mdp = dispatch => {
