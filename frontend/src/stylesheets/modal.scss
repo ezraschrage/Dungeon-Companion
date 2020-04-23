@@ -79,11 +79,28 @@
     outline: none;
 }
 
-.submitButton:hover {
+.demoButton {
+    margin-top: 16px;
+    background-color: $back-tone;
+    font-size: 18px;
+    font-family: ribato;
+    font-weight: 600;
+    width: 120px;
+    height: 40px;
+    border-radius: 4px;
+    line-height: 22px;
+    cursor: pointer;
+    border: 0;
+    color: $light-sec-highlight;
+    border: 1px solid $baby-pink;
+    outline: none;
+}
+
+.submitButton:hover, .demoButton:hover {
     background-color:  rgb(75, 73, 73);
 }
 
-.submitButton:focus {
+.submitButton:focus, .demoButton:hover {
     border: 2px solid $baby-pink;   
     border-style: inset 0 0 1 1;    
 }

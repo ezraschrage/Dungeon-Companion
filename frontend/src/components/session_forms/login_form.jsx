@@ -13,6 +13,7 @@ class LoginForm extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
+        this.demoLogin = this.demoLogin.bind(this);
     }
 
     // componentWillReceiveProps(nextProps) {
@@ -35,6 +36,14 @@ class LoginForm extends React.Component {
         this.props.login(this.state)
             .then(this.props.history.push('/profile'))
             .then(this.props.closeModal)
+    }
+
+    demoLogin(e){
+        e.preventDefault();
+        this.setState({username: 'DemoUser', password: 'testing'});
+        setTimeout(() => this.props.login(this.state)
+            .then(this.props.closeModal)
+            .then(this.props.history.push('/profile')), 200)
     }
 
     renderErrors() {
@@ -70,6 +79,8 @@ class LoginForm extends React.Component {
                         />
                         <br />
                         <input className="submitButton" type="submit" value="Submit" />
+                        <br />
+                        <input className="demoButton" type="button" value="Demo Login" onClick={this.demoLogin}/>
                         {this.renderErrors()}
                         <div className="login" onClick={() => {this.props.signupForm()}}>
                             Not a member? Sign up!
