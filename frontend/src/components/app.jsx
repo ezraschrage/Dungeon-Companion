@@ -30,11 +30,8 @@ const App = () => (
             <ProtectedRoute exact path="/characters" component={CharacterIndexContainer} />
         </Switch>
         <footer>
-            <div className="footer-top">
-                <a href="https://github.com/ezraschrage/Dungeon-Companion" ><img src={gitImg} /></a>
-            </div>
-            <div className="footer-bottom">
-            </div>
+                {/* <div href="https://github.com/ezraschrage/Dungeon-Companion" /> */}
+                <a href="https://github.com/ezraschrage/Dungeon-Companion" ><img className="git" src={gitImg} /></a>
         </footer>
     </div>
 
