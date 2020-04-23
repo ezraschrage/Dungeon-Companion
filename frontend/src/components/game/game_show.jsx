@@ -6,16 +6,29 @@ import CharacterShow from './game_character_show';
 class GameShow extends React.Component{
     constructor(props){
         super(props);
+        let order = []
+        if(props.game){
+            order = props.game.monsters.concat(props.game.players);
+            order.sort((a,b) => Math.sign(b.initiative - a.initiative));
+        }
         this.state = {
             monsterInfo: null,
             characterInfo: null,
+            order: order,
         }
         this.showMonster = this.showMonster.bind(this);
         this.showCharacter = this.showCharacter.bind(this);
-        
     }
+
     componentDidMount(){
-        this.props.getGame(this.props.match.params.gameId);
+        if(!this.props.game){
+            this.props.getGame(this.props.match.params.gameId)
+            .then(({game}) => {
+                const order = game.monsters.concat(game.players);
+                order.sort((a,b) => Math.sign(b.initiative - a.initiative));
+                this.setState({order: order})
+            });
+        }
     }
 
     showMonster(monster){
@@ -57,6 +70,12 @@ class GameShow extends React.Component{
             <ul>
                 <h1>monsters</h1>
                 {this.props.game.monsters.map( (monster,idx)  => (<li key={`${monster.name} ${idx}`} onClick={this.showMonster(monster)} >{monster.name}</li>))}
+            </ul>
+            <ul>
+                <h2>Order</h2>
+                {this.state.order.map((item, idx) => (<li key={`${item.initiative} ${idx}`}>
+                Name: {item.name} : Initiative {item.initiative} 
+                </li>)) }
             </ul>
             {monsterInfo}
             {characterInfo}
