@@ -9,12 +9,15 @@ export default ({monster}) =>{
                 <h3>Name: {monster.name}</h3>
                 <h3>Armor Class: {monster.armor_class}</h3>
                 <h3>Challenge Rating: {monster.challenge_rating}</h3>
+                {monster.actions ? (
                 <ul>
                     Actions
                     {monster.actions.map(action => (
                        <li>{action.name} : {action.desc}</li> 
                     ))}
                 </ul>
+                 ) : (<h3>No Actions</h3>)} 
+                
                 <h3>Hit Points: {monster.hit_points} </h3>
 
             </ul>
