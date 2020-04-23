@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
-import { getCharacter } from '../../actions/character_actions';
-import {closeModal} from '../../actions/modal_actions'
+import { getCharacter,deleteCharacter } from '../../actions/character_actions';
 import CharacterShow from './character_show';
 import {withRouter} from 'react-router-dom'
 
@@ -10,8 +9,9 @@ const msp = (state,ownProps) =>({
 
 const mdp = dispatch => {
     return {
-        closeModal: () => dispatch(closeModal()), 
-        getCharacter: (charId) => dispatch(getCharacter(charId))
+        getCharacter: (charId) => dispatch(getCharacter(charId)),
+        deleteCharacter: (charId) => dispatch(deleteCharacter(charId)),
+
     };
 };
 

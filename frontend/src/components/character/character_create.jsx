@@ -4,29 +4,38 @@ import createImg from '../../assets/images/create-cut.jpg';
 class CharacterCreateForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            name: "",
-            race: "Dragonborn",
-            klass: "Barbarian",
-            armorClass: 10,
-            str: 8,
-            dex: 8,
-            con: 8,
-            int: 8,
-            wis: 8,
-            cha: 8,
-            lvl: 1,
-            allowMagic: false,
-            proficienciesList: {},
+        const proficienciesList = {} 
+        this.state = { 
+            ...this.props.character,
+            proficienciesList,
             proficienciesAmount: 2,
         };
-        
         this.handleSubmit = this.handleSubmit.bind(this);
         this.determineArmorClass = this.determineArmorClass.bind(this);
         this.determineStartHp = this.determineStartHp.bind(this);
         this.randomizeStats = this.randomizeStats.bind(this);
         this.statRoller = this.statRoller.bind(this);
         this.handleProfCheckbox = this.handleProfCheckbox.bind(this)
+    }
+
+    componentDidMount(){
+        if(!this.props.character){
+            if(this.props.formType === 'Edit'){
+                this.props.getCharacter(this.props.match.params.charId)
+                .then(({character}) => {
+                    const proficienciesList = {} 
+                    character.proficiencies.forEach(pro => {
+                        proficienciesList[pro] = pro;
+                    });
+                    this.setState({ 
+                        ...character,
+                        proficienciesList,
+                        proficienciesAmount: 2,
+                    });
+                })
+               
+            }
+        }
     }
 
     handleInput(type){
@@ -86,7 +95,6 @@ class CharacterCreateForm extends React.Component {
     }
 
     handleProfCheckbox(skill){
-
         const newProf = Object.assign({}, this.state.proficienciesList);
         if(this.state.proficienciesList[skill]){
             delete newProf[skill];
@@ -111,9 +119,15 @@ class CharacterCreateForm extends React.Component {
             hitPoints: this.determineStartHp() + Math.floor((con - 10)/2),
             armorClass: this.determineArmorClass(),
         }
-        this.props.createCharacter(character)
-        .then((data) => this.props.history.push(`/characters/${data.character._id}`) )
-        .catch((err) => console.log(err))
+        if(this.props.formType === 'Edit'){
+            this.props.updateCharacter(character, character._id)
+            .then((data) => this.props.history.push(`/characters/${data.character._id}`) )
+            .catch((err) => console.log(err));
+        }else{
+            this.props.createCharacter(character)
+            .then((data) => this.props.history.push(`/characters/${data.character._id}`) )
+            .catch((err) => console.log(err));
+        }
     }
 
     render(){
@@ -124,7 +138,7 @@ class CharacterCreateForm extends React.Component {
         const skills = ["Athletics", "Acrobatics", "Animal Handling", "Arcana", "Deception", 
                     "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", 
                     "Performance", "Persuasion", "Religion", "Sleight of Hand", "Stealth", "Survival"]
-
+        if(!this.props.character) return (<div>loading</div>)
         return(
             <div className="character-create">
                 <div className="character-create-img-container">
@@ -132,7 +146,7 @@ class CharacterCreateForm extends React.Component {
                 </div>
 
                 <div className="character-create-form">
-                    <h1>Create a Character</h1>
+        <h1>{this.props.formType === 'Edit' ? 'Edit a Character' : 'Create a Character'}</h1>
                     <hr />
                     <form onSubmit={this.handleSubmit}> 
 
@@ -156,7 +170,7 @@ class CharacterCreateForm extends React.Component {
                             <div>
                                 <select id="race" name="race" onChange={this.handleInput('race')}>
                                     {races.map((race, i) => (
-                                        <option key={race} value={race}>{race}</option>
+                                        <option key={race} selected={this.props.character.race === race ? 'selected': '' } value={race}>{race}</option>
                                     ))}
                                 </select>
                             </div>
@@ -169,7 +183,7 @@ class CharacterCreateForm extends React.Component {
                             <div>
                                 <select id="klass" name="klass" onChange={this.handleInput('klass')}>
                                     {klasses.map(klass => (
-                                        <option key={klass} value={klass}>{klass}</option>
+                                        <option key={klass} selected={this.props.character.klass === klass ? 'selected': '' }  value={klass}>{klass}</option>
                                     ))}
                                 </select>
                             </div>
@@ -292,7 +306,7 @@ class CharacterCreateForm extends React.Component {
                                 <input 
                                     id="create-button" 
                                     type="submit"  
-                                    value="Create Character" 
+                                    value={this.props.formType === 'Edit' ? 'Edit Character' : 'Create Character'}
                                 />
                             </div>
                     </form>

@@ -2,6 +2,25 @@ import { connect } from 'react-redux';
 import { createCharacter } from '../../actions/character_actions';
 import CharacterCreateForm from './character_create';
 
+const msp = (state, ownProps) => ({
+    character:  {
+        name: "",
+        race: "Dragonborn",
+        klass: "Barbarian",
+        armorClass: 10,
+        str: 8,
+        dex: 8,
+        con: 8,
+        int: 8,
+        wis: 8,
+        cha: 8,
+        lvl: 1,
+        allowMagic: false,
+        proficiencies: [],
+    },
+    formType: 'Create', 
+})
+
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -9,4 +28,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(null, mapDispatchToProps)(CharacterCreateForm);
+export default connect(msp, mapDispatchToProps)(CharacterCreateForm);
