@@ -10,6 +10,15 @@
     outline: 3px solid $third-highlight;
    
 }
+.profileLogo a {
+    text-decoration: none;
+    font-family: 'Righteous', 'Roboto', sans-serif;
+    font-size: 55px;
+    color: $sec-highlight;
+    -webkit-text-fill-color: $sec-highlight;
+    -webkit-text-stroke: 1px $third-highlight;
+    cursor: pointer;
+}
 
 .logo {
     font-family: 'Righteous', 'Roboto', sans-serif;
@@ -17,7 +26,7 @@
     color: $sec-highlight;
     -webkit-text-fill-color: $sec-highlight;
     -webkit-text-stroke: 1px $third-highlight;
-    cursor: default;
+    cursor: pointer;
 }
 
 .sessionButtons {
@@ -69,11 +78,38 @@
     border: 2px solid $third-highlight;
     outline: none;
     cursor: pointer;
+    
 }
 button:hover {
     background-color: $light-sec-highlight;
 }
 
+.profileButton {
+     display: inline-block;
+     padding: 10px;
+     margin-right: 43%;
+     border-left: 1px solid $light-sec-highlight;
+    border-right:  1px solid $light-sec-highlight;
+
+}
+
+.profileButton a {
+     text-decoration: none;
+     display: inline-block;
+     height: 100%;
+     margin-top: 15px;
+     color: $sec-highlight;
+    font-size: 25px;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+.profileButton:hover {
+    background-color: rgb(85, 4, 122);
+    border-radius: 8px;
+}
 .header {
     display: flex;
     justify-content: space-between;
