@@ -121,7 +121,7 @@ class CharacterCreateForm extends React.Component {
     }
 
     render(){
-        const races = ["Dragonborn", "Dwarf", "Elf", "Half-Elf", "Halfling", "Human", "Gnome", 
+        const races = ["Dragonborn", "Dwarf", "Elf", "Half-Elf", "Half-Orc", "Halfling", "Human", "Gnome", 
         "Tiefling"]
         const klasses = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", 
                         "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"]
