@@ -1,0 +1,17 @@
+.main {
+    min-height: 900px;
+    width: 100%;
+    background-image: url(../assets/images/dndd.jpg);
+}
+
+.profileImage {
+    width: 700px;
+    min-height: 900px;
+}
+
+.userName {
+    font-size: 30px;
+    color: $main-color;
+    font-family: ribato;
+    font-weight: 700;
+}

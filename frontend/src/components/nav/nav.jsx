@@ -1,5 +1,5 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 
 
@@ -22,9 +22,10 @@ const Nav = ({ currentUser, logout, openLoginModal, openSignupModal }) => {
 
     const loggeddInNav = () => (
       <nav className="header">
-        <div className="logo">
-          <h1>Dungeon Companion</h1>
+        <div className="profileLogo">
+          <h1> <Link to='/profile'>Dungeon Companion</Link></h1>
         </div>
+        <div className="profileButton"><Link to='/profile'>Profile</Link></div>
         <div className="sessionButtons">
           <button className="button" onClick={logout}>
             Log Out

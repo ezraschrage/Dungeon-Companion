@@ -1,21 +1,28 @@
 import React from 'react';
+import CharacterShow from './game_character_show';
+import MonsterShow from './game_monster_show';
 
 class GameCreate extends React.Component{
     constructor(props){
         super(props);
         this.state = {
             title: '',
-            players: {},
+            characters: {},
             monsters: [],
             monstCount: 0,
-            playersCount: 0,
+            charactersCount: 0,
             searchMonstWord: '',
-            searchPlayerWord: '',
+            searchCharWord: '',
+            monsterInfo: null,
+            characterInfo: null,
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.getMonsters = this.getMonsters.bind(this);
         this.addMonster = this.addMonster.bind(this);
         this.addCharacter = this.addCharacter.bind(this);
+        this.showMonster = this.showMonster.bind(this);
+        this.showCharacter = this.showCharacter.bind(this);
+        this.getCharacters = this.getCharacters.bind(this);
         this.timer = null;
     }
     
@@ -27,10 +34,9 @@ class GameCreate extends React.Component{
         e.preventDefault();
         const newGame = {
             title: this.state.title,
-            players: Object.values(this.state.players),
+            players: Object.values(this.state.characters),
             monsters: this.state.monsters,
         }
-        debugger
         this.props.createGame(newGame)
         .then((data) => this.props.history.push(`/games/${data.game._id}`) )
     }
@@ -49,37 +55,63 @@ class GameCreate extends React.Component{
         this.timer = setTimeout( () => {if(name !== '') search(name)}, 600);
     }
 
+    showMonster(monster){
+        return (e) => {
+            this.props.fetchMonster(monster.index)
+            .then((newMonst) => this.setState({monsterInfo: newMonst.monster }))
+        }
+    }
+
     addMonster(monster){
         return (e) =>{
             this.props.fetchMonster(monster.index)
-            .then((newMonst) =>{ this.state.monsters.push({
+            .then((newMonst) =>{ 
+                this.state.monsters.push({
                 index: monster.index,
                 initiative: Math.floor((Math.random()*20) + 1) + Math.floor((newMonst.monster.dexterity - 10)/2),
                 hp: newMonst.monster.hit_points,
                 name: monster.name,
+                });
+                this.setState({monstCount: this.state.monsters.length})
             });
-            this.setState({monstCount: this.state.monsters.length})
-        });
         }
+    }
+
+    showCharacter(character){
+        return (e) => {
+            this.setState({characterInfo: character });
+        }
+    }
+
+    getCharacters(){
+        // this.setState({searchCharWord: e.target.value});
+        // clearTimeout(this.timer);
+        // const name = e.target.value;
+        // this.timer = setTimeout( () => {if(name !== '') search(name)}, 600);
     }
 
     addCharacter(character){
         return (e) =>{
-            if(this.state.players){
-                this.state.players[character._id] = {
+            if(this.state.characters){
+                const characters = Object.assign({},this.state.characters );
+                characters[character._id] = {
                     name: character.name,
                     initiative: Math.floor((Math.random()*20) + 1) + Math.floor((character.dex - 10)/2),
                     hp: character.hitPoints,
                     id: character._id,
                 };
-                this.setState({playersCount: Object.keys(this.state.players).length})
+                this.setState({characters: characters});
+                this.setState({charactersCount: Object.keys(this.state.characters).length});
             }
         }
     }
 
     render(){
+        const monsterInfo = this.state.monsterInfo ? < MonsterShow monster={this.state.monsterInfo} /> : null;
+        const characterInfo = this.state.characterInfo ?  <CharacterShow character={this.state.characterInfo} /> : null; 
+
         return (<div>
-            Create a game
+            <h1>Create a game</h1>
             <form action="" onSubmit={this.handleSubmit} >
                 <label htmlFor="">
                     Title: 
@@ -88,8 +120,8 @@ class GameCreate extends React.Component{
                 
                 <button>Make Game</button>
             </form>
-            <ul>Players Chosen: {this.state.playersCount}
-                {Object.values(this.state.players).map(player => (<li>
+            <ul>Players Chosen: {this.state.charactersCount}
+                {Object.values(this.state.characters).map(player => (<li>
                     {player.name}
                 </li> ))}
             </ul>
@@ -98,18 +130,17 @@ class GameCreate extends React.Component{
                     {monster.name}
                 </li> ))}
             </ul>
-            <div>Players
-                <label htmlFor=""> Find Player
-                    <input type="text" value={this.state.searchPlayWord} onChange={this.getPlayers} />
-                    </label>
+            <div>
                 <ul>
                     Players
                     {this.props.characters.map(character => (<li> 
                         {character.name}
+                        <button onClick={this.showCharacter(character)}>More Info</button>
                         <button onClick={this.addCharacter(character)}>Add Player</button>
                     </li>))}
                 </ul>
             </div>
+            {characterInfo}
             <div>Monster list
                 <label htmlFor=""> Find Monster
                     <input type="text" value={this.state.searchMonstWord} onChange={this.getMonsters} />
@@ -118,10 +149,12 @@ class GameCreate extends React.Component{
                     monsters
                     {this.props.monsters.map(monster => (<li> 
                         {monster.name}
+                        <button onClick={this.showMonster(monster)}>More Info</button>
                         <button onClick={this.addMonster(monster)}>Add Monster</button>
                     </li>))}
                 </ul>
             </div>
+            {monsterInfo}
         </div>)
     }
 }

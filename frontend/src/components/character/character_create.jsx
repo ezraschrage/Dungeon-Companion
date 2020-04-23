@@ -8,7 +8,6 @@ class CharacterCreateForm extends React.Component {
             name: "",
             race: "Dragonborn",
             klass: "Barbarian",
-            hitPoints: 1,
             armorClass: 10,
             str: 8,
             dex: 8,
@@ -18,7 +17,8 @@ class CharacterCreateForm extends React.Component {
             cha: 8,
             lvl: 1,
             allowMagic: false,
-            proficiencies: []
+            proficienciesList: {},
+            proficienciesAmount: 2,
         };
         
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -86,38 +86,34 @@ class CharacterCreateForm extends React.Component {
     }
 
     handleProfCheckbox(skill){
-        let { proficiencies }= this.state;
-        let skillAlreadyInProfs = false;
-        let profIdx = 0;
-        proficiencies.forEach((pro, idx) => {
-            if (skill === pro){
-                skillAlreadyInProfs = true;
-                profIdx = idx;
-            }
-        })
 
-        if (skillAlreadyInProfs) {
-            // create first half, second half, and concat
-            let cutFirstHalf = proficiencies.slice(0, profIdx);
-            let cutSecondHalf = proficiencies.slice(profIdx + 1);
-            this.setState({proficiencies: cutFirstHalf.concat(cutSecondHalf)})
-        } else {
-            proficiencies.push(skill)
+        const newProf = Object.assign({}, this.state.proficienciesList);
+        if(this.state.proficienciesList[skill]){
+            delete newProf[skill];
+            this.setState({proficienciesList: newProf});
         }
-        // console.log(this.state.proficiencies)
+        else{
+            if(Object.values(this.state.proficienciesList).length < this.state.proficienciesAmount){
+                newProf[skill] = skill;
+                this.setState({proficienciesList: newProf});
+            }
+        }
     }
 
     handleSubmit(e) {
         e.preventDefault();
         const { con } = this.state;
         // Change AC to be 10 + dex modifier when submitting char
-        this.setState({armorClass: this.determineArmorClass()});
         // Set Hitpoints 
-        this.setState({hitPoints: this.determineStartHp() + Math.floor((con - 10)/2)});
-
-        // Where do we send the user after the submission? User dashboard? 
-        this.props.createCharacter(this.state)
-        .then((data) => this.props.history.push(`/characters/${data.character._id}`) );
+        const character = {
+            ...this.state,
+            proficiencies: Object.values(this.state.proficienciesList),
+            hitPoints: this.determineStartHp() + Math.floor((con - 10)/2),
+            armorClass: this.determineArmorClass(),
+        }
+        this.props.createCharacter(character)
+        .then((data) => this.props.history.push(`/characters/${data.character._id}`) )
+        .catch((err) => console.log(err))
     }
 
     render(){
@@ -160,7 +156,7 @@ class CharacterCreateForm extends React.Component {
                             <div>
                                 <select id="race" name="race" onChange={this.handleInput('race')}>
                                     {races.map((race, i) => (
-                                        <option key={i} value={race}>{race}</option>
+                                        <option key={race} value={race}>{race}</option>
                                     ))}
                                 </select>
                             </div>
@@ -282,9 +278,10 @@ class CharacterCreateForm extends React.Component {
                                                 id={skill} 
                                                 name={skill} 
                                                 value={skill} 
+                                                checked={!!this.state.proficienciesList[skill]}
                                                 onChange={() => this.handleProfCheckbox(skill)}
                                             />
-                                            <label>{skill}</label><br />
+                                            <label htmlFor={skill} >{skill}</label><br />
                                         </li>
                                     ))
                                 }
