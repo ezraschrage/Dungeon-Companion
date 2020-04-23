@@ -8,8 +8,11 @@ class UserProfile extends React.Component {
     }
     render() {
         return (
-        <div>{`Welcome ${this.props.currentUser.username}`}
-        <Link to='/characters'>Manage Characters</Link></div>
+        <div>
+            {`Welcome ${this.props.currentUser.username}`}
+            <Link to='/characters'>Manage Characters</Link>
+            <Link to='/games'>Your Games</Link>
+         </div>
         )
     }
 }
