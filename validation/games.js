@@ -19,7 +19,7 @@ module.exports = function validateGameInput(data) {
     }
 
     for (let i = 0; i < data.monsters.length; i++) {
-        if(!data.monsters[i].Name){
+        if(!data.monsters[i].name){
             errors.monsterName = "A monster's name is required"
         }
         if(!data.monsters[i].hp){

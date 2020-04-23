@@ -9,7 +9,11 @@ const GameSchema = new Schema({
       },
     monsters: [ 
         {
-            id: { 
+            name: { 
+                type: String,
+                required: true
+            }, 
+            index: { 
                 type: String,
                 required: true
             },
@@ -25,6 +29,10 @@ const GameSchema = new Schema({
     ],
     players: [ 
         {
+            name: { 
+                type: String,
+                required: true
+            },
             id: { 
                 type: Schema.Types.ObjectId,
                 ref: 'characters'
