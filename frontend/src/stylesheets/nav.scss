@@ -7,7 +7,6 @@
     vertical-align: middle;
     border-bottom: 3px solid $sec-highlight;
     padding-top: 10px;
-    // outline: 3px solid $third-highlight;
    
 }
 .logo a {
@@ -16,6 +15,7 @@
     font-size: 55px;
     color: $sec-highlight;
     cursor: pointer;
+
 }
 
 .logo {
@@ -28,10 +28,11 @@
     padding-left: 10px;
     overflow: hidden;
     justify-self: left;
+    margin-left: 15px;
+    margin-bottom: 10px;
 }
 
 .nav-Buttons {
-    // overflow: hidden;
     display:flex;
     align-items: center;
     justify-content: center;
@@ -59,16 +60,6 @@
     background-color: rgb(192, 21, 21);
 }
 
-// .profileButton {
-//      display: inline-block;
-//      padding: 10px;
-//     //  margin-right: 43%;
-//     //  border-left: 1px solid $light-sec-highlight;
-//     // border-right:  1px solid $light-sec-highlight;
-//     justify-self: right;
-//     width: 100px;
-
-// }
 
 .profileButton a {
      text-decoration: none;
@@ -80,12 +71,5 @@
     font-weight: bold;
     padding-left: 10px;
     padding-right: 10px;
-
-
 }
-
-// .profileButton:hover {
-//     background-color: rgb(85, 4, 122);
-//     border-radius: 8px;
-// }
 
