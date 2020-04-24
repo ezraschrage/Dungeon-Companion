@@ -16,13 +16,6 @@ class LoginForm extends React.Component {
         this.demoLogin = this.demoLogin.bind(this);
     }
 
-    // componentWillReceiveProps(nextProps) {
-    //     if (nextProps.currentUser === true) {
-    //         this.props.history.push('/login');
-    //     }
-
-    //     this.setState({ errors: nextProps.errors })
-    // }
 
     update(field) {
         return e => this.setState({

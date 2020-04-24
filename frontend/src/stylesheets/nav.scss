@@ -7,27 +7,25 @@
     vertical-align: middle;
     border-bottom: 3px solid $sec-highlight;
     padding-top: 10px;
-    outline: 3px solid $third-highlight;
+    // outline: 3px solid $third-highlight;
    
 }
 .logo a {
     text-decoration: none;
-    font-family: 'Righteous', 'Roboto', sans-serif;
+    font-family: UnifrakturMaguntia;
     font-size: 55px;
     color: $sec-highlight;
-    -webkit-text-fill-color: $sec-highlight;
-    -webkit-text-stroke: 1px $third-highlight;
     cursor: pointer;
 }
 
 .logo {
-    font-family: 'Righteous', 'Roboto', sans-serif;
+    font-family: UnifrakturMaguntia;
+    font-weight: 900;
     font-size: 55px;
     color: $sec-highlight;
-    -webkit-text-fill-color: $sec-highlight;
-    -webkit-text-stroke: 1px $third-highlight;
+    text-shadow: 2px 2px black;
     cursor: pointer;
-        padding-left: 10px;
+    padding-left: 10px;
     overflow: hidden;
     justify-self: left;
 }
@@ -39,35 +37,12 @@
     justify-content: center;
 }
 
-// .sessionButton {
-//     width: 80px;
-//     height: 40px;
-//     padding: 10px;
-//     margin-top: 5px;
-//     border-radius: 14px;
-//     color: $main-color;
-//     font-family: ribato;
-//     font-weight: inherit;
-//     font-weight: bolder;
-//     font-size: 15px;
-//     margin-right: 20px;
-//     background-color: $sec-highlight;
-//     border: 1px solid $back-tone;
-//     border: 2px solid $third-highlight;
-//     outline: none;
-//     cursor: pointer;
-// }
-// .sessionButton:hover {
-//     background-color: $light-sec-highlight;
-// }
 
 .nav-Button {
     width: 80px;
     height: 40px;
     padding: 10px;
     border-radius: 14px;
-    // margin-top: 15px;
-    // margin-right: 30px;
     font-family: ribato;
     font-weight: inherit;
     font-weight: bolder;
@@ -75,13 +50,13 @@
     margin-right: 20px;
     margin-bottom: 10px;
     background-color: $sec-highlight;
-    border: 2px solid $third-highlight;
+    border: 1px solid black;
     outline: none;
     cursor: pointer;
     
 }
 .nav-Button:hover {
-    background-color: $light-sec-highlight;
+    background-color: rgb(192, 21, 21);
 }
 
 // .profileButton {
@@ -100,7 +75,7 @@
      display: inline-block;
      height: 100%;
      margin-top: 15px;
-     color: $light-sec-highlight;
+     color: $sec-highlight;
     font-size: 25px;
     font-weight: bold;
     padding-left: 10px;
