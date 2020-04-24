@@ -150,7 +150,7 @@ class GameShow extends React.Component{
                         onClick={() => this.props.playTurnGame(
                             this.sweepDeadMonsters(this.state.order))}
                     >NEXT TURN
-                     </button>
+                    </button>
                     <div className="show-battle-headers">
                         <div className="show-battle-header">
                             Combatant
