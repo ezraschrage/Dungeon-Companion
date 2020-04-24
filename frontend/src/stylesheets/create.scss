@@ -2,6 +2,7 @@
 
 .character-create{
     display: flex;
+    background-color: $back-tone;
 }
 
 .character-create-img-container {
@@ -20,11 +21,11 @@
     background-color: $main-color;
     height: auto;
     width: 50%;
-    background-color: #230C33;
+    background-color: $back-tone;
     color: white;
     padding: 30px;
     font-family: 'Roboto', sans-serif;
-    border-left: 3px solid $main-highlight;
+    border-left: 3px solid $sec-highlight;
     flex-direction: column;
     flex-wrap: wrap;
 }
@@ -33,13 +34,13 @@
     width: 100%;
     font-family: 'Righteous', 'Roboto', sans-serif;
     font-size: 56px;
-    color: $main-highlight;
+    color: $sec-highlight;
     text-align: center;
+    text-shadow: 4px 4px black;
 }
 
-
 .character-create-form hr {
-    border-top: 1px solid $main-highlight;
+    border-top: 1px solid $sec-highlight;
     border-bottom: 1px solid $sec-highlight;
 }
 
@@ -53,7 +54,7 @@
     font-family: 'Righteous', 'Roboto', sans-serif;
 }
 .proficiencies-checkbox-container label:hover {
-    background-color: rgba(255, 255, 0, 0.459);
+    background-color: $main-highlight;
     padding: 10px;
     border-radius: 25%;
 }
@@ -65,7 +66,7 @@
 }
 
 .prof-checked{
-    color: red;
+    color: $sec-highlight;
 }
 
 .character-create-form input {
@@ -95,7 +96,7 @@
 
 .proficiencies-checkbox-container ul {
     list-style: none;
-    background-color: $back-tone;
+    background-color:$main-color; 
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -107,7 +108,7 @@
 
 .vitals-container {
     list-style: none;
-    background-color: $back-tone;
+    background-color: $main-color;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -129,7 +130,7 @@
     align-items: center;
     width: 70%;
     font-size: 35px;
-    background-color: $sec-color;
+    background-color: $sec-highlight;
     color: $main-highlight;
     border-color: $sec-color;
     height: 70px;
@@ -163,7 +164,7 @@
     border-radius: 5px;
     width: 225px;
     font-size: 20px;
-    background-color: $sec-color;
+    background-color: $sec-highlight;
     color: $main-highlight;
     border-color: $sec-color;
     
