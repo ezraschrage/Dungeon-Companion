@@ -3,7 +3,8 @@
     flex-direction: row;
     // justify-content: right;
     // padding-left: 20px;
-   
+   background-color: $back-tone;
+   color: $light-sec-highlight;
 }
 
 .show-info {
@@ -34,13 +35,18 @@
     height: 30vh;
 }
 
+.show-combatant-name {
+    padding: 5px;
+    font-size: 20px;
+}
+
 .show-list-box {
     width: 34%;
 }
 
 .show-info-box {
     width: 66%;
-    overflow: scroll;
+    overflow: auto;
 
     padding: 10px;
 }
@@ -52,9 +58,13 @@
 
 
 .show-battle {
-    width: 100vh;
+    width: 110vh;
     height: 70vh;
-    overflow: scroll;
+    overflow: auto;
+}
+
+.show-turn {
+    padding: 10px;
 }
 
 .show-battle-headers {

@@ -3,7 +3,7 @@ import React from 'react'
 export default ({monster}) =>{
 
     return (
-        <div className='monsters-show'>
+        <>
                 <h2>More Monster Info</h2>
             <ul>
                 <h3>Name: {monster.name}</h3>
@@ -23,6 +23,6 @@ export default ({monster}) =>{
                 
 
             </ul>
-        </div> 
+        </>
     );
 }

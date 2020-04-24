@@ -67,6 +67,7 @@ class GameShow extends React.Component{
             let newHp = this.state.order[idx].hp - e.currentTarget.value;
             oldState.order[idx].hp = newHp
             this.setState(oldState);
+            e.currentTarget.value = 0;
         }
     }
 
@@ -105,7 +106,7 @@ class GameShow extends React.Component{
                     <div className="show-instructions">
                         <div className="show-game-name">{this.props.game.title}</div>
                         <ul className="instructions-list">
-                            <li>Click the "next" button to advance the turn.</li>
+                            <li>Click the "Next Turn" button to advance the turn.</li>
                             <li>Click on a character or monster to see expanded info</li>
                             <li>Keep track of the HP with the input</li>
                             <li><Link to='/games'>Return to other games</Link></li>
@@ -116,13 +117,15 @@ class GameShow extends React.Component{
                             <ul>
                                 <div className="show-title">Players</div>
                                 {this.props.game.players.map(player => (
-                                <li key={player._id} onClick={this.showCharacter(player)}>
+                                <li key={player._id} className="show-combatant-name" onClick={this.showCharacter(player)}>
                                     {player.name}
                                 </li>))}
                             </ul>
                         </div>
                         <div className="show-info-box">
+                            <div>
                             {characterInfo}
+                            </div>
                         </div>
                     </div>
                     <div className="show-list">
@@ -130,25 +133,27 @@ class GameShow extends React.Component{
                             <ul>
                                 <div className="show-title">Monsters</div>
                                 {this.props.game.monsters.map( (monster,idx)  => (
-                                <li key={`${monster.name} ${idx}`} onClick={this.showMonster(monster)}>
+                                    <li key={`${monster.name} ${idx}`} className="show-combatant-name" onClick={this.showMonster(monster)}>
                                     {monster.name}
                                 </li>))}
                             </ul>
                         </div>
                         <div className="show-info-box">
+                            <div>
                             {monsterInfo}
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className="show-battle">
-                    <h1>CURRENT TURN:</h1>
-                    {currentTurnCreature}
-                    <h2>REMAINING CREATURES:</h2>
-                    {remainingTurnCreatures}
+                    <div className="show-turn" >CURRENT TURN:</div>
+                    <div className="show-turn">{currentTurnCreature}</div>
+                    {/* <h2>REMAINING CREATURES:</h2>
+                    {remainingTurnCreatures} */}
 
                     <button
-                        onClick={this.playTurn}
-                    >NEXT TURN
+                        onClick={this.playTurn}>
+                      Next Turn
                      </button>
                     <div className="show-battle-headers">
                         <div className="show-battle-header">

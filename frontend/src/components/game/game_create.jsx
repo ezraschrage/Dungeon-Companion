@@ -156,8 +156,9 @@ class GameCreate extends React.Component{
                     </li>))}
                 </ul>
                 </div>
-                
-                {characterInfo}
+                <div className="characters-show">
+                    {characterInfo}
+                </div>
             </div>
 
             <div className='game-monsters-main'>
@@ -183,7 +184,9 @@ class GameCreate extends React.Component{
                     </li>))}
                 </ul>
             </div>
-            {monsterInfo}
+                <div className='monsters-show'>
+                 {monsterInfo}
+                </div>
             </div>
             
             
