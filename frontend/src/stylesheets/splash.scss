@@ -19,7 +19,7 @@ html {
     font-weight: bold;
     text-align: center;
     background-color: rgba(163, 167, 235, 0.521);
-    border-radius: 50px;
+    border-radius: 20px;
 }
 
 .medium-main {
@@ -51,7 +51,9 @@ html {
   display: flex;
   height: 80vh;
   width: 100vw;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   box-sizing: border-box;
   background-position: center;
   background-repeat: no-repeat;
