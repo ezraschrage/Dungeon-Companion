@@ -60,7 +60,8 @@
 .show-battle {
     width: 110vh;
     height: 70vh;
-    overflow: auto;
+        overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .show-turn {

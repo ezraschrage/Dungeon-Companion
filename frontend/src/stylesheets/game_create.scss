@@ -9,7 +9,7 @@
     text-align: center;
 }
 .game-create-main{
-     background-image: url(/static/media/create_pic.41a35931.jpg);
+    background-image: url(../assets/images/create_pic.jpg);
     min-height: 900px;
     position: relative;
     padding: 10px 0 50px 0;
@@ -127,6 +127,21 @@ button.create-game{
 
 .game-create-main ul::-webkit-scrollbar {
     width: 15px;
+}
+
+.textB {
+    margin: 10px;
+    outline: none;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 14px;
+}
+.gameTitleBox {
+    outline: none;
+    border-radius: 4px;
+}
+.monsterUl {
+    padding: 10px;
 }
 
 .findMonster {
