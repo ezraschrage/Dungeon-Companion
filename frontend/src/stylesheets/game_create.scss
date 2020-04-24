@@ -1,7 +1,7 @@
 .game-create-main h1{
     font-size: 40px;
     text-align: center;
-    padding: 10px;
+    padding: 20px 0px;
 }
 .game-create-main h2{
     font-size: 25px;
@@ -11,6 +11,12 @@
     background-color: rgba(0, 255, 42, 0.561);
     position: relative;
     padding: 10px 10px 50px 10px;
+    height: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 button.create-game{
     font-size: 30px;
@@ -39,4 +45,26 @@ button.create-game{
 .game-create-main li{
     font-size: 20px;
     padding: 5px;
+    list-style: none;
+}
+.game-characters-main, .game-monsters-main{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.game-create-main form{
+    display: flex;
+    width: 70%;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.game-create-main form label{
+    font-size: 24px;
+}
+
+.game-create-main form input{
+    font-size: 20px;
+    margin:10px;
 }
