@@ -23,19 +23,33 @@ class CharacterIndex extends React.Component{
             <div className='character-show-main'>
                 <div className="character-show-left">
                     <h2>{character.name}</h2>
-                    <p>Race: {character.race}</p>
+                    <div>
+                        <p>Race: {character.race}</p>
                     <p>Class: {character.klass}</p>
+                    </div>
+                    <div>
+                    <p>Level: {character.lvl}</p>
                     <p>Hit Points: {character.hitPoints}</p>
-                    <p>Armor Class: {character.armorClass}</p>
+                    </div>
+                    <div>
+                        
                     <p>Strength: {character.str}</p>
                     <p>Dexterity: {character.dex}</p>
+                        </div>
+                    <div>
                     <p>Constitution: {character.con}</p>
+    
+                    <p>Charisma: {character.cha}</p>
+                    </div>
+                    <div>
                     <p>Intelligence: {character.int}</p>
                     <p>Wisdom: {character.wis}</p>
-                    <p>Charisma: {character.cha}</p>
-                    <p>Level: {character.lvl}</p>
-                    <p>Allow Magic: {character.allowMagic}</p>
+                    </div>
+                    <div>
+                    
+                    <p>Armor Class: {character.armorClass}</p>
                     <ul>Proficiencies: {character.proficiencies.map(prof => (<li key={prof}>{prof}</li>))}</ul>
+                </div>
                 </div>
                 <div className="character-show-right">
                     <Link to={`/characters/edit/${this.props.character._id}`}>Edit Character</Link>
