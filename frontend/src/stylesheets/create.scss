@@ -5,12 +5,16 @@
 }
 
 .character-create-img-container {
+    display: flex;
+    align-items: center;
+    min-width: 400px;
     height: auto;
-    width: auto;
+    width: 50%;
     border-right: 3px solid $sec-highlight;
 }
 
 .character-create-form {
+    min-width: 750px;
     display: flex;
     box-sizing: border-box;
     background-color: $main-color;
@@ -48,6 +52,21 @@
     margin: 0 20px 0 0;
     font-family: 'Righteous', 'Roboto', sans-serif;
 }
+.proficiencies-checkbox-container label:hover {
+    background-color: rgba(255, 255, 0, 0.459);
+    padding: 10px;
+    border-radius: 25%;
+}
+.proficiencies-checkbox-container label{
+    cursor: pointer;
+}
+.proficiencies-checkbox-container li {
+    padding: 10px;
+}
+
+.prof-checked{
+    color: red;
+}
 
 .character-create-form input {
     border-radius: 3px;
@@ -59,9 +78,11 @@
 
 .create-field {
     display: flex;
-    width: 50%;
+    width: 47%;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+    margin: 0px 10px;
 }
 
 .create-field select {
@@ -78,7 +99,7 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 300px;
+    height: 450px;
     padding: 10px;
     border-radius: 5px;
     margin: 10px 0;
@@ -93,8 +114,10 @@
     height: 300px;
     padding: 10px;
     border-radius: 5px;
-    margin: 10px 0;
+    margin: 10px 0;    
+    justify-content: space-between;
 }
+
 
 .proficiencies-checkbox-container li {
     width: 50%;

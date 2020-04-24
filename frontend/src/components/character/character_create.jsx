@@ -159,7 +159,6 @@ class CharacterCreateForm extends React.Component {
                     <div className="vitals-container">
                         <div className="create-field">
                             <label>Name: </label>
-                            <br />
                                 <input
                                     type="text"
                                     value={this.state.name}
@@ -167,11 +166,9 @@ class CharacterCreateForm extends React.Component {
                                     className="create-form-input"
                                 />
                         </div>
-                        <br />
 
                         <div className="create-field">
                             <label>Race: </label>
-                            <br />
                             <div>
                                 <select id="race" name="race" onChange={this.handleInput('race')}>
                                     {races.map((race, i) => (
@@ -180,7 +177,6 @@ class CharacterCreateForm extends React.Component {
                                 </select>
                             </div>
                         </div>
-                        <br />
 
                         <div className="create-field">
                             <label>Class: </label>
@@ -291,16 +287,8 @@ class CharacterCreateForm extends React.Component {
                                 {  
                                     skills.map(skill => (
                                         <li key={skill}>
-                                            <input 
-                                                className="sub-prof"
-                                                type="checkbox" 
-                                                id={skill} 
-                                                name={skill} 
-                                                value={skill} 
-                                                checked={!!this.state.proficienciesList[skill]}
-                                                onChange={() => this.handleProfCheckbox(skill)}
-                                            />
-                                            <label htmlFor={skill} >{skill}</label><br />
+                                           
+                                            <label htmlFor={skill} className={'sub-prof '+ (!!this.state.proficienciesList[skill] ? 'prof-checked' : '')} onClick={() => this.handleProfCheckbox(skill)} >{skill}</label><br />
                                         </li>
                                     ))
                                 }
@@ -308,11 +296,8 @@ class CharacterCreateForm extends React.Component {
                             </div>
                             <hr />
                             <div className="submit-container">
-                                <input 
-                                    id="create-button" 
-                                    type="submit"  
-                                    value={this.props.formType === 'Edit' ? 'Edit Character' : 'Create Character'}
-                                />
+                                <button id='create-button'>{this.props.formType === 'Edit' ? 'Edit Character' : 'Create Character'} </button>
+                                
                             </div>
                     </form>
                 </div>
