@@ -18,6 +18,7 @@ class GameShow extends React.Component{
         }
         this.showMonster = this.showMonster.bind(this);
         this.showCharacter = this.showCharacter.bind(this);
+        this.sweepDeadMonsters = this.sweepDeadMonsters.bind(this);
     }
 
     componentDidMount(){
@@ -55,13 +56,43 @@ class GameShow extends React.Component{
         }
     }
 
+    damageCreature(e){
+        // damage the creature upon click
+        // only way coming to mind is to decrease 1 hp on click.
+    }
+
+    sweepDeadMonsters(arrOfCreatures){
+        // Run before sending the new game state...
+        let clean = false;
+        let creaturesClone = arrOfCreatures.slice();
+
+        while (!clean){
+            clean = true;
+
+            for (let i = 0; i < creaturesClone.length; i++){
+                const creature = creaturesClone[i];
+
+                if (creature.cr && creature.hp <= 0){
+                    let firstHalf = creaturesClone.slice();
+                    let secHalf = creaturesClone.slice();
+                    creaturesClone = firstHalf.concat(secHalf);
+                    clean = false;
+                }
+            }
+        }
+        return creaturesClone;
+    }
+
     render(){
         if(!this.props.game) return (<div>loading</div>)
         const monsterInfo = this.state.monsterInfo ? < MonsterShow monster={this.state.monsterInfo} /> : null;
-        const characterInfo = this.state.characterInfo ? this.state.characterInfo === 'Error' ? <p>CHARACTER NOT FOUND</p> : <CharacterShow character={this.state.characterInfo} /> : null; 
+        const characterInfo = this.state.characterInfo ? this.state.characterInfo === 'Error' ? <p>CHARACTER NOT FOUND</p> : <CharacterShow character={this.state.characterInfo} /> : null;
+        const currentTurnCreature = this.state.order.length > 0 ? <h2>{this.state.order[0].name}</h2> : <></>
+        const remainingTurnCreatures = this.state.order.length > 0 ? <>{this.state.order.slice(1).map(creature => <h3>{creature.name}</h3>)}</> : <></>
+
         return (<div>
             <Link to='/games'>GAMES INDEX</Link>
-            <h1>GAME Show</h1>
+            <h1>CURRENT ENCOUNTER</h1>
             <h1>{this.props.game.title}</h1>
             <ul>
                 <h1>players</h1>
@@ -77,8 +108,20 @@ class GameShow extends React.Component{
                 Name: {item.name} : Initiative {item.initiative} 
                 </li>)) }
             </ul>
+
             {monsterInfo}
             {characterInfo}
+
+            <h1>CURRENT TURN:</h1>
+            {currentTurnCreature}
+            <h2>REMAINING CREATURES:</h2>
+            {remainingTurnCreatures}
+
+            <button 
+                onClick={() => this.props.playTurnGame(
+                    this.sweepDeadMonsters(this.state.order))}
+                >NEXT TURN
+            </button>
         </div>)
     }
 }
