@@ -72,31 +72,49 @@ class GameShow extends React.Component{
                         </ul>
                     </div>
                     <div className="show-list">
-                        <ul>
-                            <div className="show-title">Players</div>
-                            {this.props.game.players.map(player => (
-                            <li key={player._id} onClick={this.showCharacter(player)}>
-                                {player.name}
-                            </li>))}
+                        <div className="show-list-box">
+                            <ul>
+                                <div className="show-title">Players</div>
+                                {this.props.game.players.map(player => (
+                                <li key={player._id} onClick={this.showCharacter(player)}>
+                                    {player.name}
+                                </li>))}
+                            </ul>
+                        </div>
+                        <div className="show-info-box">
                             {characterInfo}
-                        </ul>
+                        </div>
                     </div>
                     <div className="show-list">
-                        <ul>
-                            <div className="show-title">Monsters</div>
-                            {this.props.game.monsters.map( (monster,idx)  => (
-                            <li key={`${monster.name} ${idx}`} onClick={this.showMonster(monster)} >
-                                {monster.name}
-                            </li>))}
+                        <div className="show-list-box">
+                            <ul>
+                                <div className="show-title">Monsters</div>
+                                {this.props.game.monsters.map( (monster,idx)  => (
+                                <li key={`${monster.name} ${idx}`} onClick={this.showMonster(monster)}>
+                                    {monster.name}
+                                </li>))}
+                            </ul>
+                        </div>
+                        <div className="show-info-box">
                             {monsterInfo}
-                        </ul>
-                    </div>                
+                        </div>
+                    </div>
                 </div>
                 <div className="show-battle">
+                    <ul>
                     {this.state.order.map((item, idx) => (
                         <li key={`${item.initiative} ${idx}`}>
-                            {item.name}
+                            <div className="show-battle-name">
+                                {item.name}
+                            </div>
+                            <div className="show-battle-hp">
+
+                            </div>
+                            <div className="show-battle-other">
+
+                            </div>
                         </li>))}
+                    </ul>
                 </div>
         </div>)
     }
