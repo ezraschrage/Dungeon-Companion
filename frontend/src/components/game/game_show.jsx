@@ -19,17 +19,22 @@ class GameShow extends React.Component{
         this.showMonster = this.showMonster.bind(this);
         this.showCharacter = this.showCharacter.bind(this);
         this.sweepDeadMonsters = this.sweepDeadMonsters.bind(this);
+        this.setOrder = this.setOrder.bind(this);
+        this.playTurn = this.playTurn.bind(this);
     }
 
     componentDidMount(){
         if(!this.props.game){
             this.props.getGame(this.props.match.params.gameId)
             .then(({game}) => {
-                const order = game.monsters.concat(game.players);
-                order.sort((a,b) => Math.sign(b.initiative - a.initiative));
-                this.setState({order: order})
+                this.setState({order: this.setOrder(game)})
             });
         }
+    }
+
+    setOrder(game){
+        const order = game.monsters.concat(game.players);
+        return order.sort((a,b) => Math.sign(b.initiative - a.initiative));
     }
 
     showMonster(monster){
@@ -68,30 +73,25 @@ class GameShow extends React.Component{
 
     sweepDeadMonsters(arrOfCreatures){
         // Run before sending the new game state...
-        let clean = false;
-        let creaturesClone = arrOfCreatures.slice();
+        let monsters = [];
+        const characters = []; 
+        arrOfCreatures.forEach( creature => creature.index ? monsters.push(creature) : characters.push(creature) )
+        monsters = monsters.filter(monst => monst.hp > 0);
+        return {
+            players: characters,
+            monsters: monsters,
+            title: this.props.game.title,
+        };
+    }
 
-        while (!clean){
-            clean = true;
-
-            for (let i = 0; i < creaturesClone.length; i++){
-                const creature = creaturesClone[i];
-
-                if (creature.cr && creature.hp <= 0){
-                    let firstHalf = creaturesClone.slice();
-                    let secHalf = creaturesClone.slice();
-                    creaturesClone = firstHalf.concat(secHalf);
-                    clean = false;
-                }
-            }
-        }
-        console.log(creaturesClone);
-        return creaturesClone;
+    playTurn(){
+        this.props.playTurnGame(this.sweepDeadMonsters(this.state.order), this.props.game._id)
+        .then(({game}) => this.setState({order: this.setOrder(game)}))
     }
 
     render(){
         const hpAdjustValues = [];
-        for (let i = 50; i >= -50; i--){
+        for (let i = 100; i >= -100; i--){
             hpAdjustValues.push(i);
         }
         const characterInfo = this.state.characterInfo ? this.state.characterInfo === 'Error' ? <p>CHARACTER NOT FOUND</p> : <CharacterShow character={this.state.characterInfo} /> : null;
@@ -152,10 +152,9 @@ class GameShow extends React.Component{
                     {remainingTurnCreatures} */}
 
                     <button
-                        onClick={() => this.props.playTurnGame(
-                            this.sweepDeadMonsters(this.state.order))}
-                    >Next Turn
-                    </button>
+                        onClick={this.playTurn}>
+                      Next Turn
+                     </button>
                     <div className="show-battle-headers">
                         <div className="show-battle-header">
                             Combatant
@@ -175,7 +174,7 @@ class GameShow extends React.Component{
                                 {item.name}
                             </div>
                             <div className="show-battle-hp">
-                                {item.hp}                  <select name="hp" value={0} onChange={this.adjustHpCreature(idx)}>
+                                {item.hp}                     <select name="hp" value={0} onChange={this.adjustHpCreature(idx)}>
                                     {/* <option value="0" selected disabled hidden>---</option> */}
                                     {hpAdjustValues.map(changeValue => (
                                         <option key={changeValue} value={changeValue}> {changeValue}</option>
