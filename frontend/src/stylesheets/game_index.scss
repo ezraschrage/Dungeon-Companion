@@ -25,21 +25,21 @@
     width: auto;
     padding: 10px;
     border-radius: 14px;
-    color: $main-color;
+    color: $third-highlight;
     font-family: ribato;
     font-weight: inherit;
     font-weight: bolder;
     font-size: 15px;
-    margin-right: 20px;
+    margin-right: 10px;
     background-color: $sec-highlight;
     border: 1px solid $back-tone;
-    border: 2px solid $third-highlight;
+    border: px solid black;
     cursor: pointer;
     text-decoration: none;
 }
 
 .game-index-title a:hover, .game-show-main a:hover {
-    background-color: $light-sec-highlight;
+    background-color: $back-tone;
 }
 
 .game-index-title h1 {
@@ -49,7 +49,7 @@
 
 .game-index-main {
     // display: flex;
-    min-width: 35%;
+    min-width: 650px;
     min-height: 40%;
     background-color: $main-color;
     color: white;
@@ -91,6 +91,24 @@
     display: flex;
     flex-direction: row;
 }
+
+#list {
+    min-width: 40px;
+    padding: 2px;
+}
+
+#moreButton {
+    border-radius: 4px;
+   background-color: $third-highlight;
+   color: $sec-highlight;
+   font-weight: 500;
+}
+
+#moreButton:hover {
+    background-color: $sec-color;
+}
+
+
 
 // .game-show-main {
 //     display: flex;

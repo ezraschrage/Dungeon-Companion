@@ -25,8 +25,8 @@ class GameIndex extends React.Component{
                         <ul>
                             {this.props.games.reverse().map(game => (
                                 <div className="game-thumbnail">
-                                    <li key={game._id}>{game.title}
-                                    <Link to={`/games/${game._id}`}><button>more</button></Link></li>
+                                    <li id="list" key={game._id}>{game.title}</li>
+                                    <Link to={`/games/${game._id}`}><button id="moreButton">more</button></Link>
                                 </div>
                             ))}
                         </ul>
