@@ -1,0 +1,33 @@
+.show-main {
+    display: flex;
+    flex-direction: row;
+    // justify-content: right;
+    // padding-left: 20px;
+   
+}
+
+.show-info {
+    width: 40%;
+    height: 100%;
+}
+
+.show-battle {
+    width: 60%;
+    height: 100%;
+    // overflow: scroll;
+}
+
+.show-game-name {
+    font-size: 30px;
+    text-align: center;
+}
+
+.instructions-list > li{
+    font-size: 20px;
+    padding: 5px 0px 10px 10px;
+}
+
+.show-title {
+    text-align: center;
+    font-size: 25px;
+}

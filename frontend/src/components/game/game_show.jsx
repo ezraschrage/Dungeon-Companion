@@ -59,26 +59,45 @@ class GameShow extends React.Component{
         if(!this.props.game) return (<div>loading</div>)
         const monsterInfo = this.state.monsterInfo ? < MonsterShow monster={this.state.monsterInfo} /> : null;
         const characterInfo = this.state.characterInfo ? this.state.characterInfo === 'Error' ? <p>CHARACTER NOT FOUND</p> : <CharacterShow character={this.state.characterInfo} /> : null; 
-        return (<div>
-            <Link to='/games'>GAMES INDEX</Link>
-            <h1>GAME Show</h1>
-            <h1>{this.props.game.title}</h1>
-            <ul>
-                <h1>players</h1>
-                {this.props.game.players.map(player => (<li key={player._id} onClick={this.showCharacter(player)}>{player.name}</li>))}
-            </ul>
-            <ul>
-                <h1>monsters</h1>
-                {this.props.game.monsters.map( (monster,idx)  => (<li key={`${monster.name} ${idx}`} onClick={this.showMonster(monster)} >{monster.name}</li>))}
-            </ul>
-            <ul>
-                <h2>Order</h2>
-                {this.state.order.map((item, idx) => (<li key={`${item.initiative} ${idx}`}>
-                Name: {item.name} : Initiative {item.initiative} 
-                </li>)) }
-            </ul>
-            {monsterInfo}
-            {characterInfo}
+        return (
+            <div className="show-main">
+                <div className="show-info">
+                    <div className="show-instructions">
+                        <div className="show-game-name">{this.props.game.title}</div>
+                        <ul className="instructions-list">
+                            <li>Click the "next" button to advance the turn.</li>
+                            <li>Click on a character or monster to see expanded info</li>
+                            <li>Keep track of the HP with the input</li>
+                            <li><Link to='/games'>Return to other games</Link></li>
+                        </ul>
+                    </div>
+                    <div className="show-list">
+                        <ul>
+                            <div className="show-title">Players</div>
+                            {this.props.game.players.map(player => (
+                            <li key={player._id} onClick={this.showCharacter(player)}>
+                                {player.name}
+                            </li>))}
+                            {characterInfo}
+                        </ul>
+                    </div>
+                    <div className="show-list">
+                        <ul>
+                            <div className="show-title">Monsters</div>
+                            {this.props.game.monsters.map( (monster,idx)  => (
+                            <li key={`${monster.name} ${idx}`} onClick={this.showMonster(monster)} >
+                                {monster.name}
+                            </li>))}
+                            {monsterInfo}
+                        </ul>
+                    </div>                
+                </div>
+                <div className="show-battle">
+                    {this.state.order.map((item, idx) => (
+                        <li key={`${item.initiative} ${idx}`}>
+                            {item.name}
+                        </li>))}
+                </div>
         </div>)
     }
 }
