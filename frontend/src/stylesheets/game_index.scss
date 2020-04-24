@@ -97,17 +97,20 @@
     padding: 2px;
 }
 
-#moreButton {
+#moreButton, #delete-game-button {
     border-radius: 4px;
    background-color: $third-highlight;
    color: $sec-highlight;
    font-weight: 500;
 }
 
-#moreButton:hover {
+#moreButton:hover, #delete-game-button:hover {
     background-color: $sec-color;
 }
 
+#delete-game-button {
+    margin-left: 10px;
+}
 
 
 // .game-show-main {
