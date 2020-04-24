@@ -56,9 +56,9 @@ class GameShow extends React.Component{
         }
     }
 
-    damageCreature(e){
-        // damage the creature upon click
-        // only way coming to mind is to decrease 1 hp on click.
+    adjustHpCreature(creature, value){
+        // drop down damage from 0 to 100
+        // done in options? selects? 
     }
 
     sweepDeadMonsters(arrOfCreatures){
