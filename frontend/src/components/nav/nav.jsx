@@ -23,12 +23,10 @@ const Nav = ({ currentUser, logout, openLoginModal, openSignupModal }) => {
     const loggeddInNav = () => (
       <nav className="header">
         <div className="logo">
-          <h1> <Link to='/profile'>Dungeon Companion</Link></h1>
+          <h1><Link to='/profile'>Dungeon Companion</Link></h1>
         </div>
         <div className="nav-Buttons">
-          <button className="nav-Button">Profile
-          <Link to='/profile'></Link>
-          </button>
+          <Link to='/profile'><button className="nav-Button">Profile</button></Link>
           <button className="nav-Button" onClick={logout}>
             Log Out
           </button>
