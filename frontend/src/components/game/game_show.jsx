@@ -123,7 +123,9 @@ class GameShow extends React.Component{
                             </ul>
                         </div>
                         <div className="show-info-box">
+                            <div>
                             {characterInfo}
+                            </div>
                         </div>
                     </div>
                     <div className="show-list">
@@ -137,7 +139,9 @@ class GameShow extends React.Component{
                             </ul>
                         </div>
                         <div className="show-info-box">
+                            <div>
                             {monsterInfo}
+                            </div>
                         </div>
                     </div>
                 </div>
