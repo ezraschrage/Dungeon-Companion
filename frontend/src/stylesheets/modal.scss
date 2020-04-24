@@ -9,16 +9,16 @@
 }
 
 .modal-child {
-  background-color: $sec-highlight;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 400px;
-  width: 400px;
-  border-radius: 12px;
-  box-shadow: 0 0 14px 12px $sec-highlight;
-  position: relative;
+    background-color: #45484a;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 400px;
+    width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 0 14px 12px #819eb1;
+    position: relative;
 }
 
 .loginForm {
@@ -105,7 +105,7 @@
 }
 
 .login {
-    color: black;
+    color:$main-highlight;
     margin-top: 20px;
     cursor: pointer;
     font-size: 18px;
@@ -115,7 +115,7 @@
 .loginText {
     margin-top: 15px;
     margin-bottom: 30px;
-    color: black;
+    color: $main-highlight;
     font-size: 30px;
     cursor: default;
     font-weight: 600;
