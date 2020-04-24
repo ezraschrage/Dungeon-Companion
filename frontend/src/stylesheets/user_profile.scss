@@ -7,11 +7,89 @@
 .profileImage {
     width: 700px;
     min-height: 900px;
+    display: flex;
+  
 }
 
 .userName {
+    margin: 0 auto;
+    padding: 20px;
     font-size: 30px;
     color: $main-color;
     font-family: ribato;
     font-weight: 700;
+    text-align: center;
+    text-shadow: 2px 2px #e9d0e6;
+    width: 300px;
+    border-radius: 10px;
+    font-family: 'Righteous', 'Roboto', sans-serif;
+    
+}
+
+.yourChars {
+    float: right;
+    margin-bottom: 100px;
+    margin-top: 50px;
+    margin-right: 150px;
+    // margin-left: 50px;
+    text-align: center;
+    display: flex;
+    background-color: rgba(73, 37, 67, 0.8);
+    border-radius: 10px;
+    width: 400px;
+    padding: 20px;
+    cursor: pointer;
+     
+}
+
+.yourChars a {
+    text-decoration: none;
+    padding: 5px;
+    width: 150px;
+    font-size: 40px;
+    color: $light-sec-highlight;
+    font-family: ribato;
+    font-weight: 700;
+    font-family: 'Righteous', 'Roboto', sans-serif;
+}
+img {
+    max-width: 200px;
+}
+// .character img {
+//     // width: 100px;
+//     height: 200px;
+// }
+
+.yourGames {
+    margin-bottom: 100px;
+    margin-top: 50px;
+    margin-left: 150px;
+    text-align: center;
+    display: flex;
+    background-color: rgba(73, 37, 67, 0.8);
+    border-radius: 10px;
+    width: 400px;
+    height: 280px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.yourGames:focus {
+    
+}
+
+.yourGames a {
+    text-decoration: none;
+    padding: 5px;
+    width: 150px;
+    font-size: 40px;
+    color: $light-sec-highlight;
+    font-family: ribato;
+    font-weight: 700;
+    font-family: 'Righteous', 'Roboto', sans-serif;
+}
+
+.dice img {
+     width: 200px;
+    height: 300px;
 }
