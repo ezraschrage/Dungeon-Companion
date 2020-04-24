@@ -92,7 +92,6 @@ hr {
 input, select {
     vertical-align:middle;
 }
-
-div {
-    border: 0.1px red solid;
+button:hover, a:hover {
+    cursor: pointer;
 }

@@ -9,8 +9,6 @@ class GameCreate extends React.Component{
             title: '',
             characters: {},
             monsters: [],
-            monstCount: 0,
-            charactersCount: 0,
             searchMonstWord: '',
             searchCharWord: '',
             monsterInfo: null,
@@ -23,6 +21,8 @@ class GameCreate extends React.Component{
         this.showMonster = this.showMonster.bind(this);
         this.showCharacter = this.showCharacter.bind(this);
         this.getCharacters = this.getCharacters.bind(this);
+        this.removeCharacter = this.removeCharacter.bind(this);
+        this.removeMonster = this.removeMonster.bind(this);
         this.timer = null;
     }
     
@@ -66,14 +66,22 @@ class GameCreate extends React.Component{
         return (e) =>{
             this.props.fetchMonster(monster.index)
             .then((newMonst) =>{ 
-                this.state.monsters.push({
+                const newMonsters = [...this.state.monsters]
+                newMonsters.push({
                 index: monster.index,
                 initiative: Math.floor((Math.random()*20) + 1) + Math.floor((newMonst.monster.dexterity - 10)/2),
                 hp: newMonst.monster.hit_points,
                 name: monster.name,
                 });
-                this.setState({monstCount: this.state.monsters.length})
+                this.setState({monsters: newMonsters})
             });
+        }
+    }
+
+    removeMonster(idx){
+        return (e) =>{
+            const newMonsters = this.state.monsters.slice(0, idx).concat(this.state.monsters.slice(idx + 1, this.state.monsters.length));
+            this.setState({monsters: newMonsters});
         }
     }
 
@@ -101,8 +109,14 @@ class GameCreate extends React.Component{
                     id: character._id,
                 };
                 this.setState({characters: characters});
-                this.setState({charactersCount: Object.keys(this.state.characters).length});
-            }
+                }
+        }
+    }
+    removeCharacter(id){
+        return (e) =>{
+            const newCharacters = Object.assign({}, this.state.characters);
+            delete newCharacters[id];
+            this.setState({characters: newCharacters});
         }
     }
 
@@ -110,29 +124,37 @@ class GameCreate extends React.Component{
         const monsterInfo = this.state.monsterInfo ? < MonsterShow monster={this.state.monsterInfo} /> : null;
         const characterInfo = this.state.characterInfo ?  <CharacterShow character={this.state.characterInfo} /> : null; 
 
-        return (<div>
-            <h1>Create a game</h1>
+        return (<div className='game-create-main'>
+            <div>
+            <h1>Create a Game Session</h1>
             <form action="" onSubmit={this.handleSubmit} >
                 <label htmlFor="">
                     Title: 
                     <input type="text" value={this.state.title} onChange={this.handleInput('title')}  />
                 </label>
                 
-                <button>Make Game</button>
+                <button className='create-game'>Make Game</button>
             </form>
-            <ul>Players Chosen: {this.state.charactersCount}
+            <div className='characters-chosen'>
+                <h2>Characters Chosen</h2>
+            <ul>
                 {Object.values(this.state.characters).map(player => (<li>
-                    {player.name}
+                    {player.name} <button onClick={this.removeCharacter(player.id)}>Remove </button>
                 </li> ))}
             </ul>
-            <ul>Monsters Chosen: {this.state.monstCount}
-                {this.state.monsters.map(monster => (<li>
-                    {monster.name}
+            </div>
+            
+            <div className='monsters-chosen'>
+                <h2>Monsters Chosen</h2>
+            <ul>
+                {this.state.monsters.map((monster,idx) => (<li>
+                    {monster.name} <button onClick={this.removeMonster(idx)}>Remove</button>
                 </li> ))}
             </ul>
+            </div>
             <div>
                 <ul>
-                    Players
+                    Characters
                     {this.props.characters.map(character => (<li> 
                         {character.name}
                         <button onClick={this.showCharacter(character)}>More Info</button>
@@ -153,6 +175,7 @@ class GameCreate extends React.Component{
                         <button onClick={this.addMonster(monster)}>Add Monster</button>
                     </li>))}
                 </ul>
+            </div>
             </div>
             {monsterInfo}
         </div>)

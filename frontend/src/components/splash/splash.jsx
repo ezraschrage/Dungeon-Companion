@@ -23,10 +23,10 @@ class Splash extends React.Component {
                         Battle Assisstant! Add monsters and players, keep track 
                         of initiative, and display relevant stats to streamline combat.
                     </div>
-                    <div className="medium-main">
+                    {/* <div className="medium-main">
                         Character generator! Answer a series of questions and 
                         a pre-made character will be made for you (coming soon!)
-                    </div>
+                    </div> */}
             </div>
         )
     }

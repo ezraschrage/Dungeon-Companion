@@ -1,7 +1,7 @@
 .main {
     min-height: 900px;
     width: 100%;
-    background-image: url(../assets/images/dndd.jpg);
+    background-image: url(../assets/images/prof_image.jpg);
 }
 
 .profileImage {
@@ -15,8 +15,8 @@
 .welcomeUserName {
     margin: 0 auto;
     padding: 20px;
-    font-size: 30px;
-    color: $main-color;
+    font-size: 35px;
+    color: black;
     font-weight: 700;
     text-align: center;
     text-shadow: 3px 3px $light-sec-highlight;
@@ -33,7 +33,7 @@
     margin-left: 135px;
     text-align: center;
     display: flex;
-    background-color: rgba(73, 37, 67, 0.8);
+    background-color: rgba(102, 19, 19, 0.6);
     border-radius: 10px;
     width: 400px;
     height: 280px;
@@ -62,7 +62,7 @@ img.character {
     margin-left: 150px;
     text-align: center;
     display: flex;
-    background-color: rgba(73, 37, 67, 0.8);
+    background-color: rgba(102, 19, 19, 0.6);
     border-radius: 10px;
     width: 400px;
     height: 280px;
