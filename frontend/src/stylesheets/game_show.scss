@@ -1,0 +1,104 @@
+.show-main {
+    display: flex;
+    flex-direction: row;
+    // justify-content: right;
+    // padding-left: 20px;
+   
+}
+
+.show-info {
+    width: 40%;
+    height: 100%;
+}
+
+
+.show-game-name {
+    font-size: 30px;
+    text-align: center;
+}
+
+.instructions-list > li{
+    font-size: 20px;
+    padding: 5px 0px 10px 10px;
+}
+
+.show-title {
+    text-align: center;
+    font-size: 25px;
+}
+
+.show-list {
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+    height: 30vh;
+}
+
+.show-list-box {
+    width: 34%;
+}
+
+.show-info-box {
+    width: 66%;
+    overflow: scroll;
+
+    padding: 10px;
+}
+
+
+
+
+
+
+
+.show-battle {
+    width: 100vh;
+    height: 70vh;
+    overflow: scroll;
+}
+
+.show-battle-headers {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.show-battle-header {
+    width: 100%;
+    padding: 10px;
+}
+
+.show-battle-unordered {
+    width: 100%;
+}
+
+.show-battle-creatures {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.show-battle-creature {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px black solid;
+}
+
+.show-battle-name {
+    // width: 30%;
+    flex-grow: 2;
+}
+
+.show-battle-hp {
+    // width: 20%;
+        flex-grow: 2;
+
+}
+
+.show-battle-other {
+    // width: 50%;
+        flex-grow: 2;
+
+}
