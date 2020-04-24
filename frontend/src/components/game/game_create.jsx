@@ -131,7 +131,7 @@ class GameCreate extends React.Component{
             </div>
             <form action="" onSubmit={this.handleSubmit} >
                 <label htmlFor="">Title: 
-                    <input type="text" value={this.state.title} onChange={this.handleInput('title')}  />
+                    <input className="gameTitleBox"type="text" value={this.state.title} onChange={this.handleInput('title')}  />
                 </label>
                 
                 <button className='create-game'>Make Game</button>
@@ -172,10 +172,10 @@ class GameCreate extends React.Component{
                 </div>
                 <div className ='monsters-search'>
                     <h2>Monster list</h2>
-                <label htmlFor=""> Find Monster
-                    <input type="text" value={this.state.searchMonstWord} onChange={this.getMonsters} />
-                    </label>
-                <ul>
+                <label className="findMonster" htmlFor=""> Find Monster
+                    <input className="textB" type="text" value={this.state.searchMonstWord} onChange={this.getMonsters} />
+                </label>
+                <ul className="mosterUl">
                     {this.props.monsters.map(monster => (<li> 
                         <h3>{monster.name}</h3> 
                         <button onClick={this.showMonster(monster)}>More Info</button>
