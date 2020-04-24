@@ -62,6 +62,7 @@ class GameShow extends React.Component{
             let newHp = this.state.order[idx].hp - e.currentTarget.value;
             oldState.order[idx].hp = newHp
             this.setState(oldState);
+            e.currentTarget.value = 0;
         }
     }
 
@@ -117,8 +118,7 @@ class GameShow extends React.Component{
                 {this.state.order.map((item, idx) => (
                 <li key={`${item.initiative} ${idx}`}>
                     {item.name} : HP {item.hp}
-                    <select name="hp" onChange={this.adjustHpCreature(idx)}>
-                        <option value="0" selected disabled hidden>---</option>
+                    <select name="hp" onChange={this.adjustHpCreature(idx)} defaultValue={0}>
                         {hpAdjustValues.map(changeValue => (
                             <option key={changeValue} value={changeValue}> {changeValue}</option>
                         ))}
