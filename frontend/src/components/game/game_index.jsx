@@ -11,17 +11,28 @@ class GameIndex extends React.Component{
     }
 
     render(){
-        return (<div>
-            <Link to='/profile'>Back to Profile</Link>
-            GAME INDEX
-            <Link to='/games/create'>Create Game</Link>
-            <ul>
-                {this.props.games.map(game => (
-                    <li key={game._id}>Game: {game.title}
-                    <Link to={`/games/${game._id}`}><button>more</button></Link></li>
-                ))}
-            </ul>
-            
+        return (
+        <div className="game-index-container">
+            <div className='game-index-main'>
+                <div className="game-index-title">
+                    <Link to='/profile'>Back to Profile</Link>
+                    <h1>Manage Games</h1>
+                    <Link to='/games/create'>Create Game</Link>
+                </div>
+
+                <div className="index-subcontainer">
+                    <div className="game-thumbnail-container">
+                        <ul>
+                            {this.props.games.reverse().map(game => (
+                                <div className="game-thumbnail">
+                                    <li key={game._id}>{game.title}
+                                    <Link to={`/games/${game._id}`}><button>more</button></Link></li>
+                                </div>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>)
     }
 }

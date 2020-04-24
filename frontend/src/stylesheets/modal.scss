@@ -9,7 +9,7 @@
 }
 
 .modal-child {
-  background-color: $sec-color;
+  background-color: $sec-highlight;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -17,8 +17,7 @@
   height: 400px;
   width: 400px;
   border-radius: 12px;
-  border: 3px solid $sec-highlight;
-  box-shadow: 0 0 10px 7px $light-sec-highlight;
+  box-shadow: 0 0 14px 12px $sec-highlight;
   position: relative;
 }
 
@@ -47,24 +46,24 @@
     padding: 7px 5px;
     width: 270px;
     font-size: 18px;
-    border: 1px solid $baby-pink;
+    border: 1px solid $back-tone;
     border-radius: 3px;
     font-weight: 600;
-    background: $back-tone;
+    background: $main-color;
     font-family: ribato;
     outline: none;
-    color: $light-sec-highlight;
+    color: $main-highlight;
 }
 .inputBox:focus {
-    border: 2px solid $baby-pink;   
+    border: 2px solid $main-color;   
     border-style: inset 0 0 1 1;    
 }
 ::placeholder {
-    color: $light-sec-highlight;
+    color: $main-highlight;
 }
 
 .submitButton {
-    background-color: $back-tone;
+    background-color: $main-color;
     font-size: 18px;
     font-family: ribato;
     font-weight: 600;
@@ -74,14 +73,14 @@
     line-height: 22px;
     cursor: pointer;
     border: 0;
-    color: $light-sec-highlight;
-    border: 1px solid $baby-pink;
+    color: $main-highlight;
+    border: 1px solid $main-color;
     outline: none;
 }
 
 .demoButton {
     margin-top: 16px;
-    background-color: $back-tone;
+    background-color: $main-color;
     font-size: 18px;
     font-family: ribato;
     font-weight: 600;
@@ -91,29 +90,33 @@
     line-height: 22px;
     cursor: pointer;
     border: 0;
-    color: $light-sec-highlight;
-    border: 1px solid $baby-pink;
+    color: $main-highlight;
+    border: 1px solid $main-color;
     outline: none;
 }
 
 .submitButton:hover, .demoButton:hover {
-    background-color:  rgb(75, 73, 73);
+    background-color:  rgb(59, 57, 57);
 }
 
 .submitButton:focus, .demoButton:hover {
-    border: 2px solid $baby-pink;   
+    border: 2px solid $main-color;   
     border-style: inset 0 0 1 1;    
 }
 
 .login {
-    color: $light-sec-highlight;
+    color: black;
     margin-top: 20px;
     cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .loginText {
+    margin-top: 15px;
     margin-bottom: 30px;
-    color: $baby-pink;
+    color: black;
     font-size: 30px;
     cursor: default;
+    font-weight: 600;
 }
