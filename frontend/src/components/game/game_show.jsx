@@ -93,53 +93,97 @@ class GameShow extends React.Component{
         for (let i = 100; i >= -100; i--){
             hpAdjustValues.push(i);
         }
-
-        if(!this.props.game) return (<div>loading</div>)
-        const monsterInfo = this.state.monsterInfo ? < MonsterShow monster={this.state.monsterInfo} /> : null;
         const characterInfo = this.state.characterInfo ? this.state.characterInfo === 'Error' ? <p>CHARACTER NOT FOUND</p> : <CharacterShow character={this.state.characterInfo} /> : null;
         const currentTurnCreature = this.state.order.length > 0 ? <h2>{this.state.order[0].name}</h2> : <></>
         const remainingTurnCreatures = this.state.order.length > 0 ? <>{this.state.order.slice(1).map(creature => <h3>{creature.name}</h3>)}</> : <></>
 
-        return (<div>
-            <Link to='/games'>GAMES INDEX</Link>
-            <h1>CURRENT ENCOUNTER</h1>
-            <h1>{this.props.game.title}</h1>
-            <ul>
-                <h1>players</h1>
-                {this.props.game.players.map(player => (<li key={player._id} onClick={this.showCharacter(player)}>{player.name}</li>))}
-            </ul>
-            <ul>
-                <h1>monsters</h1>
-                {this.props.game.monsters.map( (monster,idx)  => (<li key={`${monster.name} ${idx}`} onClick={this.showMonster(monster)} >{monster.name}</li>))}
-            </ul>
-            <ul>
-                <h2>Order</h2>
-                {this.state.order.map((item, idx) => (
-                <li key={`${item.initiative} ${idx}`}>
-                    {item.name} : HP {item.hp}
-                    <select name="hp" onChange={this.adjustHpCreature(idx)}>
-                        <option value="0" selected disabled hidden>---</option>
-                        {hpAdjustValues.map(changeValue => (
-                            <option key={changeValue} value={changeValue}> {changeValue}</option>
-                        ))}
-                    </select>
-                </li>)) }
-            </ul>
+        if(!this.props.game) return (<div>loading</div>)
+        const monsterInfo = this.state.monsterInfo ? < MonsterShow monster={this.state.monsterInfo} /> : null;
+        return (
+            <div className="show-main">
+                <div className="show-info">
+                    <div className="show-instructions">
+                        <div className="show-game-name">{this.props.game.title}</div>
+                        <ul className="instructions-list">
+                            <li>Click the "next" button to advance the turn.</li>
+                            <li>Click on a character or monster to see expanded info</li>
+                            <li>Keep track of the HP with the input</li>
+                            <li><Link to='/games'>Return to other games</Link></li>
+                        </ul>
+                    </div>
+                    <div className="show-list">
+                        <div className="show-list-box">
+                            <ul>
+                                <div className="show-title">Players</div>
+                                {this.props.game.players.map(player => (
+                                <li key={player._id} onClick={this.showCharacter(player)}>
+                                    {player.name}
+                                </li>))}
+                            </ul>
+                        </div>
+                        <div className="show-info-box">
+                            {characterInfo}
+                        </div>
+                    </div>
+                    <div className="show-list">
+                        <div className="show-list-box">
+                            <ul>
+                                <div className="show-title">Monsters</div>
+                                {this.props.game.monsters.map( (monster,idx)  => (
+                                <li key={`${monster.name} ${idx}`} onClick={this.showMonster(monster)}>
+                                    {monster.name}
+                                </li>))}
+                            </ul>
+                        </div>
+                        <div className="show-info-box">
+                            {monsterInfo}
+                        </div>
+                    </div>
+                </div>
+                <div className="show-battle">
+                    <h1>CURRENT TURN:</h1>
+                    {currentTurnCreature}
+                    <h2>REMAINING CREATURES:</h2>
+                    {remainingTurnCreatures}
 
-            {monsterInfo}
-            {characterInfo}
-
-            <br />
-            <h1>CURRENT TURN:</h1>
-            {currentTurnCreature}
-            <h2>REMAINING CREATURES:</h2>
-            {remainingTurnCreatures}
-
-            <button 
-                onClick={() => this.props.playTurnGame(
-                    this.sweepDeadMonsters(this.state.order))}
-                >NEXT TURN
-            </button>
+                    <button
+                        onClick={() => this.props.playTurnGame(
+                            this.sweepDeadMonsters(this.state.order))}
+                    >NEXT TURN
+                     </button>
+                    <div className="show-battle-headers">
+                        <div className="show-battle-header">
+                            Combatant
+                        </div>
+                        <div className="show-battle-header">
+                            HP
+                        </div>
+                        <div className="show-battle-header">
+                            Other
+                        </div>
+                    </div>
+                    <div className="show-battle-creatures">
+                    <ul className="show-battle-unordered">
+                    {this.state.order.map((item, idx) => (
+                        <li key={`${item.initiative} ${idx}`} className="show-battle-creature">
+                            <div className="show-battle-name">
+                                {item.name}
+                            </div>
+                            <div className="show-battle-hp">
+                                {item.hp}                     <select name="hp" onChange={this.adjustHpCreature(idx)}>
+                                    <option value="0" selected disabled hidden>---</option>
+                                    {hpAdjustValues.map(changeValue => (
+                                        <option key={changeValue} value={changeValue}> {changeValue}</option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div className="show-battle-other">
+                                {item.name}
+                            </div>
+                        </li>))}
+                    </ul>
+                    </div>
+                </div>
         </div>)
     }
 }
