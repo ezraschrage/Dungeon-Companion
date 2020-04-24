@@ -56,9 +56,13 @@ class GameShow extends React.Component{
         }
     }
 
-    adjustHpCreature(creature, value){
-        // drop down damage from 0 to 100
-        // done in options? selects? 
+    adjustHpCreature(idx){
+        return (e) => {
+            let oldState = {...this.state}
+            let newHp = this.state.order[idx].hp - e.currentTarget.value;
+            oldState.order[idx].hp = newHp
+            this.setState(oldState);
+        }
     }
 
     sweepDeadMonsters(arrOfCreatures){
@@ -80,10 +84,16 @@ class GameShow extends React.Component{
                 }
             }
         }
+        console.log(creaturesClone);
         return creaturesClone;
     }
 
     render(){
+        const hpAdjustValues = [];
+        for (let i = 100; i >= -100; i--){
+            hpAdjustValues.push(i);
+        }
+
         if(!this.props.game) return (<div>loading</div>)
         const monsterInfo = this.state.monsterInfo ? < MonsterShow monster={this.state.monsterInfo} /> : null;
         const characterInfo = this.state.characterInfo ? this.state.characterInfo === 'Error' ? <p>CHARACTER NOT FOUND</p> : <CharacterShow character={this.state.characterInfo} /> : null;
@@ -104,14 +114,22 @@ class GameShow extends React.Component{
             </ul>
             <ul>
                 <h2>Order</h2>
-                {this.state.order.map((item, idx) => (<li key={`${item.initiative} ${idx}`}>
-                Name: {item.name} : Initiative {item.initiative} 
+                {this.state.order.map((item, idx) => (
+                <li key={`${item.initiative} ${idx}`}>
+                    {item.name} : HP {item.hp}
+                    <select name="hp" onChange={this.adjustHpCreature(idx)}>
+                        <option value="0" selected disabled hidden>---</option>
+                        {hpAdjustValues.map(changeValue => (
+                            <option key={changeValue} value={changeValue}> {changeValue}</option>
+                        ))}
+                    </select>
                 </li>)) }
             </ul>
 
             {monsterInfo}
             {characterInfo}
 
+            <br />
             <h1>CURRENT TURN:</h1>
             {currentTurnCreature}
             <h2>REMAINING CREATURES:</h2>
