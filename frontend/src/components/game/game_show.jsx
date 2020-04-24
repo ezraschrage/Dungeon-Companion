@@ -59,7 +59,7 @@ class GameShow extends React.Component{
     adjustHpCreature(idx){
         return (e) => {
             let oldState = {...this.state}
-            let newHp = this.state.order[idx].hp - e.currentTarget.value;
+            let newHp = this.state.order[idx].hp + parseInt(e.currentTarget.value);
             oldState.order[idx].hp = newHp
             this.setState(oldState);
             e.currentTarget.value = 0;
@@ -91,7 +91,7 @@ class GameShow extends React.Component{
 
     render(){
         const hpAdjustValues = [];
-        for (let i = 100; i >= -100; i--){
+        for (let i = 50; i >= -50; i--){
             hpAdjustValues.push(i);
         }
         const characterInfo = this.state.characterInfo ? this.state.characterInfo === 'Error' ? <p>CHARACTER NOT FOUND</p> : <CharacterShow character={this.state.characterInfo} /> : null;
@@ -155,7 +155,7 @@ class GameShow extends React.Component{
                         onClick={() => this.props.playTurnGame(
                             this.sweepDeadMonsters(this.state.order))}
                     >Next Turn
-                     </button>
+                    </button>
                     <div className="show-battle-headers">
                         <div className="show-battle-header">
                             Combatant
@@ -175,8 +175,8 @@ class GameShow extends React.Component{
                                 {item.name}
                             </div>
                             <div className="show-battle-hp">
-                                {item.hp}                     <select name="hp" onChange={this.adjustHpCreature(idx)}>
-                                    <option value="0" selected disabled hidden>---</option>
+                                {item.hp}                  <select name="hp" value={0} onChange={this.adjustHpCreature(idx)}>
+                                    {/* <option value="0" selected disabled hidden>---</option> */}
                                     {hpAdjustValues.map(changeValue => (
                                         <option key={changeValue} value={changeValue}> {changeValue}</option>
                                     ))}
