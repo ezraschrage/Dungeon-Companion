@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getDMGames } from '../../actions/game_actions';
+import { getDMGames, deleteGame } from '../../actions/game_actions';
 import GameIndex from './game_index';
 import {withRouter} from 'react-router-dom'
 
@@ -9,7 +9,8 @@ const msp = (state) =>({
 
 const mdp = dispatch => {
     return {
-        getDMGames: (charId) => dispatch(getDMGames(charId))
+        getDMGames: (charId) => dispatch(getDMGames(charId)),
+        deleteGame:  (game_id) => dispatch(deleteGame(game_id))
     };
 };
 

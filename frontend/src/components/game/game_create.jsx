@@ -131,7 +131,8 @@ class GameCreate extends React.Component{
             </div>
             <form action="" onSubmit={this.handleSubmit} >
                 <label htmlFor="">Title: 
-                    <input className="gameTitleBox"type="text" value={this.state.title} onChange={this.handleInput('title')}  />
+                    <input type="text" value={this.state.title} onChange={this.handleInput('title')}  />
+
                 </label>
                 
                 <button className='create-game'>Make Game</button>
@@ -156,8 +157,10 @@ class GameCreate extends React.Component{
                     </li>))}
                 </ul>
                 </div>
-                
-                {characterInfo}
+                <div className="characters-show">
+                    {characterInfo}
+                </div>
+
             </div>
 
             <div className='game-monsters-main'>
@@ -172,10 +175,11 @@ class GameCreate extends React.Component{
                 </div>
                 <div className ='monsters-search'>
                     <h2>Monster list</h2>
-                <label className="findMonster" htmlFor=""> Find Monster
-                    <input className="textB" type="text" value={this.state.searchMonstWord} onChange={this.getMonsters} />
-                </label>
-                <ul className="mosterUl">
+                <label htmlFor=""> Find Monster
+                    <input type="text" value={this.state.searchMonstWord} onChange={this.getMonsters} />
+                    </label>
+                <ul>
+
                     {this.props.monsters.map(monster => (<li> 
                         <h3>{monster.name}</h3> 
                         <button onClick={this.showMonster(monster)}>More Info</button>
@@ -183,7 +187,10 @@ class GameCreate extends React.Component{
                     </li>))}
                 </ul>
             </div>
-            {monsterInfo}
+                <div className='monsters-show'>
+                 {monsterInfo}
+                </div>
+
             </div>
             
             
