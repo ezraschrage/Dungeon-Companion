@@ -64,7 +64,7 @@ class GameShow extends React.Component{
     adjustHpCreature(idx){
         return (e) => {
             let oldState = {...this.state}
-            let newHp = this.state.order[idx].hp - e.currentTarget.value;
+            let newHp = this.state.order[idx].hp + parseInt(e.currentTarget.value);
             oldState.order[idx].hp = newHp
             this.setState(oldState);
             e.currentTarget.value = 0;
@@ -174,8 +174,8 @@ class GameShow extends React.Component{
                                 {item.name}
                             </div>
                             <div className="show-battle-hp">
-                                {item.hp}                     <select name="hp" onChange={this.adjustHpCreature(idx)}>
-                                    <option value="0" selected disabled hidden>---</option>
+                                {item.hp}                     <select name="hp" value={0} onChange={this.adjustHpCreature(idx)}>
+                                    {/* <option value="0" selected disabled hidden>---</option> */}
                                     {hpAdjustValues.map(changeValue => (
                                         <option key={changeValue} value={changeValue}> {changeValue}</option>
                                     ))}
