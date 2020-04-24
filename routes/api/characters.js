@@ -48,7 +48,7 @@ router.get('/:id', passport.authenticate('jwt', { session: false }),
   (req, res) => {
       Character.findById(req.params.id)
       .then(character => res.json(character))
-      .catch( err => res.status(404).json({noCharacterFound: 'No Character found with that id'}))
+      .catch(err => res.status(404).json({noCharacterFound: 'No Character found with that id'}))
   }
 );
 
@@ -80,7 +80,7 @@ router.patch('/:id', passport.authenticate('jwt', { session: false }),
 router.delete('/:id', passport.authenticate('jwt', { session: false }),
   (req, res) => {
       Character.findByIdAndRemove(req.params.id)
-      .then( () => res.json({characterDeleted: 'Character Deleted'}))
+      .then( () => res.json(req.params.id))
       .catch( err => res.status(404).json({noCharacterFound: 'No Character found with that id'}))
   }
 );

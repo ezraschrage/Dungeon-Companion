@@ -9,11 +9,11 @@ const Nav = ({ currentUser, logout, openLoginModal, openSignupModal }) => {
         <div className="logo">
           <h1>Dungeon Companion</h1>
         </div>
-        <div className="sessionButtons">
-          <button className="sessionButton" onClick={openLoginModal}>
+        <div className="nav-Buttons">
+          <button className="nav-Button" onClick={openLoginModal}>
             Log In
           </button>
-          <button className="sessionButton" onClick={openSignupModal}>
+          <button className="nav-Button" onClick={openSignupModal}>
             Sign Up
           </button>
         </div>
@@ -22,12 +22,12 @@ const Nav = ({ currentUser, logout, openLoginModal, openSignupModal }) => {
 
     const loggeddInNav = () => (
       <nav className="header">
-        <div className="profileLogo">
-          <h1> <Link to='/profile'>Dungeon Companion</Link></h1>
+        <div className="logo">
+          <h1><Link to='/profile'>Dungeon Companion</Link></h1>
         </div>
-        <div className="profileButton"><Link to='/profile'>Profile</Link></div>
-        <div className="sessionButtons">
-          <button className="button" onClick={logout}>
+        <div className="nav-Buttons">
+          <Link to='/profile'><button className="nav-Button">Profile</button></Link>
+          <button className="nav-Button" onClick={logout}>
             Log Out
           </button>
         </div>

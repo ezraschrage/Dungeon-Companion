@@ -4,10 +4,16 @@ import {Link} from 'react-router-dom'
 class CharacterIndex extends React.Component{
     constructor(props){
         super(props);
+        this.sendDelete = this.sendDelete.bind(this);
     }
 
     componentDidMount(){
         this.props.getCharacter(this.props.match.params.charId);
+    }
+
+    sendDelete(){
+        this.props.deleteCharacter(this.props.character._id)
+        .then(this.props.history.push('/characters/'))
     }
 
     render(){
@@ -32,7 +38,8 @@ class CharacterIndex extends React.Component{
                     <ul>Proficiencies: {character.proficiencies.map(prof => (<li key={prof}>{prof}</li>))}</ul>
                 </div>
                 <div className="character-show-right">
-                    <Link to={`/characters/edit/${this.props.character.id}`}>Edit Character</Link>
+                    <Link to={`/characters/edit/${this.props.character._id}`}>Edit Character</Link>
+                    <button onClick={this.sendDelete}>Delete Character</button>
                 </div>
             </div>
         )

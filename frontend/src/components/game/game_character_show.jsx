@@ -17,7 +17,7 @@ export default ({character}) =>{
             <h1>Charisma: {character.cha}</h1>
             <h1>Level: {character.lvl}</h1>
             <h1>Allow Magic: {character.allowMagic}</h1>
-            <h1>Proficiencies: {character.proficiencies.map(prof => (<p>{prof}</p>))}</h1>
+            <h1>Proficiencies: {character.proficiencies.map(prof => (<p key={prof}>{prof}</p>))}</h1>
         </div>
     );
 }

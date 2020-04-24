@@ -7,11 +7,83 @@
 .profileImage {
     width: 700px;
     min-height: 900px;
+    display: flex;
+
+  
 }
 
-.userName {
+.welcomeUserName {
+    margin: 0 auto;
+    padding: 20px;
     font-size: 30px;
     color: $main-color;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 3px 3px $light-sec-highlight;
+    width: 800px;
+    height: 100px;
+
+    font-family: 'Righteous', 'Roboto', sans-serif;
+    
+}
+
+.yourChars {
+    margin-top: 80px;
+    margin-right: 150px;
+    margin-left: 80px;
+    text-align: center;
+    display: flex;
+    background-color: rgba(73, 37, 67, 0.8);
+    border-radius: 10px;
+    width: 400px;
+    height: 280px;
+    padding: 20px;
+    cursor: pointer;
+     
+}
+
+.yourChars a {
+    text-decoration: none;
+    margin-left: -12px;
+    width: 150px;
+    font-size: 40px;
+    color: $light-sec-highlight;
     font-family: ribato;
     font-weight: 700;
+    font-family: 'Righteous', 'Roboto', sans-serif;
+}
+img.character {
+    max-width: 200px;
+}
+
+.yourGames {
+
+    margin-top: 80px;
+    margin-left: 150px;
+    text-align: center;
+    display: flex;
+    background-color: rgba(73, 37, 67, 0.8);
+    border-radius: 10px;
+    width: 400px;
+    height: 280px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+
+.yourGames a {
+    text-decoration: none;
+    padding: 5px;
+    width: 150px;
+    font-size: 40px;
+    color: $light-sec-highlight;
+    font-family: ribato;
+    font-weight: 700;
+    font-family: 'Righteous', 'Roboto', sans-serif;
+}
+
+img.dice {
+     width: 270px;
+    height: 160px;
+    padding: 5px;
 }
