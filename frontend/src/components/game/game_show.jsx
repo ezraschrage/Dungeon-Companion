@@ -62,6 +62,7 @@ class GameShow extends React.Component{
             let newHp = this.state.order[idx].hp - e.currentTarget.value;
             oldState.order[idx].hp = newHp
             this.setState(oldState);
+            e.currentTarget.value = 0;
         }
     }
 
