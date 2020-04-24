@@ -45,20 +45,60 @@
     padding: 10px;
 }
 
+
+
+
+
+
+
 .show-battle {
-    width: 60%;
-    height: 100%;
+    width: 100vh;
+    height: 70vh;
     overflow: scroll;
 }
 
-.show-battle-name {
+.show-battle-headers {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
 
+.show-battle-header {
+    width: 100%;
+    padding: 10px;
+}
+
+.show-battle-unordered {
+    width: 100%;
+}
+
+.show-battle-creatures {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.show-battle-creature {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px black solid;
+}
+
+.show-battle-name {
+    // width: 30%;
+    flex-grow: 2;
 }
 
 .show-battle-hp {
+    // width: 20%;
+        flex-grow: 2;
 
 }
 
 .show-battle-other {
-    
+    // width: 50%;
+        flex-grow: 2;
+
 }

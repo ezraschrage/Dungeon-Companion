@@ -101,20 +101,33 @@ class GameShow extends React.Component{
                     </div>
                 </div>
                 <div className="show-battle">
-                    <ul>
+                    <div className="show-battle-headers">
+                        <div className="show-battle-header">
+                            Combatant
+                        </div>
+                        <div className="show-battle-header">
+                            HP
+                        </div>
+                        <div className="show-battle-header">
+                            Other
+                        </div>
+                    </div>
+                    <div className="show-battle-creatures">
+                    <ul className="show-battle-unordered">
                     {this.state.order.map((item, idx) => (
-                        <li key={`${item.initiative} ${idx}`}>
+                        <li key={`${item.initiative} ${idx}`} className="show-battle-creature">
                             <div className="show-battle-name">
                                 {item.name}
                             </div>
                             <div className="show-battle-hp">
-
+                                {item.name}
                             </div>
                             <div className="show-battle-other">
-
+                                {item.name}
                             </div>
                         </li>))}
                     </ul>
+                    </div>
                 </div>
         </div>)
     }
