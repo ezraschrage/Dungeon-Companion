@@ -124,26 +124,34 @@ class GameCreate extends React.Component{
         const monsterInfo = this.state.monsterInfo ? < MonsterShow monster={this.state.monsterInfo} /> : null;
         const characterInfo = this.state.characterInfo ?  <CharacterShow character={this.state.characterInfo} /> : null; 
 
-        return (<div>
-            <h1>Create a game</h1>
+        return (<div className='game-create-main'>
+            <div>
+            <h1>Create a Game Session</h1>
             <form action="" onSubmit={this.handleSubmit} >
                 <label htmlFor="">
                     Title: 
                     <input type="text" value={this.state.title} onChange={this.handleInput('title')}  />
                 </label>
                 
-                <button>Make Game</button>
+                <button className='create-game'>Make Game</button>
             </form>
-            <ul>Characters Chosen
+            <div className='characters-chosen'>
+                <h2>Characters Chosen</h2>
+            <ul>
                 {Object.values(this.state.characters).map(player => (<li>
                     {player.name} <button onClick={this.removeCharacter(player.id)}>Remove </button>
                 </li> ))}
             </ul>
-            <ul>Monsters Chosen
+            </div>
+            
+            <div className='monsters-chosen'>
+                <h2>Monsters Chosen</h2>
+            <ul>
                 {this.state.monsters.map((monster,idx) => (<li>
                     {monster.name} <button onClick={this.removeMonster(idx)}>Remove</button>
                 </li> ))}
             </ul>
+            </div>
             <div>
                 <ul>
                     Characters
@@ -167,6 +175,7 @@ class GameCreate extends React.Component{
                         <button onClick={this.addMonster(monster)}>Add Monster</button>
                     </li>))}
                 </ul>
+            </div>
             </div>
             {monsterInfo}
         </div>)
