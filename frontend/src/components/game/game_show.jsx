@@ -62,6 +62,7 @@ class GameShow extends React.Component{
             let newHp = this.state.order[idx].hp - e.currentTarget.value;
             oldState.order[idx].hp = newHp
             this.setState(oldState);
+            e.currentTarget.value = 0;
         }
     }
 
@@ -150,7 +151,7 @@ class GameShow extends React.Component{
                         onClick={() => this.props.playTurnGame(
                             this.sweepDeadMonsters(this.state.order))}
                     >NEXT TURN
-                     </button>
+                    </button>
                     <div className="show-battle-headers">
                         <div className="show-battle-header">
                             Combatant
