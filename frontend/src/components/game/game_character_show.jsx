@@ -3,7 +3,9 @@ import React from 'react'
 export default ({character}) =>{
 
     return (
+
         <>
+
             <h2>Character Stats:</h2>
             <ul>
             <h3>Name: {character.name}</h3>
@@ -20,6 +22,8 @@ export default ({character}) =>{
             <h3>Allow Magic: {character.allowMagic}</h3>
             <h3>Proficiencies: {character.proficiencies.map(prof => (<p key={prof}>{prof}</p>))}</h3>
         </ul>
+
         </>
+
     );
 }

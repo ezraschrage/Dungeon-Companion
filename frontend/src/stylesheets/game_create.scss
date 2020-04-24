@@ -6,17 +6,20 @@
 .game-create-main h2{
     font-size: 25px;
     padding: 10px;
+    text-align: center;
 }
 .game-create-main{
-    background-color: $main-highlight;
+     background-image: url(/static/media/create_pic.41a35931.jpg);
+    min-height: 900px;
     position: relative;
-    margin: 0% 10%;
-    padding: 10px 10px 50px 10px;
+    padding: 10px 0 50px 0;
     height: 1050px;
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: auto;
+
 }
 
 
@@ -32,6 +35,110 @@
 }
 .game-create-main li{
     font-size: 20px;
+    padding: 5px;
+    list-style: none;
+}
+.game-characters-main, .game-monsters-main{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.game-create-main form{
+    display: flex;
+    width: 70%;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.game-create-main form label{
+    font-size: 24px;
+}
+
+.game-create-main form input{
+    font-size: 20px;
+    margin:10px;
+}
+
+.characters-available, .characters-chosen, .characters-show,
+.monsters-show, .monsters-search, .monsters-chosen{
+    height: 400px;
+    margin: 20px;
+    min-width: 300px;
+    background-color: #c0b3b191;
+    border-radius: 20px;
+}
+.game-create-main ul {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 320px;
+    width: 300px;
+    margin: 0px;
+}
+.characters-show h3{
+    padding: 10px 0px;
+    font-size: 22px;
+}
+.monsters-show h3{
+    padding: 10px 0px;
+    font-size: 22px;
+}
+.game-create-main button{
+    font-size: 16px;
+    padding: 5px;
+    margin: 5px;
+    background-color: $back-tone;
+    border: 2px solid $sec-highlight;
+    border-radius: 15%;
+    justify-content: center;
+    height: 30px;
+    color: $sec-color;
+}
+
+button.create-game{
+    font-size: 30px;
+    border-radius: 15%;
+    justify-content: center;
+    height: 50px;
+    font-size: larger;
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    right: 45%;
+    min-width: 200px;
+    margin-right: -45px;
+}
+.game-create-main li {
+    background-color: #a79f9b59;
+    padding: 10px;
+    margin: 10px 0px;
+    border-radius: 10px;
+}
+
+.game-create-main ul::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px black;
+    border-radius: 10px;
+}
+
+.game-create-main ul::-webkit-scrollbar-thumb {
+    background-color: rgba(70, 1, 1, 0.705);
+    border-radius: 10px;
+}
+
+.game-create-main ul::-webkit-scrollbar {
+    width: 15px;
+}
+
+.findMonster {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.textB {
+    margin: 10px;
+    outline: none;
+    border-radius: 5px;
     padding: 5px;
     list-style: none;
 }
