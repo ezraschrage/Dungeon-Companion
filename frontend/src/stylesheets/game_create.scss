@@ -8,30 +8,18 @@
     padding: 10px;
 }
 .game-create-main{
-    background-color: rgba(0, 255, 42, 0.561);
+    background-color: $main-highlight;
     position: relative;
+    margin: 0% 10%;
     padding: 10px 10px 50px 10px;
-    height: 800px;
-    width: 100%;
+    height: 1050px;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
 
-}
-button.create-game{
-    font-size: 30px;
-    background-color: #7D83FF;
-    border: 2px solid #9fcf46;
-    border-radius: 15%;
-    justify-content: center;
-    height: 50px;
-    font-size: larger;
-    display: flex;
-    position: absolute;
-    bottom: 10px;
-    right: 45%;
-    min-width: 200px;
-}
+
 .characters-chosen ul{
     height: 150px;
     overflow-x: hidden;
@@ -67,4 +55,72 @@ button.create-game{
 .game-create-main form input{
     font-size: 20px;
     margin:10px;
+}
+
+.characters-available, .characters-chosen, .characters-show,
+.monsters-show, .monsters-search, .monsters-chosen{
+    height: 400px;
+    margin: 20px;
+    min-width: 300px;
+    background-color: $light-sec-highlight;
+    border-radius: 20px;
+}
+.game-create-main ul {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 320px;
+    width: 300px;
+    margin: 0px;
+}
+.characters-show h3{
+    padding: 10px 0px;
+    font-size: 22px;
+}
+.monsters-show h3{
+    padding: 10px 0px;
+    font-size: 22px;
+}
+.game-create-main button{
+    font-size: 16px;
+    padding: 5px;
+    margin: 5px;
+    background-color: $back-tone;
+    border: 2px solid $sec-highlight;
+    border-radius: 15%;
+    justify-content: center;
+    height: 30px;
+    color: $sec-color;
+}
+
+button.create-game{
+    font-size: 30px;
+    border-radius: 15%;
+    justify-content: center;
+    height: 50px;
+    font-size: larger;
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    right: 45%;
+    min-width: 200px;
+}
+.game-create-main li {
+    background-color: $sec-color;
+    padding: 10px;
+    margin: 10px 0px;
+    border-radius: 10px;
+}
+
+.game-create-main ul::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px black;
+    border-radius: 10px;
+}
+
+.game-create-main ul::-webkit-scrollbar-thumb {
+    background-color: rgba(70, 1, 1, 0.705);
+    border-radius: 10px;
+}
+
+.game-create-main ul::-webkit-scrollbar {
+    width: 15px;
 }

@@ -121,8 +121,8 @@ class GameCreate extends React.Component{
     }
 
     render(){
-        const monsterInfo = this.state.monsterInfo ? < MonsterShow monster={this.state.monsterInfo} /> : <div><h2>No Monster Details</h2></div>;
-        const characterInfo = this.state.characterInfo ?  <CharacterShow character={this.state.characterInfo} /> : <div><h2>No Character Details</h2></div>; 
+        const monsterInfo = this.state.monsterInfo ? < MonsterShow monster={this.state.monsterInfo} /> : <div className='monsters-show' ><h2>No Monster Details</h2></div>;
+        const characterInfo = this.state.characterInfo ?  <CharacterShow character={this.state.characterInfo} /> : <div className='characters-show'><h2>No Character Details</h2></div>; 
 
         return (<div className='game-create-main'>
             <div>
@@ -141,7 +141,8 @@ class GameCreate extends React.Component{
                     <h2>Characters Chosen</h2>
                         <ul>
                             {Object.values(this.state.characters).map(player => (<li>
-                                {player.name} <button onClick={this.removeCharacter(player.id)}>Remove </button>
+                                <h3>{player.name}</h3>
+                                 <button onClick={this.removeCharacter(player.id)}>Remove </button>
                             </li> ))}
                         </ul>
                 </div>
@@ -149,7 +150,7 @@ class GameCreate extends React.Component{
                 <h2>Characters Available</h2>
                 <ul>
                     {this.props.characters.map(character => (<li> 
-                        {character.name}
+                        <h3>{character.name}</h3>
                         <button onClick={this.showCharacter(character)}>More Info</button>
                         <button onClick={this.addCharacter(character)}>Add Player</button>
                     </li>))}
@@ -164,18 +165,19 @@ class GameCreate extends React.Component{
                     <h2>Monsters Chosen</h2>
                 <ul>
                     {this.state.monsters.map((monster,idx) => (<li>
-                        {monster.name} <button onClick={this.removeMonster(idx)}>Remove</button>
+                        <h3>{monster.name}</h3>
+                         <button onClick={this.removeMonster(idx)}>Remove</button>
                     </li> ))}
                 </ul>
                 </div>
-                <div>Monster list
+                <div className ='monsters-search'>
+                    <h2>Monster list</h2>
                 <label htmlFor=""> Find Monster
                     <input type="text" value={this.state.searchMonstWord} onChange={this.getMonsters} />
                     </label>
                 <ul>
-                    monsters
                     {this.props.monsters.map(monster => (<li> 
-                        {monster.name}
+                        <h3>{monster.name}</h3> 
                         <button onClick={this.showMonster(monster)}>More Info</button>
                         <button onClick={this.addMonster(monster)}>Add Monster</button>
                     </li>))}
