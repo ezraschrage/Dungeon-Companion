@@ -37,6 +37,7 @@ class GameCreate extends React.Component{
             players: Object.values(this.state.characters),
             monsters: this.state.monsters,
         }
+        // debugger
         this.props.createGame(newGame)
         .then((data) => this.props.history.push(`/games/${data.game._id}`) )
     }
@@ -121,24 +122,22 @@ class GameCreate extends React.Component{
     }
 
     render(){
-        const monsterInfo = this.state.monsterInfo ? < MonsterShow monster={this.state.monsterInfo} /> : <h2>No Monster Details</h2>;
-        const characterInfo = this.state.characterInfo ?  <CharacterShow character={this.state.characterInfo} /> : <h2>No Character Details</h2>; 
+        const monsterInfo = this.state.monsterInfo ? < MonsterShow monster={this.state.monsterInfo} /> : <h2 className="no-details">No Monster Selected...</h2>;
+        const characterInfo = this.state.characterInfo ?  <CharacterShow character={this.state.characterInfo} /> : <h2 className="no-details">No Character Selected...</h2>; 
 
         return (<div className='game-create-main'>
-            <div>
-            <h1>Create a Game Session</h1>
-            
+            <div className="game-title-container">
+                <h1>Create a Game Session</h1>
             </div>
+
             <form action="" onSubmit={this.handleSubmit} >
-                <label htmlFor="">Title: 
+                <label htmlFor="">Game Title: 
                     <input type="text" value={this.state.title} onChange={this.handleInput('title')}  />
 
                 </label>
-                
-                <button className='create-game'>Make Game</button>
             </form>
             <div className='game-characters-main'>
-                <div className='characters-chosen'>
+                <div className='characters-chosen display'>
                     <h2>Characters Chosen</h2>
                         <ul>
                             {Object.values(this.state.characters).map(player => (<li>
@@ -147,24 +146,29 @@ class GameCreate extends React.Component{
                             </li> ))}
                         </ul>
                 </div>
-                <div className='characters-available'>
+                <div className='characters-available display'>
                 <h2>Characters Available</h2>
                 <ul>
                     {this.props.characters.map(character => (<li> 
                         <h3>{character.name}</h3>
-                        <button onClick={this.showCharacter(character)}>More Info</button>
-                        <button onClick={this.addCharacter(character)}>Add Player</button>
+                        <div>
+                            <button onClick={this.addCharacter(character)}>Add Player</button>
+                            <button onClick={this.showCharacter(character)}>More Info</button>
+                        </div>
                     </li>))}
                 </ul>
                 </div>
-                <div className="characters-show">
-                    {characterInfo}
+                <div className="characters-show display">
+                    <h2>Character Stats:</h2>
+                    <div className="character-details">
+                        {characterInfo}
+                    </div>
                 </div>
 
             </div>
 
             <div className='game-monsters-main'>
-                <div className='monsters-chosen'>
+                <div className='monsters-chosen display'>
                     <h2>Monsters Chosen</h2>
                 <ul>
                     {this.state.monsters.map((monster,idx) => (<li>
@@ -173,27 +177,32 @@ class GameCreate extends React.Component{
                     </li> ))}
                 </ul>
                 </div>
-                <div className ='monsters-search'>
-                    <h2>Monster list</h2>
-                <label htmlFor=""> Find Monster
+                <div className ='monsters-search display'>
+                    <h2>Monster List</h2>
+                <label htmlFor="" id="find-monster-search"> Find Monster: 
                     <input type="text" value={this.state.searchMonstWord} onChange={this.getMonsters} />
                     </label>
                 <ul>
 
                     {this.props.monsters.map(monster => (<li> 
                         <h3>{monster.name}</h3> 
-                        <button onClick={this.showMonster(monster)}>More Info</button>
-                        <button onClick={this.addMonster(monster)}>Add Monster</button>
+                        <div>
+                            <button onClick={this.addMonster(monster)}>Add Monster</button>
+                            <button onClick={this.showMonster(monster)}>More Info</button>
+                        </div>
                     </li>))}
                 </ul>
             </div>
-                <div className='monsters-show'>
-                 {monsterInfo}
+                <div className='monsters-show display'>
+                    <h2>Monster Info:</h2>
+                    {monsterInfo}
                 </div>
 
             </div>
-            
-            
+
+            <div className="button-container">
+                <button id='create-game' onClick={this.handleSubmit}>MAKE GAME</button>
+            </div>
         </div>)
     }
 }
