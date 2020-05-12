@@ -22,7 +22,7 @@ class CharacterIndex extends React.Component{
 
 
     render(){
-        const charShow =  this.props.character ? <CharacterShowContainer /> : <div className='character-show-main'><h1>Click char to get one</h1></div>;
+        const charShow =  this.props.character ? <CharacterShowContainer /> : <div className='character-show-main'><h1>Click character to get one</h1></div>;
         return (
             <div className='char-index' >
                 <div className='char-index-main'>
