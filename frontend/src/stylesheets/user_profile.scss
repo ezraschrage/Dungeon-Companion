@@ -1,13 +1,14 @@
 .main {
     min-height: 900px;
     width: 100%;
-    background-image: url(../assets/images/prof_image.jpg);
+    // background-image: url(../assets/images/prof_image.jpg);
 }
 
 .profileImage {
     width: 700px;
     min-height: 900px;
     display: flex;
+    justify-content: center;
 
   
 }

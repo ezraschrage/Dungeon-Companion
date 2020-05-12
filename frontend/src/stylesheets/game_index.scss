@@ -9,6 +9,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     font-family: 'Roboto', sans-serif;
+    
 }
 
 .game-index-title {
@@ -17,7 +18,7 @@
     justify-content: space-between;
     box-sizing: border-box;
     height: 50px;
-    justify-content: space-evenly;
+    // justify-content: space-evenly;
     align-items: center;
 }
 
@@ -25,37 +26,42 @@
     width: auto;
     padding: 10px;
     border-radius: 14px;
-    color: $third-highlight;
+    color: $main-color;
     font-family: ribato;
     font-weight: inherit;
     font-weight: bolder;
     font-size: 15px;
-    margin-right: 10px;
-    background-color: $sec-highlight;
+    margin-right: 20px;
+    background-color: $main-highlight;
     border: 1px solid $back-tone;
-    border: px solid black;
+    border: 1px solid $third-highlight;
     cursor: pointer;
     text-decoration: none;
 }
 
 .game-index-title a:hover, .game-show-main a:hover {
-    background-color: $back-tone;
+    background-color: $light-sec-highlight;
 }
 
 .game-index-title h1 {
     font-family: 'Righteous', 'Roboto', sans-serif;
     font-size: 30px;
+    margin-left: 20px;
 }
 
 .game-index-main {
     // display: flex;
-    min-width: 650px;
+    width: 900px;
+    min-width: 900px;
     min-height: 40%;
-    background-color: $main-color;
+    background-color: #312e30bf;
     color: white;
     box-sizing: border-box;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 3px solid black;
+    margin: 30px;
+    margin-bottom: 40px;
+  
 }
 
 .game-thumbnail {
@@ -66,8 +72,9 @@
     width: 200px;
     padding: 10px;
     padding-left: 25px;
-    background-color: $back-tone;
+    background-color: #7c1b28bb;
     border-radius: 5px;
+    text-align: center;
 }
 
 .game-thumbnail h3, .game-thumbnail h2 {
@@ -78,30 +85,45 @@
 
 .game-thumbnail-container {
     display: flex;
-    flex-direction: column;
-    width: 33%;
-    align-items: center;
+    flex-direction: row;
+    width: 92%;
+    // align-items: center;
+    justify-content: center;
+    
 }
 
 .game-thumbnail-container ul {
+    display: flex;
+    flex-direction: row;
     list-style-type: none;
+    width: 100%;
+    overflow-x: overlay;
+    white-space: nowrap;
 }
 
 .index-subcontainer {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    // flex-direction: row;
 }
 
 #list {
     min-width: 40px;
-    padding: 2px;
+    font-size: 16px;
+    padding: 8px;
+    text-align: center;
+    
 }
 
 #moreButton, #delete-game-button {
-    border-radius: 4px;
-   background-color: $third-highlight;
-   color: $sec-highlight;
-   font-weight: 500;
+    border-radius: 8px;
+   background-color: $main-highlight;
+   color: #312e30;
+   font-family: ribato;
+   font-size: 14px;
+   font-weight: 600;
+//    margin-left: 5px;
+   padding: 3px 7px;
 }
 
 #moreButton:hover, #delete-game-button:hover {

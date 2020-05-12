@@ -12,13 +12,27 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.char-index {
+    // box-sizing: border-box;
+    // background-image: url(../assets/images/char-index2.jpg);
+    // background-size: cover;
+    // min-height: 900px;
+    // height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: 'Roboto', sans-serif;
+}
+
 .char-index-title {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     box-sizing: border-box;
     height: 75px;
-    justify-content: space-evenly;
+    // justify-content: space-evenly;
     align-items: center;
 }
 
@@ -36,7 +50,7 @@
     margin-right: 20px;
     background-color: $main-highlight;
     border: 1px solid $back-tone;
-    border: 2px solid $third-highlight;
+    border: 1px solid $third-highlight;
     cursor: pointer;
     text-decoration: none;
 }
@@ -50,15 +64,16 @@
 .char-index-title h1 {
     font-family: 'Righteous', 'Roboto', sans-serif;
     font-size: 32px;
-    letter-spacing: 4px;
+    // letter-spacing: 4px;
+    margin-left: 20px;
 }
 
 .char-index-main {
     padding: 10px;
-    min-width: 1100px;
-    width: 1100px;
+    min-width: 900px;
+    width: 900px;
     min-height: 600px;
-    background-color: #312e30d8;
+    background-color: #312e30bf;
     color: white;
     box-sizing: border-box;
     border-radius: 5px;
@@ -68,14 +83,16 @@
 .char-thumbnail {
     box-sizing: border-box;
     width: 90%;
-    margin: 15px;
+    
+    margin: 0 15px 15px 15px;
     height: auto;
-    width: 225px;
+    width: 200px;
     padding: 15px;
     padding-left: 25px;
     background-color: #7c1b28bb;
     border-radius: 10px;
     cursor: pointer;
+   
 }
 
 .char-thumbnail:hover{
@@ -93,8 +110,9 @@
     flex-direction: column;
     width: 30%;
     align-items: center;
-    overflow: auto;
+    overflow: overlay;
     height: 475px;
+   
 }
 
 .char-thumbnail-container ul {
@@ -106,6 +124,7 @@
     flex-direction: row;
 }
 
+
 .character-show-main {
     display: flex;
     flex-direction: column;
@@ -113,7 +132,7 @@
     height: 475px;
     box-sizing: border-box;
     background-color: #7c1b28bb;
-    margin: 10px;
+    margin: 0 10px 10px 10px;
     padding: 20px;
     border-radius: 5px;
 }

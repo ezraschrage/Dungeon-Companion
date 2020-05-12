@@ -6,7 +6,7 @@ import SignupFormContainer from './session_forms/signup_form_container';
 import NavContainer from './nav/nav_container';
 import Modal from './modal/modal';
 import SplashContainer from './splash/splash_container'
-import UserProfileCOntainer from './user_profile/user_profile_container';
+import UserProfileContainer from './user_profile/user_profile_container';
 import CharacterCreateContainer from './character/character_create_container';
 import CharacterEditContainer from './character/character_edit_container';
 import CharacterIndexContainer from './character/character_index_container';
@@ -22,7 +22,7 @@ const App = () => (
         <Modal />
         <Switch>
             <AuthRoute exact path="/" component={SplashContainer} />
-            <ProtectedRoute exact path="/profile" component={UserProfileCOntainer} />
+            <ProtectedRoute exact path="/profile" component={UserProfileContainer} />
             <ProtectedRoute exact path="/characters/create" component={CharacterCreateContainer} />
             <ProtectedRoute exact path="/characters/edit/:charId" component={CharacterEditContainer} />
             <ProtectedRoute exact path="/characters/:charId" component={CharacterIndexContainer} />
