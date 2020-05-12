@@ -1,6 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 import CharacterShowContainer from './character_show_container';
+import GameIndexContainer from '../game/game_index_container';
 
 class CharacterIndex extends React.Component{
     constructor(props){
@@ -23,17 +24,16 @@ class CharacterIndex extends React.Component{
     render(){
         const charShow =  this.props.character ? <CharacterShowContainer /> : <div className='character-show-main'><h1>Click char to get one</h1></div>;
         return (
-            <div className='char-index-container'>
+            <div className='char-index' >
                 <div className='char-index-main'>
                     <div className="char-index-title">
-                        <Link to='/profile'>Back to profile</Link>
                         <h1>Manage Characters</h1>
                         <Link to='/characters/create'>Create Character</Link>
                     </div>
 
                     <div className="index-subcontainer">
                         <div className="char-thumbnail-container">
-                            <ul >
+                            <ul>
                             {this.props.characters.reverse().map(char => (
                                 <div className="char-thumbnail">
                                     <li key={char._id} onClick={this.showChar(char._id)}>
@@ -43,7 +43,7 @@ class CharacterIndex extends React.Component{
                                         <h3>Level: {char.lvl}</h3>
                                         {/* <button onClick={this.showChar(char._id)}>More Info</button> */}
                                     </li>
-                                </div>
+                                 </div>
                             ))}
                             </ul>
                         </div>
@@ -51,8 +51,10 @@ class CharacterIndex extends React.Component{
                         {charShow}
                     </div>
                 </div>
+               
             </div>
         )
+
     }
 }
 export default CharacterIndex;
