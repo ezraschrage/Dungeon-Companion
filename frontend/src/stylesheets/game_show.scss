@@ -13,7 +13,10 @@
     height: 100%;
 }
 
-
+.turn-now{
+    background-color:rgba(95, 0, 0, 0.651);
+    border-radius: 15px;
+}
 .show-game-name {
     font-size: 30px;
     text-align: center;
@@ -100,7 +103,8 @@
 
 .show-battle-name {
     // width: 30%;
-    flex-grow: 2;
+    width: 325px;
+
 }
 
 .show-battle-hp {

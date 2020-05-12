@@ -51,6 +51,9 @@ const GameSchema = new Schema({
         type: String,
         required: true
     },
+    turnId: {
+        type: String,
+    },
     turns:{
         type: Number,
         required: true
