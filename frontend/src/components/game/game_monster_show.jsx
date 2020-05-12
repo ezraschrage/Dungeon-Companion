@@ -4,7 +4,6 @@ export default ({monster}) =>{
 
     return (
         <>
-                <h2>More Monster Info</h2>
             <ul>
                 <h3>Name: {monster.name}</h3>
                 <h3>Armor Class: {monster.armor_class}</h3>
@@ -19,9 +18,6 @@ export default ({monster}) =>{
                     </div>))}
                 </>
                  ) : (<h3>No Actions</h3>)} 
-                
-                
-
             </ul>
         </>
     );

@@ -25,7 +25,8 @@ footer {
 footer > a {
     width: 10%;
     padding: 10px;
-    // align-self: center;
+    display: flex;
+    justify-content: center;
 }
 // .footer-bottom {
 //     width: 100%;

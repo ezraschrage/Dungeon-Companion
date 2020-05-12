@@ -1,7 +1,9 @@
 .game-create-main h1{
     font-size: 40px;
     text-align: center;
-    padding: 20px 0px;
+    padding: 10px 0px;
+    text-shadow: 1px 1px black;
+    color: #830614;
 }
 .game-create-main h2{
     font-size: 25px;
@@ -11,15 +13,18 @@
 .game-create-main{
     background-image: url(../assets/images/create_pic.jpg);
     min-height: 900px;
-    position: relative;
-    padding: 10px 0 50px 0;
-    height: 1050px;
+    // position: relative;
+    padding: 10px 0 21px 0;
+    // height: 1050px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: auto;
+    // overflow: auto;
 
+    input {
+        text-align: center;
+    }
 }
 
 
@@ -37,6 +42,7 @@
     font-size: 20px;
     padding: 5px;
     list-style: none;
+    margin: 10px 10px 10px 0;
 }
 .game-characters-main, .game-monsters-main{
     width: 100%;
@@ -52,7 +58,17 @@
 }
 
 .game-create-main form label{
-    font-size: 24px;
+    font-size: 25px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #c0b3b1;
+    opacity: .85;
+    margin-top: .6rem;
+    width:  450px;
+    justify-content: center;
+    border-radius: 20px;
 }
 
 .game-create-main form input{
@@ -64,7 +80,7 @@
 .monsters-show, .monsters-search, .monsters-chosen{
     height: 400px;
     margin: 20px;
-    min-width: 300px;
+    // min-width: 300px;
     background-color: #c0b3b191;
     border-radius: 20px;
 }
@@ -72,8 +88,9 @@
     overflow-y: auto;
     overflow-x: hidden;
     height: 320px;
-    width: 300px;
+    width: 330px;
     margin: 0px;
+    border-radius: 20px;
 }
 .characters-show h3{
     padding: 10px 0px;
@@ -102,16 +119,16 @@ button.create-game{
     height: 50px;
     font-size: larger;
     display: flex;
-    position: absolute;
-    bottom: 10px;
-    right: 45%;
-    min-width: 200px;
-    margin-right: -45px;
+    // position: absolute;
+    // bottom: 10px;
+    // right: 45%;
+    // min-width: 200px;
+    // margin-right: -45px;
 }
 .game-create-main li {
     background-color: #a79f9b59;
     padding: 10px;
-    margin: 10px 0px;
+    margin: 10px 0px 10px 0;
     border-radius: 10px;
 }
 
@@ -170,10 +187,6 @@ button.create-game{
     justify-content: center;
 }
 
-.game-create-main form label{
-    font-size: 24px;
-}
-
 .game-create-main form input{
     font-size: 20px;
     margin:10px;
@@ -183,7 +196,7 @@ button.create-game{
 .monsters-show, .monsters-search, .monsters-chosen{
     height: 400px;
     margin: 20px;
-    min-width: 300px;
+    width: 370px;
     background-color: $light-sec-highlight;
     border-radius: 20px;
 }
@@ -191,7 +204,7 @@ button.create-game{
     overflow-y: auto;
     overflow-x: hidden;
     height: 320px;
-    width: 300px;
+    width: 330px;
     margin: 0px;
 }
 .characters-show h3{
@@ -214,6 +227,11 @@ button.create-game{
     color: $sec-color;
 }
 
+.game-create-main button:hover {
+    background-color: $main-highlight;
+    color: black;
+}
+
 button.create-game{
     font-size: 30px;
     border-radius: 15%;
@@ -221,16 +239,29 @@ button.create-game{
     height: 50px;
     font-size: larger;
     display: flex;
-    position: absolute;
-    bottom: 10px;
-    right: 45%;
+    // position: absolute;
+    // bottom: 10px;
+    // right: 45%;
     min-width: 200px;
 }
+
+.button-container {
+    display: flex;
+    width: auto;    
+    height: auto;
+    justify-content: center;
+    // position: relative;
+}
+
 .game-create-main li {
     background-color: $sec-color;
     padding: 10px;
-    margin: 10px 0px;
+    margin: 1rem 1rem 0 0;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .game-create-main ul::-webkit-scrollbar-track {
@@ -245,4 +276,91 @@ button.create-game{
 
 .game-create-main ul::-webkit-scrollbar {
     width: 15px;
+}
+
+.display {
+    opacity: .85;
+    box-sizing: border-box;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .character-details {
+        display: flex;
+        // align-items: center;
+        flex-direction: column;
+    }
+}
+
+.monsters-search {
+    ul {
+        height: 290px;
+        box-sizing: border-box;
+        margin-top: 10px;
+    }
+    input {
+        margin-left: 5px;
+    }
+}
+
+.no-details {
+    height: 300px;
+    line-height: 12;
+}
+
+.monsters-show, .characters-show {
+    h3 {
+        margin-bottom: .5rem;
+        padding: 0;
+    }
+    h3:first-child{
+        margin-top: .6rem;
+    }
+    h3:last-of-type{
+        // margin-bottom: 1rem;
+        margin-top: 1.2rem;
+        border-bottom: 1px solid black;
+        width: fit-content;
+    }
+
+    p {
+        margin-bottom: 1.2rem;
+    }
+
+    h4 {
+        margin-bottom: .5rem;
+        font-size: 18px;
+    }
+}
+
+.characters-show {
+    h4:first-of-type {
+        margin-top: 1.2rem;
+    }
+}
+
+.game-title-container {
+    width: 470px;
+    margin-top: 1rem;
+    opacity: .8;
+    background-color: #c0b3b1;
+    border-radius: 20px;
+}
+
+#create-game {
+    background-color: $sec-highlight;
+    border: 1px solid black;
+    font-family: ribato;
+    width: 400px;
+    height: 70px;
+    color: black;
+    font-size: 2rem;
+    font-weight: 600;
+    border-radius: 14px;
+}
+
+#create-game:hover {
+    background-color: rgb(192, 21, 21);
 }
