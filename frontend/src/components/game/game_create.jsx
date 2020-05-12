@@ -121,8 +121,8 @@ class GameCreate extends React.Component{
     }
 
     render(){
-        const monsterInfo = this.state.monsterInfo ? < MonsterShow monster={this.state.monsterInfo} /> : <div className='monsters-show' ><h2>No Monster Details</h2></div>;
-        const characterInfo = this.state.characterInfo ?  <CharacterShow character={this.state.characterInfo} /> : <div className='characters-show'><h2>No Character Details</h2></div>; 
+        const monsterInfo = this.state.monsterInfo ? < MonsterShow monster={this.state.monsterInfo} /> : <h2>No Monster Details</h2>;
+        const characterInfo = this.state.characterInfo ?  <CharacterShow character={this.state.characterInfo} /> : <h2>No Character Details</h2>; 
 
         return (<div className='game-create-main'>
             <div>
