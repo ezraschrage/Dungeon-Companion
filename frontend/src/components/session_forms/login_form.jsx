@@ -25,29 +25,31 @@ class LoginForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        // const user = Object.assign({}, this.state)
         this.props.login(this.state)
-            .then(this.props.history.push('/profile'))
-            .then(this.props.closeModal)
+            .then( (res) => {
+                if(res){
+                    this.props.closeModal();
+                }
+            })
     }
 
     demoLogin(e){
         e.preventDefault();
         this.setState({username: 'DemoUser', password: 'testing'});
         setTimeout(() => this.props.login(this.state)
-            .then(this.props.closeModal)
-            .then(this.props.history.push('/profile')), 200)
+            .then(this.props.closeModal), 200)
     }
 
     renderErrors() {
         return (
             <ul>
-                {Object.keys(this.state.errors).map((error, i) => (
+                {Object.keys(this.props.errors).map((error, i) => (
                     <li key={`error-${i}`}>
-                        {this.state.errors[error]}
+                        {this.props.errors[error]}
                     </li>
                 ))}
             </ul>
+            
         );
     }
 
@@ -74,7 +76,9 @@ class LoginForm extends React.Component {
                         <input className="submitButton" type="submit" value="Submit" />
                         <br />
                         <input className="demoButton" type="button" value="Demo Login" onClick={this.demoLogin}/>
-                        {this.renderErrors()}
+                        <div className="errors">
+                            {this.renderErrors()}
+                        </div>
                         <div className="login" onClick={() => {this.props.signupForm()}}>
                             Not a member? Sign up!
                         </div>
