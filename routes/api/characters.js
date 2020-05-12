@@ -65,7 +65,6 @@ router.get('/search',  passport.authenticate('jwt', { session: false }),
 );
 router.patch('/:id', passport.authenticate('jwt', { session: false }),
   (req, res) => {
-
       const { errors, isValid } = validateCharacterInput(req.body);
         
       if (!isValid) {

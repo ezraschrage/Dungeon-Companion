@@ -16,6 +16,7 @@ class GameShow extends React.Component{
             characterInfo: null,
             order: order,
         }
+        this.turnId = '';
         this.showMonster = this.showMonster.bind(this);
         this.showCharacter = this.showCharacter.bind(this);
         this.sweepDeadMonsters = this.sweepDeadMonsters.bind(this);
@@ -74,10 +75,20 @@ class GameShow extends React.Component{
     sweepDeadMonsters(arrOfCreatures){
         // Run before sending the new game state...
         let monsters = [];
-        const characters = []; 
+        const characters = [];
         arrOfCreatures.forEach( creature => creature.index ? monsters.push(creature) : characters.push(creature) )
         monsters = monsters.filter(monst => monst.hp > 0);
+        let turnId;
+        let order = monsters.concat(characters);
+        order.sort((a,b) => Math.sign(b.initiative - a.initiative));
+        for (let i = 0; i < order.length; i++) {
+            if(order[i]._id === this.turnId){
+                turnId = order[(i+1) % order.length]._id
+                break;
+            }
+        }
         return {
+            turnId: turnId,
             players: characters,
             monsters: monsters,
             title: this.props.game.title,
@@ -89,13 +100,31 @@ class GameShow extends React.Component{
         .then(({game}) => this.setState({order: this.setOrder(game)}))
     }
 
+    getCurrentTurn(){
+        let name;
+        if(this.props.game.turnId){
+            for (let i = 0; i < this.state.order.length; i++) {
+                console.log(this.props.game.turnId === this.state.order[i]._id);
+                if(this.props.game.turnId === this.state.order[i]._id){
+                    name =  (i +1) +': ' + this.state.order[i].name;
+                    this.turnId = this.state.order[i]._id;
+                    break;
+                }
+            }
+        }else{
+            this.turnId = this.state.order[0]._id;
+            name = this.state.order[0].name;
+        }
+        return (<h2>{name}</h2>)
+    }
+
     render(){
         const hpAdjustValues = [];
         for (let i = 100; i >= -100; i--){
             hpAdjustValues.push(i);
         }
         const characterInfo = this.state.characterInfo ? this.state.characterInfo === 'Error' ? <p>CHARACTER NOT FOUND</p> : <CharacterShow character={this.state.characterInfo} /> : null;
-        const currentTurnCreature = this.state.order.length > 0 ? <h2>{this.state.order[0].name}</h2> : <></>
+        const currentTurnCreature = this.state.order.length > 0 ? this.getCurrentTurn() : <></>
         const remainingTurnCreatures = this.state.order.length > 0 ? <>{this.state.order.slice(1).map(creature => <h3>{creature.name}</h3>)}</> : <></>
 
         if(!this.props.game) return (<div>loading</div>)
@@ -146,6 +175,8 @@ class GameShow extends React.Component{
                     </div>
                 </div>
                 <div className="show-battle">
+                    
+                    <div className="show-turn" >Total Turns: {this.props.game.turns}</div>
                     <div className="show-turn" >CURRENT TURN:</div>
                     <div className="show-turn">{currentTurnCreature}</div>
                     {/* <h2>REMAINING CREATURES:</h2>
@@ -169,9 +200,9 @@ class GameShow extends React.Component{
                     <div className="show-battle-creatures">
                     <ul className="show-battle-unordered">
                     {this.state.order.map((item, idx) => (
-                        <li key={`${item.initiative} ${idx}`} className="show-battle-creature">
-                            <div className="show-battle-name">
-                                {item.name}
+                        <li key={`${item.initiative} ${idx}`} className={`show-battle-creature ${item._id === this.turnId ? 'turn-now' : ''}`}>
+                            <div className={`show-battle-name`}>
+                                {idx+1 + ': ' +  item.name}
                             </div>
                             <div className="show-battle-hp">
                                 {item.hp}                     <select name="hp" value={0} onChange={this.adjustHpCreature(idx)}>
@@ -182,7 +213,7 @@ class GameShow extends React.Component{
                                 </select>
                             </div>
                             <div className="show-battle-other">
-                                {item.name}
+
                             </div>
                         </li>))}
                     </ul>

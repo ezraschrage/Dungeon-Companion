@@ -111,10 +111,11 @@ router.patch('/playturn/:id', passport.authenticate('jwt', { session: false }),
       }
       Game.findById(req.params.id)
       .then(game => {
-        game.title = game.title,
+        game.title = game.title;
         game.turns = game.turns + 1;
-        game.players = req.body.players,
-        game.monsters = req.body.monsters 
+        game.players = req.body.players;
+        game.monsters = req.body.monsters;
+        game.turnId = req.body.turnId;
         return game.save();
       } )
       .then(game => res.json(game))

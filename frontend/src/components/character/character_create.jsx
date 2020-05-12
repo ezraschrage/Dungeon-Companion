@@ -57,8 +57,13 @@ class CharacterCreateForm extends React.Component {
                         this.setState({ allowMagic: true })
                 }
             }
-
             this.setState({ [type]: e.target.value });
+        };
+    }
+
+    handleInputStat(type){
+        return (e) => {
+            this.setState({ [type]: parseInt(e.target.value)});
         };
     }
 
@@ -199,7 +204,7 @@ class CharacterCreateForm extends React.Component {
                             <br />
                             <input 
                                 value={this.state.str} 
-                                onChange={this.handleInput('str')} 
+                                onChange={this.handleInputStat('str')} 
                                 type="number" 
                                 id="str" 
                                 name="str" 
@@ -213,7 +218,7 @@ class CharacterCreateForm extends React.Component {
                             <br />
                             <input 
                                 value={this.state.dex} 
-                                onChange={this.handleInput('dex')} 
+                                onChange={this.handleInputStat('dex')} 
                                 type="number" 
                                 id="dex" 
                                 name="dex" 
@@ -227,7 +232,7 @@ class CharacterCreateForm extends React.Component {
                             <br />
                             <input 
                                 value={this.state.con} 
-                                onChange={this.handleInput('con')} 
+                                onChange={this.handleInputStat('con')} 
                                 type="number" 
                                 id="con" 
                                 name="con" 
@@ -241,7 +246,7 @@ class CharacterCreateForm extends React.Component {
                             <br />
                             <input 
                                 value={this.state.int} 
-                                onChange={this.handleInput('int')} 
+                                onChange={this.handleInputStat('int')} 
                                 type="number" 
                                 id="int" 
                                 name="int" 
@@ -255,7 +260,7 @@ class CharacterCreateForm extends React.Component {
                             <br />
                             <input 
                                 value={this.state.wis} 
-                                onChange={this.handleInput('wis')} 
+                                onChange={this.handleInputStat('wis')} 
                                 type="number" 
                                 id="wis" 
                                 name="wis" 
@@ -269,7 +274,7 @@ class CharacterCreateForm extends React.Component {
                             <br />
                             <input 
                                 value={this.state.cha} 
-                                onChange={this.handleInput('cha')} 
+                                onChange={this.handleInputStat('cha')} 
                                 type="number" 
                                 id="cha" 
                                 name="cha" 

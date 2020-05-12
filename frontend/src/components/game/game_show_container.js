@@ -14,7 +14,6 @@ const msp = (state,ownProps) =>({
 const mdp = dispatch => {
     return {
         playTurnGame: (newGameState, gameId) => dispatch(playTurnGame(newGameState, gameId)),
-
         getCharacter: (charId) => dispatch(getCharacter(charId)),
         fetchMonster: (monster) => dispatch(fetchMonster(monster)),
         getGame: (gameId) => dispatch(getGame(gameId)),
