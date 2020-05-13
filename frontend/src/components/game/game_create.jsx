@@ -39,7 +39,11 @@ class GameCreate extends React.Component{
         }
         // debugger
         this.props.createGame(newGame)
-        .then((data) => this.props.history.push(`/games/${data.game._id}`) )
+        .then((data) => {
+            if(data){
+                this.props.history.push(`/games/${data.game._id}`) 
+            }
+        })
     }
 
     handleInput(type){
@@ -124,7 +128,9 @@ class GameCreate extends React.Component{
     render(){
         const monsterInfo = this.state.monsterInfo ? < MonsterShow monster={this.state.monsterInfo} /> : <h2 className="no-details">No Monster Selected...</h2>;
         const characterInfo = this.state.characterInfo ?  <CharacterShow character={this.state.characterInfo} /> : <h2 className="no-details">No Character Selected...</h2>; 
-
+        const errors = this.props.errors.length > 0 ? (<div className='game-create-error'>{this.props.errors.map(error => (
+            <h2 key={error}>Warning: {error}</h2>
+        ))}</div>) : null ;
         return (<div className='game-create-main'>
             <div className="game-title-container">
                 <h1>Create a Game Session</h1>
@@ -140,7 +146,7 @@ class GameCreate extends React.Component{
                 <div className='characters-chosen display'>
                     <h2>Characters Chosen</h2>
                         <ul>
-                            {Object.values(this.state.characters).map(player => (<li>
+                            {Object.values(this.state.characters).map(player => (<li key={player.name}>
                                 <h3>{player.name}</h3>
                                  <button onClick={this.removeCharacter(player.id)}>Remove </button>
                             </li> ))}
@@ -149,7 +155,7 @@ class GameCreate extends React.Component{
                 <div className='characters-available display'>
                 <h2>Characters Available</h2>
                 <ul>
-                    {this.props.characters.map(character => (<li> 
+                    {this.props.characters.map(character => (<li key={character.name}> 
                         <h3>{character.name}</h3>
                         <div>
                             <button onClick={this.addCharacter(character)}>Add Player</button>
@@ -171,7 +177,7 @@ class GameCreate extends React.Component{
                 <div className='monsters-chosen display'>
                     <h2>Monsters Chosen</h2>
                 <ul>
-                    {this.state.monsters.map((monster,idx) => (<li>
+                    {this.state.monsters.map((monster,idx) => (<li key={`${monster.name}${idx}`}>
                         <h3>{monster.name}</h3>
                          <button onClick={this.removeMonster(idx)}>Remove</button>
                     </li> ))}
@@ -184,7 +190,7 @@ class GameCreate extends React.Component{
                     </label>
                 <ul>
 
-                    {this.props.monsters.map(monster => (<li> 
+                    {this.props.monsters.map(monster => (<li key={monster.name}> 
                         <h3>{monster.name}</h3> 
                         <div>
                             <button onClick={this.addMonster(monster)}>Add Monster</button>
@@ -199,7 +205,7 @@ class GameCreate extends React.Component{
                 </div>
 
             </div>
-
+            {errors}
             <div className="button-container">
                 <button id='create-game' onClick={this.handleSubmit}>MAKE GAME</button>
             </div>

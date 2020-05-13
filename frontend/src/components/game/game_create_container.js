@@ -8,6 +8,7 @@ import {withRouter} from 'react-router-dom'
 const msp = (state) =>({
     monsters: Object.values(state.entities.monsters),
     characters: Object.values(state.entities.characters),
+    errors: state.errors.entities,
 });
 
 const mdp = dispatch => {
