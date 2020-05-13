@@ -204,3 +204,14 @@
     background-color: rgba(70, 1, 1, 0.705);
     border-radius: 10px;
 }
+
+.character-show-main p, .character-show-main ul {
+    font-size: 20px;
+    margin: 12px;
+}
+.character-show-left div {
+    flex-direction: column;
+    display: flex;
+    margin: 7px;
+    width: 100%;
+}
