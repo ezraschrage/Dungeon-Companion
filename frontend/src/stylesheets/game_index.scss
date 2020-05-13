@@ -43,22 +43,18 @@
     background-color: $light-sec-highlight;
 }
 
-.game-index-title h1 {
-    font-family: 'Righteous', 'Roboto', sans-serif;
-    font-size: 30px;
-    margin-left: 20px;
-}
 
 .game-index-main {
     // display: flex;
+    padding: 10px;
     width: 900px;
     min-width: 900px;
     min-height: 40%;
     background-color: #312e30bf;
     color: white;
     box-sizing: border-box;
-    border-radius: 5px;
-    border: 3px solid black;
+    border-radius: 15px;
+    border: 5px solid black;
     margin: 30px;
     margin-bottom: 40px;
   
@@ -67,14 +63,14 @@
 .game-thumbnail {
     box-sizing: border-box;
     width: 90%;
-    margin: 10px;
+    margin: 10px 10px 10px 10px;
     height: auto;
     width: 200px;
     padding: 10px;
-    padding-left: 25px;
     background-color: #7c1b28bb;
-    border-radius: 5px;
+    border-radius: 10px;
     text-align: center;
+    border: 2px black solid;
 }
 
 .game-thumbnail h3, .game-thumbnail h2 {
@@ -97,7 +93,7 @@
     flex-direction: row;
     list-style-type: none;
     width: 100%;
-    overflow-x: overlay;
+    overflow-x: auto;
     white-space: nowrap;
 }
 
@@ -123,6 +119,7 @@
    font-size: 14px;
    font-weight: 600;
 //    margin-left: 5px;
+    border: 1px solid #95a4ce;
    padding: 3px 7px;
 }
 

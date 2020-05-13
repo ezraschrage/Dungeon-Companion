@@ -131,11 +131,11 @@ class CharacterCreateForm extends React.Component {
         }
         if(this.props.formType === 'Edit'){
             this.props.updateCharacter(character, character._id)
-            .then((data) => this.props.history.push(`/characters/${data.character._id}`) )
+            .then((data) => this.props.history.push(`/profile/${data.character._id}`) )
             .catch((err) => (err));
         }else{
             this.props.createCharacter(character)
-            .then((data) => this.props.history.push(`/characters/${data.character._id}`) )
+            .then((data) => this.props.history.push(`/profile/${data.character._id}`) )
             .catch((err) => (err));
         }
     }

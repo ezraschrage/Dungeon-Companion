@@ -28,7 +28,10 @@ export const receiveErrors = errors => ({
 export const createGame = data => dispatch => (
     APIUtil.createGame(data)
         .then(game => dispatch(receiveGame(game.data)))
-        .catch(err => dispatch(receiveErrors(err.response.data)))
+        .catch(err => {
+            dispatch(receiveErrors(err.response.data));
+            return false;
+        })
 );
 
 export const getGame = gameId => dispatch => (
