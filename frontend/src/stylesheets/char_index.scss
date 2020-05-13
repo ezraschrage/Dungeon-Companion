@@ -13,11 +13,6 @@
 }
 
 .char-index {
-    // box-sizing: border-box;
-    // background-image: url(../assets/images/char-index2.jpg);
-    // background-size: cover;
-    // min-height: 900px;
-    // height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,7 +27,6 @@
     justify-content: space-between;
     box-sizing: border-box;
     height: 75px;
-    // justify-content: space-evenly;
     align-items: center;
 }
 
@@ -44,12 +38,10 @@
     border-radius: 14px;
     color: $main-color;
     font-family: ribato;
-    font-weight: inherit;
     font-weight: bolder;
     font-size: 15px;
     margin-right: 20px;
     background-color: $main-highlight;
-    border: 1px solid $back-tone;
     border: 1px solid $third-highlight;
     cursor: pointer;
     text-decoration: none;
@@ -64,7 +56,6 @@
 .char-index-title h1, .game-index-title h1 {
     font-family: 'Righteous', 'Roboto', sans-serif;
     font-size: 32px;
-    // letter-spacing: 4px;
     margin-left: 20px;
     font-weight: 500;
     letter-spacing: 2px;
@@ -91,12 +82,10 @@
     margin: 0 15px 15px 15px;
     height: auto;
     width: 200px;
-    padding: 15px;
-    padding-left: 25px;
+    padding: 15px 15px 15px 25px;
     background-color: #7c1b28bb;
     border-radius: 10px;
-    cursor: pointer;
-   
+    cursor: pointer;  
 }
 
 .char-thumbnail:hover,.game-thumbnail:hover{
@@ -116,7 +105,6 @@
     align-items: center;
     overflow: overlay;
     height: 475px;
-   
 }
 
 .char-thumbnail-container ul {
@@ -171,6 +159,7 @@
     flex-direction: row;
     justify-content: center;
 }
+
 .character-show-left div{
     flex-direction: column;
    display: flex;
@@ -178,6 +167,7 @@
    margin: 7px;
    width: 100%;
 }
+
 .character-show-right {
     display: flex;
     flex-direction: row;
@@ -190,10 +180,12 @@
     width: 20%;
     text-align: center;
 }
+
 .game-thumbnail-container ul::-webkit-scrollbar,
 .char-thumbnail-container::-webkit-scrollbar {
     width: 18px;
 }
+
 .game-thumbnail-container ul::-webkit-scrollbar-track,
 .char-thumbnail-container::-webkit-scrollbar-track {
     box-shadow: inset 1px 1px 10px black;

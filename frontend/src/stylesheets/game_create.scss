@@ -13,14 +13,11 @@
 .game-create-main{
     background-image: url(../assets/images/create_pic.jpg);
     min-height: 900px;
-    // position: relative;
     padding: 10px 0 21px 0;
-    // height: 1050px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    // overflow: auto;
 
     input {
         text-align: center;
@@ -33,23 +30,27 @@
     overflow-x: hidden;
     overflow-y: auto;
 }
+
 .monsters-chosen ul{
     height: 150px;
     overflow-x: hidden;
     overflow-y: auto;
 }
+
 .game-create-main li{
     font-size: 20px;
     padding: 5px;
     list-style: none;
     margin: 10px 10px 10px 0;
 }
+
 .game-characters-main, .game-monsters-main{
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
+
 .game-create-main form{
     display: flex;
     width: 70%;
@@ -81,11 +82,11 @@
 .monsters-show, .monsters-search, .monsters-chosen{
     height: 400px;
     margin: 20px;
-    // min-width: 300px;
     background-color: #c0b3b191;
     border-radius: 20px;
     border: 2px solid $main-color;
 }
+
 .game-create-main ul {
     overflow-y: auto;
     overflow-x: hidden;
@@ -94,14 +95,17 @@
     margin: 0px;
     border-radius: 20px;
 }
+
 .characters-show h3{
     padding: 10px 0px;
     font-size: 22px;
 }
+
 .monsters-show h3{
     padding: 10px 0px;
     font-size: 22px;
 }
+
 .game-create-main button{
     font-size: 16px;
     padding: 5px;
@@ -121,12 +125,8 @@ button.create-game{
     height: 50px;
     font-size: larger;
     display: flex;
-    // position: absolute;
-    // bottom: 10px;
-    // right: 45%;
-    // min-width: 200px;
-    // margin-right: -45px;
 }
+
 .game-create-main li {
     background-color: #a79f9b59;
     padding: 10px;
@@ -148,6 +148,7 @@ button.create-game{
 .game-create-main ul::-webkit-scrollbar {
     width: 15px;
 }
+
 .game-create-error{
     margin: 8px;
     width: 400px;
@@ -155,6 +156,7 @@ button.create-game{
     border: rgb(0, 0, 0) 2px solid;
     border-radius: 20px;
 }
+
 .game-create-error h2{
     color: black;
 }
@@ -166,10 +168,12 @@ button.create-game{
     padding: 5px;
     font-size: 14px;
 }
+
 .gameTitleBox {
     outline: none;
     border-radius: 4px;
 }
+
 .monsterUl {
     padding: 10px;
 }
@@ -187,12 +191,14 @@ button.create-game{
     padding: 5px;
     list-style: none;
 }
+
 .game-characters-main, .game-monsters-main{
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
+
 .game-create-main form{
     display: flex;
     width: 70%;
@@ -213,6 +219,7 @@ button.create-game{
     background-color: $light-sec-highlight;
     border-radius: 20px;
 }
+
 .game-create-main ul {
     overflow-y: auto;
     overflow-x: hidden;
@@ -220,14 +227,17 @@ button.create-game{
     width: 330px;
     margin: 0px;
 }
+
 .characters-show h3{
     padding: 10px 0px;
     font-size: 22px;
 }
+
 .monsters-show h3{
     padding: 10px 0px;
     font-size: 22px;
 }
+
 .game-create-main button{
     font-size: 16px;
     padding: 5px;
@@ -252,9 +262,6 @@ button.create-game{
     height: 50px;
     font-size: larger;
     display: flex;
-    // position: absolute;
-    // bottom: 10px;
-    // right: 45%;
     min-width: 200px;
 }
 
@@ -263,7 +270,6 @@ button.create-game{
     width: auto;    
     height: auto;
     justify-content: center;
-    // position: relative;
 }
 
 .game-create-main li {
@@ -302,7 +308,6 @@ button.create-game{
 
     .character-details {
         display: flex;
-        // align-items: center;
         flex-direction: column;
     }
 }
@@ -313,6 +318,7 @@ button.create-game{
         box-sizing: border-box;
         margin-top: 10px;
     }
+
     input {
         margin-left: 5px;
     }
@@ -332,7 +338,6 @@ button.create-game{
         margin-top: .6rem;
     }
     h3:last-of-type{
-        // margin-bottom: 1rem;
         margin-top: 1.2rem;
         border-bottom: 1px solid black;
         width: fit-content;

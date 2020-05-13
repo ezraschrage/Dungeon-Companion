@@ -4,7 +4,6 @@ const RulesReducer = (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_MONSTERS:
-            // const newState = Object.assign({}, state)
             const newState = {};
             action.monsters.forEach(monster => {
                 newState[monster.name] = monster;

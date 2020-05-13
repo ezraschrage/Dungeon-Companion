@@ -13,16 +13,13 @@ export default function(state = initialState, action) {
                 isAuthenticated: !!action.currentUser,
                 user: action.currentUser
             };
+
         case RECEIVE_USER_LOGOUT:
             return {
                 isAuthenticated: false,
                 user: undefined
             };
-        // case RECEIVE_USER_SIGN_IN:
-        //     return {
-        //         ...state,
-        //         isSignedIn: true
-        //     }
+            
         default:
             return state;
     }

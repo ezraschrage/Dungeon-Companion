@@ -16,7 +16,6 @@ class LoginForm extends React.Component {
         this.demoLogin = this.demoLogin.bind(this);
     }
 
-
     update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value
@@ -48,15 +47,7 @@ class LoginForm extends React.Component {
                         {this.props.errors[error]}
                     </div>
                 ))}
-            </div>
-            // <ul className="errors">
-            //     {Object.keys(this.props.errors).map((error, i) => (
-            //         <li key={`error-${i}`}>
-            //             {this.props.errors[error]}
-            //         </li>
-            //     ))}
-            // </ul>
-            
+            </div>            
         );
     }
 
@@ -65,7 +56,7 @@ class LoginForm extends React.Component {
             <div>
                 <form className="loginForm" onSubmit={this.handleSubmit}>
                     <div className="loginField">
-                        <div className="loginText">Sign In</div>
+                        <div className="loginText">Log In</div>
                         <input type="text"
                             value={this.state.username}
                             onChange={this.update('username')}
@@ -86,9 +77,13 @@ class LoginForm extends React.Component {
                         <input className="submitButton" type="submit" value="Submit" />
                         <br />
                         <input className="demoButton" type="button" value="Demo Login" onClick={this.demoLogin}/>
-                        <div className="login" onClick={() => {this.props.signupForm()}}>
+                        <br/>
+                        <button className="login"
+                            onClick={() => {
+                                this.props.signupForm();
+                            }}>
                             Not a member? Sign up!
-                        </div>
+                        </button>
                     </div>
                 </form>
             </div>

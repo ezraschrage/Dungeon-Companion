@@ -130,7 +130,7 @@ class GameShow extends React.Component{
         }
         const characterInfo = this.state.characterInfo ? this.state.characterInfo === 'Error' ? <p>CHARACTER NOT FOUND</p> : <CharacterShow character={this.state.characterInfo} /> : null;
         const currentTurnCreature = this.state.order.length > 0 ? this.getCurrentTurn() : <></>
-        const remainingTurnCreatures = this.state.order.length > 0 ? <>{this.state.order.slice(1).map(creature => <h3>{creature.name}</h3>)}</> : <></>
+        // const remainingTurnCreatures = this.state.order.length > 0 ? <>{this.state.order.slice(1).map(creature => <h3>{creature.name}</h3>)}</> : <></>
 
         if(!this.props.game) return (<div>loading</div>)
         const monsterInfo = this.state.monsterInfo ? < MonsterShow monster={this.state.monsterInfo} /> : null;

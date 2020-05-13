@@ -1,8 +1,6 @@
 .show-main {
     display: flex;
     flex-direction: row;
-    // justify-content: right;
-    // padding-left: 20px;
    background-color: $back-tone;
    color: $light-sec-highlight;
 
@@ -54,22 +52,15 @@
     padding: 10px;
 }
 
-
-
-
-
-
-
 .show-battle {
     width: 110vh;
     height: 70vh;
-        overflow-y: auto;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 
 .show-turn {
     padding: 10px;
-
 }
 
 .show-battle-headers {
@@ -102,19 +93,14 @@
 }
 
 .show-battle-name {
-    // width: 30%;
     width: 320px;
 
 }
 
 .show-battle-hp {
-    // width: 20%;
-        flex-grow: 2;
-
+    flex-grow: 2;
 }
 
 .show-battle-other {
-    // width: 50%;
-        flex-grow: 2;
-
+    flex-grow: 2;
 }
