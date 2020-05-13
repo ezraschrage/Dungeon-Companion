@@ -69,6 +69,7 @@
     width:  450px;
     justify-content: center;
     border-radius: 20px;
+    border: 2px solid $main-color;
 }
 
 .game-create-main form input{
@@ -83,6 +84,7 @@
     // min-width: 300px;
     background-color: #c0b3b191;
     border-radius: 20px;
+    border: 2px solid $main-color;
 }
 .game-create-main ul {
     overflow-y: auto;
@@ -130,6 +132,7 @@ button.create-game{
     padding: 10px;
     margin: 10px 0px 10px 0;
     border-radius: 10px;
+    border: 1px solid black;
 }
 
 .game-create-main ul::-webkit-scrollbar-track {
@@ -144,6 +147,16 @@ button.create-game{
 
 .game-create-main ul::-webkit-scrollbar {
     width: 15px;
+}
+.game-create-error{
+    margin: 8px;
+    width: 400px;
+    background-color: #ff000091;
+    border: rgb(0, 0, 0) 2px solid;
+    border-radius: 20px;
+}
+.game-create-error h2{
+    color: black;
 }
 
 .textB {
@@ -281,7 +294,7 @@ button.create-game{
 .display {
     opacity: .85;
     box-sizing: border-box;
-    padding: 1rem;
+    padding: 0.8rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -343,15 +356,16 @@ button.create-game{
 
 .game-title-container {
     width: 470px;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     opacity: .8;
     background-color: #c0b3b1;
     border-radius: 20px;
+    border: 2px solid $main-color;
 }
 
 #create-game {
     background-color: $sec-highlight;
-    border: 1px solid black;
+    border: 1px solid $main-color;
     font-family: ribato;
     width: 400px;
     height: 70px;
