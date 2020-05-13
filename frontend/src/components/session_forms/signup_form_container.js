@@ -16,7 +16,6 @@ const mdp = (dispatch) => {
             dispatch(openModal("loginForm"));
             dispatch(receiveErrors(""));
         },
-        // signupForm: () => dispatch(openModal("signupForm")),
         closeModal: () => dispatch(closeModal())
     }
 }

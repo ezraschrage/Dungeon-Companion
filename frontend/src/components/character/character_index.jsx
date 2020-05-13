@@ -40,7 +40,6 @@ class CharacterIndex extends React.Component{
                                         <h3>Race: {char.race}</h3>
                                         <h3>Class: {char.klass}</h3>
                                         <h3>Level: {char.lvl}</h3>
-                                        {/* <button onClick={this.showChar(char._id)}>More Info</button> */}
                                     </li>
                                  </div>
                             ))}
@@ -53,7 +52,6 @@ class CharacterIndex extends React.Component{
                
             </div>
         )
-
     }
 }
 export default CharacterIndex;

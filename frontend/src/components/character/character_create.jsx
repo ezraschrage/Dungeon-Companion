@@ -21,7 +21,6 @@ class CharacterCreateForm extends React.Component {
         this.randomizeStats = this.randomizeStats.bind(this);
         this.statRoller = this.statRoller.bind(this);
         this.handleProfCheckbox = this.handleProfCheckbox.bind(this);
-        // this.errors = props.errors;
     }
 
     componentDidMount(){
@@ -122,7 +121,6 @@ class CharacterCreateForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const { con } = this.state;
-        // Change AC to be 10 + dex modifier when submitting char
         // Set Hitpoints 
         const character = {
             ...this.state,

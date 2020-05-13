@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-
-
 const Nav = ({ currentUser, logout, openLoginModal, openSignupModal }) => {
     const signedOutNav = () => (
       <nav className="header">

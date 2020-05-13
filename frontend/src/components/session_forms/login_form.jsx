@@ -16,7 +16,6 @@ class LoginForm extends React.Component {
         this.demoLogin = this.demoLogin.bind(this);
     }
 
-
     update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value
@@ -48,15 +47,7 @@ class LoginForm extends React.Component {
                         {this.props.errors[error]}
                     </div>
                 ))}
-            </div>
-            // <ul className="errors">
-            //     {Object.keys(this.props.errors).map((error, i) => (
-            //         <li key={`error-${i}`}>
-            //             {this.props.errors[error]}
-            //         </li>
-            //     ))}
-            // </ul>
-            
+            </div>            
         );
     }
 

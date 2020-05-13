@@ -3,9 +3,6 @@ import {Link} from 'react-router-dom';
 import CharacterIndexContainer from '../character/character_index_container';
 
 class GameIndex extends React.Component{
-    // constructor(props){
-    //     super(props);
-    // }
 
     componentDidMount(){
         this.props.getDMGames();
