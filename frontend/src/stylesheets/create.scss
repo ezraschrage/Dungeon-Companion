@@ -12,10 +12,15 @@
     height: auto;
     width: 50%;
     border-right: 3px solid $sec-highlight;
+
+    .create-img {
+        height: 100%;
+        width: 100%;
+    }
 }
 
 .character-create-form {
-    min-width: 750px;
+    // min-width: 750px;
     display: flex;
     box-sizing: border-box;
     background-color: $main-color;
@@ -25,7 +30,7 @@
     color: white;
     padding: 30px;
     font-family: 'Roboto', sans-serif;
-    border-left: 3px solid $sec-highlight;
+    // border-left: 3px solid $sec-highlight;
     flex-direction: column;
     flex-wrap: wrap;
 }
@@ -40,8 +45,8 @@
 }
 
 .character-create-form hr {
-    border-top: 1px solid $sec-highlight;
-    border-bottom: 1px solid $sec-highlight;
+    border-top: 2px solid $sec-highlight;
+    // border-bottom: 1px solid $sec-highlight;
 }
 
 .character-create-img-container img {
@@ -62,7 +67,7 @@
     cursor: pointer;
 }
 .proficiencies-checkbox-container li {
-    padding: 10px;
+    padding: 10px 0;
 }
 
 .prof-checked{
@@ -103,7 +108,7 @@
     height: 450px;
     padding: 10px;
     border-radius: 5px;
-    margin: 10px 0;
+    margin-top: .5rem;
 }
 
 .vitals-container {
@@ -115,7 +120,7 @@
     height: 300px;
     padding: 10px;
     border-radius: 5px;
-    margin: 10px 0;    
+    margin-top: .5rem;    
     justify-content: space-between;
 }
 
@@ -150,9 +155,9 @@
     justify-content: space-evenly
 }
 
-// #stats-roll-button {
-
-// }
+#stats-roll-button {
+    width: 420px;
+}
 
 .character-create-form button {
     box-sizing: border-box;
