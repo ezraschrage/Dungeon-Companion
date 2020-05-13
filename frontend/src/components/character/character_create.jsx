@@ -1,5 +1,5 @@
 import React from 'react';
-import createImg from '../../assets/images/create-cut.jpg';
+import createImg from '../../assets/images/create-cut2.jpg';
 
 class CharacterCreateForm extends React.Component {
     constructor(props) {
@@ -152,7 +152,7 @@ class CharacterCreateForm extends React.Component {
         return(
             <div className="character-create">
                 <div className="character-create-img-container">
-                    <img src={createImg} />
+                    <img className="create-img" src={createImg} />
                 </div>
 
                 <div className="character-create-form">
@@ -282,7 +282,6 @@ class CharacterCreateForm extends React.Component {
                                 className="create-form-input"/>
                         </div>
                     </div>
-                        <br />
 
                         <hr />
 
