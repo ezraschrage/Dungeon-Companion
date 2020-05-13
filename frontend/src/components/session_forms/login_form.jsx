@@ -86,9 +86,13 @@ class LoginForm extends React.Component {
                         <input className="submitButton" type="submit" value="Submit" />
                         <br />
                         <input className="demoButton" type="button" value="Demo Login" onClick={this.demoLogin}/>
-                        <div className="login" onClick={() => {this.props.signupForm()}}>
+                        <br/>
+                        <button className="login"
+                            onClick={() => {
+                                this.props.signupForm();
+                            }}>
                             Not a member? Sign up!
-                        </div>
+                        </button>
                     </div>
                 </form>
             </div>

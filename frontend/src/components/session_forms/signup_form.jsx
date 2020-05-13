@@ -84,14 +84,13 @@ class SignupForm extends React.Component {
                 <br />
                 {this.renderErrors()}
                 <input className="submitButton" type="submit" value="Submit" />
-                <div
-                  className="login"
+                <br/>
+                <button className="login"
                   onClick={() => {
                     this.props.loginForm();
-                  }}
-                >
-                  Already a member? Log in!
-                </div>
+                  }}>
+                    Already a member? Log in!
+                </button>
               </div>
             </form>
           </div>
