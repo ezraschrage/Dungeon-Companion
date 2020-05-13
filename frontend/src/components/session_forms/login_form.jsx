@@ -42,13 +42,20 @@ class LoginForm extends React.Component {
 
     renderErrors() {
         return (
-            <ul>
+            <div className="errors">
                 {Object.keys(this.props.errors).map((error, i) => (
-                    <li key={`error-${i}`}>
+                    <div key={`error-${i}`}>
                         {this.props.errors[error]}
-                    </li>
+                    </div>
                 ))}
-            </ul>
+            </div>
+            // <ul className="errors">
+            //     {Object.keys(this.props.errors).map((error, i) => (
+            //         <li key={`error-${i}`}>
+            //             {this.props.errors[error]}
+            //         </li>
+            //     ))}
+            // </ul>
             
         );
     }
@@ -73,12 +80,12 @@ class LoginForm extends React.Component {
                             className="inputBox"
                         />
                         <br />
-                        <input className="submitButton" type="submit" value="Submit" />
-                        <br />
-                        <input className="demoButton" type="button" value="Demo Login" onClick={this.demoLogin}/>
                         <div className="errors">
                             {this.renderErrors()}
                         </div>
+                        <input className="submitButton" type="submit" value="Submit" />
+                        <br />
+                        <input className="demoButton" type="button" value="Demo Login" onClick={this.demoLogin}/>
                         <div className="login" onClick={() => {this.props.signupForm()}}>
                             Not a member? Sign up!
                         </div>
