@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { getCharacter } from '../../actions/character_actions';
 import {fetchMonster} from '../../actions/rules_actions';
-import {getGame, playTurnGame} from '../../actions/game_actions';
+import {getGame, playTurnGame, deleteGame} from '../../actions/game_actions';
 import GameShow from './game_show';
 import {withRouter} from 'react-router-dom';
 
@@ -17,6 +17,7 @@ const mdp = dispatch => {
         getCharacter: (charId) => dispatch(getCharacter(charId)),
         fetchMonster: (monster) => dispatch(fetchMonster(monster)),
         getGame: (gameId) => dispatch(getGame(gameId)),
+        deleteGame:  (game_id) => dispatch(deleteGame(game_id))
     };
 };
 
