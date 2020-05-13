@@ -17,7 +17,7 @@
     height: 450px;
     width: 400px;
     border-radius: 12px;
-    box-shadow: 0 0 14px 12px #819eb1;
+    box-shadow: 0 0 14px 2px #819eb1;
     position: relative;
 }
 
@@ -123,7 +123,7 @@
 
 .errors {
     font-size: 18px;
-    color: #4790af;
+    color: red;
     font-weight: bold;
     margin-bottom: 5px;
 }

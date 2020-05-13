@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import CharacterShowContainer from './character_show_container';
-import GameIndexContainer from '../game/game_index_container';
 
 class CharacterIndex extends React.Component{
     constructor(props){
