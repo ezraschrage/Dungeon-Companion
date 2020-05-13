@@ -23,9 +23,9 @@ const App = () => (
         <Switch>
             <AuthRoute exact path="/" component={SplashContainer} />
             <ProtectedRoute exact path="/profile" component={UserProfileContainer} />
+            <ProtectedRoute exact path="/profile/:charId" component={UserProfileContainer} />
             <ProtectedRoute exact path="/characters/create" component={CharacterCreateContainer} />
             <ProtectedRoute exact path="/characters/edit/:charId" component={CharacterEditContainer} />
-            <ProtectedRoute exact path="/characters/:charId" component={CharacterIndexContainer} />
             <ProtectedRoute exact path="/games/create" component={GameCreateContainer} />
             <ProtectedRoute exact path="/games/:gameId" component={GameShowContainer} />
             <ProtectedRoute exact path="/games" component={GameIndexContainer} />

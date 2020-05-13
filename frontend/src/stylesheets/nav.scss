@@ -51,13 +51,14 @@
     margin-right: 20px;
     margin-bottom: 10px;
     background-color: $sec-highlight;
-    border: 1px solid black;
+    border: 2px solid black;
     outline: none;
     cursor: pointer;
     
 }
 .nav-Button:hover {
-    background-color: rgb(192, 21, 21);
+    background-color: rgb(94, 0, 0);
+    color: rgb(165, 165, 165);
 }
 
 
