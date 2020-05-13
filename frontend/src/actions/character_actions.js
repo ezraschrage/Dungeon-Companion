@@ -27,8 +27,8 @@ export const receiveErrors = errors => ({
 
 export const createCharacter = data => dispatch => (
     APIUtil.createCharacter(data)
-        .then(char => dispatch(receiveCharacter(char.data)))
-        .catch(err => dispatch(receiveErrors(err.response.data)))
+        .then(char =>  dispatch(receiveCharacter(char.data)))
+        .catch(err =>dispatch(receiveErrors(err.response.data)))
 );
 
 export const getCharacter = charId => dispatch => (

@@ -9,22 +9,24 @@
 }
 
 .modal-child {
-    background-color: #45484a;
+    background-color: #3d3f41;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 450px;
+    min-height: 400px;
     width: 400px;
     border-radius: 12px;
     box-shadow: 0 0 14px 2px #819eb1;
     position: relative;
+    padding: 10px;
+    // padding-top: 1px;
+    size: auto;
 }
 
 .loginForm {
     text-align: center;
     margin-top: 50px;
-   
 }
 
 .loginField {
@@ -43,7 +45,8 @@
 .inputBox {
     display: block;
     position: relative;
-    padding: 7px 5px;
+    // padding: 7px 5px;
+    padding: 7px 7px 7px 17px;
     width: 270px;
     font-size: 18px;
     border: 1px solid $back-tone;

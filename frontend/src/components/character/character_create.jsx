@@ -1,5 +1,5 @@
 import React from 'react';
-import createImg from '../../assets/images/create-cut.jpg';
+import createImg from '../../assets/images/create-cut2.jpg';
 
 class CharacterCreateForm extends React.Component {
     constructor(props) {
@@ -131,11 +131,11 @@ class CharacterCreateForm extends React.Component {
         }
         if(this.props.formType === 'Edit'){
             this.props.updateCharacter(character, character._id)
-            .then((data) => this.props.history.push(`/characters/${data.character._id}`) )
+            .then((data) => this.props.history.push(`/profile/${data.character._id}`) )
             .catch((err) => (err));
         }else{
             this.props.createCharacter(character)
-            .then((data) => this.props.history.push(`/characters/${data.character._id}`) )
+            .then((data) => this.props.history.push(`/profile/${data.character._id}`) )
             .catch((err) => (err));
         }
     }
@@ -152,7 +152,7 @@ class CharacterCreateForm extends React.Component {
         return(
             <div className="character-create">
                 <div className="character-create-img-container">
-                    <img src={createImg} alt="Beholder" />
+                    <img className="create-img" src={createImg} />
                 </div>
 
                 <div className="character-create-form">
@@ -282,7 +282,6 @@ class CharacterCreateForm extends React.Component {
                                 className="create-form-input"/>
                         </div>
                     </div>
-                        <br />
 
                         <hr />
 

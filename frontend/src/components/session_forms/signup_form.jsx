@@ -90,7 +90,7 @@ class SignupForm extends React.Component {
                     this.props.loginForm();
                   }}
                 >
-                  Already a member? Sign in!
+                  Already a member? Log in!
                 </div>
               </div>
             </form>
