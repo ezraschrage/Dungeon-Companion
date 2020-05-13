@@ -15,7 +15,7 @@ class CharacterIndex extends React.Component{
     showChar(id){
         return (e) => {
             this.props.openModal()
-            this.props.history.push(`/characters/${id}`)
+            this.props.history.push(`/profile/${id}`)
         }
     }
 
@@ -26,7 +26,7 @@ class CharacterIndex extends React.Component{
             <div className='char-index' >
                 <div className='char-index-main'>
                     <div className="char-index-title">
-                        <h1>Manage Characters</h1>
+                        <h1>Characters</h1>
                         <Link to='/characters/create'>Create Character</Link>
                     </div>
 
@@ -34,8 +34,8 @@ class CharacterIndex extends React.Component{
                         <div className="char-thumbnail-container">
                             <ul>
                             {this.props.characters.reverse().map(char => (
-                                <div className="char-thumbnail">
-                                    <li key={char._id} onClick={this.showChar(char._id)}>
+                                <div className="char-thumbnail" key={char._id}>
+                                    <li  onClick={this.showChar(char._id)}>
                                         <h2>Name: {char.name}</h2>
                                         <h3>Race: {char.race}</h3>
                                         <h3>Class: {char.klass}</h3>

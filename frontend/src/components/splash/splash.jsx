@@ -13,6 +13,7 @@ class Splash extends React.Component {
     render() {
         return (
             <div className="splash-container">
+                <div className="outer-container">
                     <div className="large-main">
                         Enter the world of Dungeons and Dragons with Dungeon Companion.
                     </div>
@@ -27,6 +28,7 @@ class Splash extends React.Component {
                         Character generator! Answer a series of questions and 
                         a pre-made character will be made for you (coming soon!)
                     </div> */}
+                </div>
             </div>
         )
     }
