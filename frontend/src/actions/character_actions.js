@@ -27,14 +27,8 @@ export const receiveErrors = errors => ({
 
 export const createCharacter = data => dispatch => (
     APIUtil.createCharacter(data)
-        .then(char => {
-            dispatch(receiveCharacter(char.data));
-            return true;
-        })
-        .catch(err => {
-            dispatch(receiveErrors(err.response.data))
-            return false;
-        })
+        .then(char =>  dispatch(receiveCharacter(char.data)))
+        .catch(err =>dispatch(receiveErrors(err.response.data)))
 );
 
 export const getCharacter = charId => dispatch => (
@@ -57,14 +51,8 @@ export const searchCharacters = (name) => dispatch => (
 
 export const updateCharacter = (character, charId) => dispatch => (
     APIUtil.updateCharacter(character, charId)
-        .then(char => {
-            dispatch(receiveCharacter(char.data));
-            return true;
-        })
-        .catch(err => {
-            dispatch(receiveErrors(err.response.data))
-            return false;
-        })
+        .then(char => dispatch(receiveCharacter(char.data)))
+        .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
 export const deleteCharacter = (charId) => dispatch => (
