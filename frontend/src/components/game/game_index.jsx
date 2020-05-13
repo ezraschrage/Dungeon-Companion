@@ -16,7 +16,7 @@ class GameIndex extends React.Component{
         <div className="game-index-container">
             <div className='game-index-main'>
                 <div className="game-index-title">
-                    <h1>Manage Games</h1>
+                    <h1>Games</h1>
                     <Link to='/games/create'>Create Game</Link>
                 </div>
 
@@ -24,8 +24,8 @@ class GameIndex extends React.Component{
                     <div className="game-thumbnail-container">
                         <ul>
                             {this.props.games.reverse().map(game => (
-                                <div className="game-thumbnail">
-                                    <li id="list" key={game._id}>{game.title}</li>
+                                <div className="game-thumbnail" key={game._id}>
+                                    <li id="list" >{game.title}</li>
                                     <Link to={`/games/${game._id}`}><button id="moreButton">Play</button></Link>
                                     <button id="delete-game-button" onClick={() => {
                                         this.props.deleteGame(game._id);
