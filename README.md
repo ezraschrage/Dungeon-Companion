@@ -37,7 +37,7 @@ they are ordered properly. The dungeon master then may click forward to advance 
 they are removed from the battlefield and skipped over in the next round of combat. Below is a snippet of the code that displays some of this logic, as well as
 the character and monster display functions. These functions allow for the display of just the names or the full statistics.
 
-```
+```Javascript
     setOrder(game){
         const order = game.monsters.concat(game.players);
         return order.sort((a,b) => Math.sign(b.initiative - a.initiative));
