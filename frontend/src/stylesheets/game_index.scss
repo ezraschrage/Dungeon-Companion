@@ -9,7 +9,6 @@
     flex-direction: column;
     flex-wrap: wrap;
     font-family: 'Roboto', sans-serif;
-    
 }
 
 .game-index-title {
@@ -18,7 +17,6 @@
     justify-content: space-between;
     box-sizing: border-box;
     height: 50px;
-    // justify-content: space-evenly;
     align-items: center;
 }
 
@@ -28,12 +26,10 @@
     border-radius: 14px;
     color: $main-color;
     font-family: ribato;
-    font-weight: inherit;
     font-weight: bolder;
     font-size: 15px;
     margin-right: 20px;
     background-color: $main-highlight;
-    border: 1px solid $back-tone;
     border: 1px solid $third-highlight;
     cursor: pointer;
     text-decoration: none;
@@ -43,9 +39,7 @@
     background-color: $light-sec-highlight;
 }
 
-
 .game-index-main {
-    // display: flex;
     padding: 10px;
     width: 900px;
     min-width: 900px;
@@ -56,7 +50,6 @@
     border-radius: 15px;
     border: 3px solid black;
     margin: 40px;
-  
 }
 
 .game-thumbnail {
@@ -84,9 +77,7 @@
     display: flex;
     flex-direction: row;
     width: 92%;
-    // align-items: center;
     justify-content: center;
-    
 }
 
 .game-thumbnail-container ul {
@@ -101,15 +92,13 @@
 .index-subcontainer {
     display: flex;
     justify-content: center;
-    // flex-direction: row;
 }
 
 #list {
     min-width: 40px;
     font-size: 16px;
     padding: 8px;
-    text-align: center;
-    
+    text-align: center;   
 }
 
 #moreButton, #delete-game-button {
@@ -119,8 +108,7 @@
    font-family: ribato;
    font-size: 14px;
    font-weight: 600;
-//    margin-left: 5px;
-    border: 1px solid #95a4ce;
+   border: 1px solid #95a4ce;
    padding: 3px 7px;
 }
 
@@ -131,50 +119,3 @@
 #delete-game-button {
     margin-left: 10px;
 }
-
-
-// .game-show-main {
-//     display: flex;
-//     flex-direction: row;
-//     width: 67%;
-//     background-color: $back-tone;
-//     margin: 10px;
-//     padding: 10px;
-//     border-radius: 5px;
-// }
-
-// .game-show-main h2 {
-//     font-family: 'Righteous', 'Roboto', sans-serif;
-//     font-size: 26px;
-//     text-decoration: underline;
-//     font-weight: 400;
-//     margin: 3px;
-// }
-
-// .game-show-main p, .game-show-main ul {
-//     font-size: 20px;
-//     margin: 3px;
-// }
-
-// .game-show-main li {
-//     font-size: 20px;
-//     margin: 3px 3px 3px 24px;
-// }
-
-// .game-show-left {
-//     width: 50%;
-//     height: 100%;
-// }
-
-// .game-show-right {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: space-between;
-//     align-items: center;
-//     width: 50%;
-
-// }
-
-// .game-show-main a {
-//     width: 50%;
-// }

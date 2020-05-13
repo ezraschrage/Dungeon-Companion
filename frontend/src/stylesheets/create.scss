@@ -20,7 +20,6 @@
 }
 
 .character-create-form {
-    // min-width: 750px;
     display: flex;
     box-sizing: border-box;
     background-color: $main-color;
@@ -30,7 +29,6 @@
     color: white;
     padding: 30px;
     font-family: 'Roboto', sans-serif;
-    // border-left: 3px solid $sec-highlight;
     flex-direction: column;
     flex-wrap: wrap;
 
@@ -63,7 +61,6 @@
 
     hr {
         border-top: 3px solid $sec-highlight;
-        // border-bottom: 1px solid $sec-highlight;
     }
 
     label {
@@ -84,7 +81,6 @@
     button {
         box-sizing: border-box;
         margin: 10px;
-        // width: 200px;
         font-weight: bold;
         font-weight: bolder;
         font-family: 'Roboto', sans-serif;
@@ -191,6 +187,3 @@
 #stats-roll-button {
     width: 420px;
 }
-
-
-

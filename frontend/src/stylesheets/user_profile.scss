@@ -1,7 +1,6 @@
 .main {
     min-height: 900px;
     width: 100%;
-    // background-image: url(../assets/images/prof_image.jpg);
 }
 
 .profileImage {
@@ -9,8 +8,6 @@
     min-height: 900px;
     display: flex;
     justify-content: center;
-
-  
 }
 
 .welcomeUserName {
@@ -23,9 +20,7 @@
     text-shadow: 3px 3px $light-sec-highlight;
     width: 800px;
     height: 100px;
-
     font-family: 'Righteous', 'Roboto', sans-serif;
-    
 }
 
 .yourChars {
@@ -40,7 +35,6 @@
     height: 280px;
     padding: 20px;
     cursor: pointer;
-     
 }
 
 .yourChars a {
@@ -53,12 +47,12 @@
     font-weight: 700;
     font-family: 'Righteous', 'Roboto', sans-serif;
 }
+
 img.character {
     max-width: 200px;
 }
 
 .yourGames {
-
     margin-top: 80px;
     margin-left: 150px;
     text-align: center;
@@ -70,7 +64,6 @@ img.character {
     padding: 20px;
     cursor: pointer;
 }
-
 
 .yourGames a {
     text-decoration: none;

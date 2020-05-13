@@ -156,7 +156,7 @@ class CharacterCreateForm extends React.Component {
         return(
             <div className="character-create">
                 <div className="character-create-img-container">
-                    <img className="create-img" src={createImg} />
+                    <img className="create-img" src={createImg} alt="Beholder"/>
                 </div>
 
                 <div className="character-create-form">

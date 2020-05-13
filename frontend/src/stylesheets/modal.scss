@@ -19,7 +19,6 @@
     border-radius: 12px;
     box-shadow: 0 0 6px 1px #94212e;
     position: relative;
-    // padding: 10px;
     padding-top: 30px;
     padding-bottom: 30px;
     size: auto;
@@ -27,16 +26,14 @@
 
 .loginForm {
     text-align: center;
-    // margin-top: 50px;
 }
 
 .loginField {
-      display: inline-block;
+    display: inline-block;
 }
 
 .signupForm {
     text-align: center;
-    // margin-top: 50px;
 }
 
 .signupField {
@@ -46,7 +43,6 @@
 .inputBox {
     display: block;
     position: relative;
-    // padding: 7px 5px;
     padding: 7px 7px 7px 17px;
     width: 300px;
     font-size: 18px;
@@ -58,10 +54,12 @@
     outline: none;
     color: $sec-highlight;
 }
+
 .inputBox:focus {
     border: 2px solid $sec-color;   
     border-style: inset 0 0 1 1;    
 }
+
 ::placeholder {
     color: $sec-highlight;
 }
@@ -122,7 +120,6 @@
     width: 170px;
     height: 50px;
     text-align: center;
-
 }
 
 .loginText {
@@ -132,7 +129,7 @@
     font-size: 30px;
     cursor: default;
     font-weight: 600;
-        text-shadow: 2px 2px black;
+    text-shadow: 2px 2px black;
 }
 
 .errors {
