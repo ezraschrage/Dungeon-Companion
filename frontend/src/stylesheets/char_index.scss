@@ -81,9 +81,10 @@
     box-sizing: border-box;
     border-radius: 15px;
     border: 3px solid black;
+    margin-bottom: 40px;
 }
 
-.char-thumbnail {
+.char-thumbnail, .game-thumbnail {
     box-sizing: border-box;
     width: 90%;
     border: 2px solid black;
@@ -98,7 +99,7 @@
    
 }
 
-.char-thumbnail:hover{
+.char-thumbnail:hover,.game-thumbnail:hover{
     background-color: #470f16bb;
 }
 
