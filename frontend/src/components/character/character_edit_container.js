@@ -6,6 +6,7 @@ import CharacterCreateForm from './character_create';
 const msp = (state, ownProps) => ({
     character: state.entities.characters[ownProps.match.params.charId],
     formType: 'Edit', 
+    errors: state.errors.entities,
 })
 
 const mapDispatchToProps = dispatch => {

@@ -20,7 +20,8 @@ class CharacterCreateForm extends React.Component {
         this.determineStartHp = this.determineStartHp.bind(this);
         this.randomizeStats = this.randomizeStats.bind(this);
         this.statRoller = this.statRoller.bind(this);
-        this.handleProfCheckbox = this.handleProfCheckbox.bind(this)
+        this.handleProfCheckbox = this.handleProfCheckbox.bind(this);
+        // this.errors = props.errors;
     }
 
     componentDidMount(){
@@ -141,13 +142,16 @@ class CharacterCreateForm extends React.Component {
     }
 
     render(){
-        const races = ["Dragonborn", "Dwarf", "Elf", "Half-Elf", "Half-Orc", "Halfling", "Human", "Gnome", 
-        "Tiefling"]
-        const klasses = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", 
-                        "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"]
-        const skills = ["Athletics", "Acrobatics", "Animal Handling", "Arcana", "Deception", 
-                    "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", 
-                    "Performance", "Persuasion", "Religion", "Sleight of Hand", "Stealth", "Survival"]
+        const races = ["Dragonborn", "Dwarf", "Elf", "Half-Elf", "Half-Orc", "Halfling", "Human", "Gnome", "Tiefling"]
+
+        const klasses = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"]
+
+        const skills = ["Athletics", "Acrobatics", "Animal Handling", "Arcana", "Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", "Performance", "Persuasion", "Religion", "Sleight of Hand", "Stealth", "Survival"]
+
+        const errors = this.props.errors.length > 0 ? (<div className='char-create-error'>{this.props.errors.map(error => (
+                        <h2 key={error}>Warning: {error}</h2>
+                    ))}</div>) : null ;
+
         if(!this.props.character) return (<div>loading</div>)
         return(
             <div className="character-create">
@@ -157,6 +161,7 @@ class CharacterCreateForm extends React.Component {
 
                 <div className="character-create-form">
         <h1>{this.props.formType === 'Edit' ? 'Edit a Character' : 'Create a Character'}</h1>
+                    {errors}
                     <hr />
                     <form onSubmit={this.handleSubmit}> 
 
@@ -177,7 +182,7 @@ class CharacterCreateForm extends React.Component {
                             <div>
                                 <select id="race" name="race" onChange={this.handleInput('race')}>
                                     {races.map((race, i) => (
-                                        <option key={race} selected={this.props.character.race === race ? 'selected': '' } value={race}>{race}</option>
+                                        <option key={race} defaultValue={this.props.character.race === race ? 'selected': '' } value={race}>{race}</option>
                                     ))}
                                 </select>
                             </div>
@@ -189,7 +194,7 @@ class CharacterCreateForm extends React.Component {
                             <div>
                                 <select id="klass" name="klass" onChange={this.handleInput('klass')}>
                                     {klasses.map(klass => (
-                                        <option key={klass} selected={this.props.character.klass === klass ? 'selected': '' }  value={klass}>{klass}</option>
+                                        <option key={klass} defaultValue={this.props.character.klass === klass ? 'selected': '' }  value={klass}>{klass}</option>
                                     ))}
                                 </select>
                             </div>
