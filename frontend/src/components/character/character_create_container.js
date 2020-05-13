@@ -19,6 +19,7 @@ const msp = (state, ownProps) => ({
         proficiencies: [],
     },
     formType: 'Create', 
+    errors: state.errors.entities,
 })
 
 

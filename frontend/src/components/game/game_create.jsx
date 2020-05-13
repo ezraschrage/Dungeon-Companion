@@ -131,6 +131,7 @@ class GameCreate extends React.Component{
         const errors = this.props.errors.length > 0 ? (<div className='game-create-error'>{this.props.errors.map(error => (
             <h2 key={error}>Warning: {error}</h2>
         ))}</div>) : null ;
+        
         return (<div className='game-create-main'>
             <div className="game-title-container">
                 <h1>Create a Game Session</h1>

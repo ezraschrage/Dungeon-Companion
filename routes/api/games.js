@@ -126,7 +126,7 @@ router.patch('/playturn/:id', passport.authenticate('jwt', { session: false }),
 router.delete('/:id', passport.authenticate('jwt', { session: false }),
   (req, res) => {
       Game.findByIdAndRemove(req.params.id)
-      .then( () => res.json({gameDeleted: 'Game Deleted'}))
+      .then( () => res.json(req.params.id))
       .catch( err => res.status(404).json({noGameFound: 'No Game found with that id'}))
   }
 );
