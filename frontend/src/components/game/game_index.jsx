@@ -23,15 +23,15 @@ class GameIndex extends React.Component{
                 <div className="index-subcontainer">
                     <div className="game-thumbnail-container">
                         <ul>
-                            {this.props.games.reverse().map(game => (
-                                <div className="game-thumbnail" key={game._id}>
-                                    <li id="list" >{game.title}</li>
-                                    <Link to={`/games/${game._id}`}><button id="moreButton">Play</button></Link>
-                                    <button id="delete-game-button" onClick={() => {
-                                        this.props.deleteGame(game._id);
-                                        window.location.reload();
-                                        }}>Delete</button>
-                                </div>
+                            {this.props.games.map(game => (
+                                <Link to={`/games/${game._id}`} key={game._id}>
+                                    <div className="game-thumbnail" >
+                                    <li id="list" >
+                                        <h2>{game.title}</h2>
+                                        <h3>Players: {game.players.length}</h3>
+                                        <h3>Monsters: {game.monsters.length}</h3>
+                                        </li>
+                                </div></Link>
                             ))}
                         </ul>
                     </div>

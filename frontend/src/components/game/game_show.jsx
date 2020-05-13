@@ -22,6 +22,7 @@ class GameShow extends React.Component{
         this.sweepDeadMonsters = this.sweepDeadMonsters.bind(this);
         this.setOrder = this.setOrder.bind(this);
         this.playTurn = this.playTurn.bind(this);
+        this.delete = this.delete.bind(this);
     }
 
     componentDidMount(){
@@ -117,6 +118,10 @@ class GameShow extends React.Component{
         }
         return (<h2>{name}</h2>)
     }
+    delete(e){
+        e.preventDefault();
+        this.props.deleteGame(this.props.game._id).then(() => this.props.history.push(`/profile/`));
+    }
 
     render(){
         const hpAdjustValues = [];
@@ -139,6 +144,7 @@ class GameShow extends React.Component{
                             <li>Click on a character or monster to see expanded info</li>
                             <li>Keep track of the HP with the input</li>
                             <li><Link to='/games'>Return to other games</Link></li>
+                            <button onClick={this.delete}>Delete Game</button>
                         </ul>
                     </div>
                     <div className="show-list">
