@@ -1,4 +1,5 @@
 import { RECEIVE_GAME,RECEIVE_GAMES, REMOVE_GAME } from '../actions/game_actions';
+import {RECEIVE_USER_LOGOUT} from '../actions/session_actions';
 
 const GamesReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -17,6 +18,8 @@ const GamesReducer = (state = {}, action) => {
             newState = Object.assign({}, state);
             delete newState[action.gameId];
             return newState
+        case RECEIVE_USER_LOGOUT:
+            return {};
         default:
             return state;
     }

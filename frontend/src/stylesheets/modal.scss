@@ -45,7 +45,7 @@
     position: relative;
     padding: 7px 7px 7px 17px;
     width: 300px;
-    font-size: 18px;
+    font-size: 19px;
     border: 1px solid black;
     border-radius: 3px;
     font-weight: 600;
@@ -53,6 +53,7 @@
     font-family: ribato;
     outline: none;
     color: $sec-highlight;
+    text-shadow: 1px 1px black;
 }
 
 .inputBox:focus {

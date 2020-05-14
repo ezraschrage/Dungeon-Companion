@@ -15,7 +15,7 @@ const path = require('path');
 mongoose
     .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => ("Connected to MongoDB successfully"))
-    .catch(err => console.log(err));
+    .catch(err => {});
 
 const port = process.env.PORT || 5000;
 
@@ -30,7 +30,7 @@ app.use("/api/characters", characters);
 app.use("/api/games", games);
 
 
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+app.listen(port, () => {});
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('frontend/build'));
