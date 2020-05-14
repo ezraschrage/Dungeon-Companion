@@ -105,7 +105,6 @@ class GameShow extends React.Component{
         let name;
         if(this.props.game.turnId){
             for (let i = 0; i < this.state.order.length; i++) {
-                console.log(this.props.game.turnId === this.state.order[i]._id);
                 if(this.props.game.turnId === this.state.order[i]._id){
                     name =  (i +1) +': ' + this.state.order[i].name;
                     // name = this.state.order[i].name;
