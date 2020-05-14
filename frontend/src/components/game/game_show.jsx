@@ -120,7 +120,8 @@ class GameShow extends React.Component{
     }
     delete(e){
         e.preventDefault();
-        this.props.deleteGame(this.props.game._id).then(() => this.props.history.push(`/profile/`));
+        this.props.deleteGame(this.props.game._id);
+        this.props.history.push(`/profile/`);
     }
 
     render(){

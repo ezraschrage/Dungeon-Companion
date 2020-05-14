@@ -30,7 +30,7 @@ app.use("/api/characters", characters);
 app.use("/api/games", games);
 
 
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+app.listen(port, () => {});
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('frontend/build'));
