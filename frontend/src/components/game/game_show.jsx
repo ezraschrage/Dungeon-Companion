@@ -105,7 +105,6 @@ class GameShow extends React.Component{
         let name;
         if(this.props.game.turnId){
             for (let i = 0; i < this.state.order.length; i++) {
-                console.log(this.props.game.turnId === this.state.order[i]._id);
                 if(this.props.game.turnId === this.state.order[i]._id){
                     name =  (i +1) +': ' + this.state.order[i].name;
                     // name = this.state.order[i].name;
@@ -121,7 +120,8 @@ class GameShow extends React.Component{
     }
     delete(e){
         e.preventDefault();
-        this.props.deleteGame(this.props.game._id).then(() => this.props.history.push(`/profile/`));
+        this.props.deleteGame(this.props.game._id);
+        this.props.history.push(`/profile/`);
     }
 
     render(){
@@ -144,7 +144,7 @@ class GameShow extends React.Component{
                             <li>Click the "Next Turn" button to advance the turn.</li>
                             <li>Click on a character or monster to see expanded info.</li>
                             <li>Keep track of the HP with the input.</li>
-                            <li id="game-link"><Link to='/games'>Return to other games</Link></li>
+                            <Link to='/games'><li id="game-link">Return to other games</li></Link>
 
                         </ul>
                     </div>

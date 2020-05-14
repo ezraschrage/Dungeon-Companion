@@ -20,14 +20,12 @@ class GameCreate extends React.Component{
         this.addCharacter = this.addCharacter.bind(this);
         this.showMonster = this.showMonster.bind(this);
         this.showCharacter = this.showCharacter.bind(this);
-        this.getCharacters = this.getCharacters.bind(this);
         this.removeCharacter = this.removeCharacter.bind(this);
         this.removeMonster = this.removeMonster.bind(this);
         this.timer = null;
     }
     
     componentDidMount(){
-        this.props.getCharacters();
     }
 
     handleSubmit(e){
@@ -93,13 +91,6 @@ class GameCreate extends React.Component{
         return (e) => {
             this.setState({characterInfo: character });
         }
-    }
-
-    getCharacters(){
-        // this.setState({searchCharWord: e.target.value});
-        // clearTimeout(this.timer);
-        // const name = e.target.value;
-        // this.timer = setTimeout( () => {if(name !== '') search(name)}, 600);
     }
 
     addCharacter(character){

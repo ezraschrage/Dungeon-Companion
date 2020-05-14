@@ -1,4 +1,5 @@
 import { RECEIVE_CHARACTER,RECEIVE_CHARACTERS, REMOVE_CHARACTER } from '../actions/character_actions';
+import {RECEIVE_USER_LOGOUT} from '../actions/session_actions';
 
 const CharactersReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -17,6 +18,8 @@ const CharactersReducer = (state = {}, action) => {
             newState = Object.assign({}, state);
             delete newState[action.charId];
             return newState
+        case RECEIVE_USER_LOGOUT:
+            return {};
         default:
             return state;
     }
