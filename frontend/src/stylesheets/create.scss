@@ -161,6 +161,7 @@
 }
 
 #create-button {
+    border-radius: 15px;
     align-items: center;
     width: 70%;
     font-size: 35px;
@@ -186,4 +187,9 @@
 
 #stats-roll-button {
     width: 420px;
+    border-radius: 10px;
+}
+#stats-roll-button:hover, #create-button:hover{
+    background-color: rgb(94, 0, 0);
+    color: rgb(131, 133, 212);
 }

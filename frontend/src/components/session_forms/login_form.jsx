@@ -74,7 +74,7 @@ class LoginForm extends React.Component {
                         <div className="errors">
                             {this.renderErrors()}
                         </div>
-                        <input className="submitButton" type="submit" value="Submit" />
+                        <input className="submitButton" type="submit" value="Log In" />
                         <br />
                         <input className="demoButton" type="button" value="Demo Login" onClick={this.demoLogin}/>
                         <br/>

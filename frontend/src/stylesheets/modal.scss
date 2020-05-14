@@ -71,7 +71,7 @@
     font-weight: 600;
     width: 85px;
     height: 40px;
-    border-radius: 4px;
+    border-radius: 10px;
     line-height: 22px;
     cursor: pointer;
     border: 0;
@@ -88,7 +88,7 @@
     font-weight: 600;
     width: 120px;
     height: 40px;
-    border-radius: 4px;
+    border-radius: 10px;
     line-height: 22px;
     cursor: pointer;
     color: black;
@@ -96,7 +96,7 @@
     outline: none;
 }
 
-.submitButton:hover, .demoButton:hover {
+.submitButton:hover, .demoButton:hover,.login:hover {
     background-color:  #5e0000;
     color: #a5a5a5;
 }
@@ -116,7 +116,7 @@
     color: black;
     background-color: $sec-highlight;
     border: 1px solid black;
-    border-radius: 4px;
+    border-radius: 10px;
     width: 170px;
     height: 50px;
     text-align: center;

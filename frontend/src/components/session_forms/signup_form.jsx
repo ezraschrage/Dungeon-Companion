@@ -75,7 +75,7 @@ class SignupForm extends React.Component {
                 />
                 <br />
                 {this.renderErrors()}
-                <input className="submitButton" type="submit" value="Submit" />
+                <input className="submitButton" type="submit" value="Sign Up" />
                 <br/>
                 <button className="login"
                   onClick={() => {
