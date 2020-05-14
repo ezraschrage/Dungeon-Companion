@@ -108,6 +108,7 @@ class GameShow extends React.Component{
                 console.log(this.props.game.turnId === this.state.order[i]._id);
                 if(this.props.game.turnId === this.state.order[i]._id){
                     name =  (i +1) +': ' + this.state.order[i].name;
+                    // name = this.state.order[i].name;
                     this.turnId = this.state.order[i]._id;
                     break;
                 }
@@ -116,7 +117,7 @@ class GameShow extends React.Component{
             this.turnId = this.state.order[0]._id;
             name = this.state.order[0].name;
         }
-        return (<h2>{name}</h2>)
+        return (name)
     }
     delete(e){
         e.preventDefault();
@@ -141,10 +142,10 @@ class GameShow extends React.Component{
                         <div className="show-game-name">{this.props.game.title}</div>
                         <ul className="instructions-list">
                             <li>Click the "Next Turn" button to advance the turn.</li>
-                            <li>Click on a character or monster to see expanded info</li>
-                            <li>Keep track of the HP with the input</li>
-                            <li><Link to='/games'>Return to other games</Link></li>
-                            <button onClick={this.delete}>Delete Game</button>
+                            <li>Click on a character or monster to see expanded info.</li>
+                            <li>Keep track of the HP with the input.</li>
+                            <li id="game-link"><Link to='/games'>Return to other games</Link></li>
+
                         </ul>
                     </div>
                     <div className="show-list">
@@ -157,7 +158,7 @@ class GameShow extends React.Component{
                                 </li>))}
                             </ul>
                         </div>
-                        <div className="show-info-box">
+                        <div className="show-info-box" id="pla-game-box">
                             <div>
                             {characterInfo}
                             </div>
@@ -173,25 +174,25 @@ class GameShow extends React.Component{
                                 </li>))}
                             </ul>
                         </div>
-                        <div className="show-info-box">
+                        <div className="show-info-box" id="mon-game-box">
                             <div>
                             {monsterInfo}
                             </div>
                         </div>
                     </div>
+                    <button id="delete-game" onClick={this.delete}>Delete Game</button>
                 </div>
                 <div className="show-battle">
                     
-                    <div className="show-turn" >Total Turns: {this.props.game.turns}</div>
-                    <div className="show-turn" >CURRENT TURN:</div>
-                    <div className="show-turn">{currentTurnCreature}</div>
-                    {/* <h2>REMAINING CREATURES:</h2>
-                    {remainingTurnCreatures} */}
+                    <div className="show-turn" >
+                        <h2 id="current-turn">CURRENT TURN: &nbsp;&nbsp;&nbsp; {currentTurnCreature}</h2>
+                        <h2 id="total-turns">Total Turns: {this.props.game.turns}</h2>
+                    </div>
 
-                    <button
-                        onClick={this.playTurn}>
+                    <button onClick={this.playTurn} id="next-turn-button">
                       Next Turn
-                     </button>
+                    </button>
+
                     <div className="show-battle-headers">
                         <div className="show-battle-header">
                             Combatant

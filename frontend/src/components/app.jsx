@@ -33,7 +33,7 @@ const App = () => (
         </Switch>
         <footer>
                 {/* <div href="https://github.com/ezraschrage/Dungeon-Companion" /> */}
-                <a href="https://github.com/ezraschrage/Dungeon-Companion" ><img className="git" src={gitImg} /></a>
+                <a href="https://github.com/ezraschrage/Dungeon-Companion" target="_blank" ><img className="git" src={gitImg} /></a>
         </footer>
     </div>
 
