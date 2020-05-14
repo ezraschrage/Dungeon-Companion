@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import SignupFormContainer from '../session_forms/signup_form_container';
 import LoginFormContainer from '../session_forms/login_form_container';
 
-
-
 function Modal({ modal, closeModal }) {
     if (!modal) {
         return null;
@@ -28,7 +26,6 @@ function Modal({ modal, closeModal }) {
                 </div>
             </div>
     );
-
 }
 
 const msp = (state) => ({

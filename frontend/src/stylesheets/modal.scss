@@ -9,31 +9,31 @@
 }
 
 .modal-child {
-    background-color: #45484a;
+    background-color: $main-color;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 450px;
-    width: 400px;
+    min-height: 430px;
+    width: 430px;
     border-radius: 12px;
-    box-shadow: 0 0 14px 12px #819eb1;
+    box-shadow: 0 0 6px 1px #94212e;
     position: relative;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    size: auto;
 }
 
 .loginForm {
     text-align: center;
-    margin-top: 50px;
-   
 }
 
 .loginField {
-      display: inline-block;
+    display: inline-block;
 }
 
 .signupForm {
     text-align: center;
-    margin-top: 50px;
 }
 
 .signupField {
@@ -43,27 +43,29 @@
 .inputBox {
     display: block;
     position: relative;
-    padding: 7px 5px;
-    width: 270px;
+    padding: 7px 7px 7px 17px;
+    width: 300px;
     font-size: 18px;
-    border: 1px solid $back-tone;
+    border: 1px solid black;
     border-radius: 3px;
     font-weight: 600;
     background: $main-color;
     font-family: ribato;
     outline: none;
-    color: $main-highlight;
+    color: $sec-highlight;
 }
+
 .inputBox:focus {
-    border: 2px solid $main-color;   
+    border: 2px solid $sec-color;   
     border-style: inset 0 0 1 1;    
 }
+
 ::placeholder {
-    color: $main-highlight;
+    color: $sec-highlight;
 }
 
 .submitButton {
-    background-color: $main-color;
+    background-color: $sec-highlight;
     font-size: 18px;
     font-family: ribato;
     font-weight: 600;
@@ -73,14 +75,14 @@
     line-height: 22px;
     cursor: pointer;
     border: 0;
-    color: $main-highlight;
-    border: 1px solid $main-color;
+    color: black;
+    border: 1px solid black;
     outline: none;
 }
 
 .demoButton {
     margin-top: 16px;
-    background-color: $main-color;
+    background-color: $sec-highlight;
     font-size: 18px;
     font-family: ribato;
     font-weight: 600;
@@ -89,14 +91,14 @@
     border-radius: 4px;
     line-height: 22px;
     cursor: pointer;
-    border: 0;
-    color: $main-highlight;
-    border: 1px solid $main-color;
+    color: black;
+    border: 1px solid black;
     outline: none;
 }
 
 .submitButton:hover, .demoButton:hover {
-    background-color:  rgb(59, 57, 57);
+    background-color:  #5e0000;
+    color: #a5a5a5;
 }
 
 .submitButton:focus, .demoButton:hover {
@@ -105,25 +107,34 @@
 }
 
 .login {
-    color:$main-highlight;
+    color:$sec-highlight;
     margin-top: 20px;
     cursor: pointer;
     font-size: 18px;
-    font-weight: 500;
+    font-family: ribato;
+    font-weight: 600;
+    color: black;
+    background-color: $sec-highlight;
+    border: 1px solid black;
+    border-radius: 4px;
+    width: 170px;
+    height: 50px;
+    text-align: center;
 }
 
 .loginText {
     margin-top: 15px;
     margin-bottom: 30px;
-    color: $main-highlight;
+    color: $sec-highlight;
     font-size: 30px;
     cursor: default;
     font-weight: 600;
+    text-shadow: 2px 2px black;
 }
 
 .errors {
     font-size: 18px;
-    color: #4790af;
+    color: red;
     font-weight: bold;
     margin-bottom: 5px;
 }

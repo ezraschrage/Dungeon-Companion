@@ -12,11 +12,10 @@ const msp = (state) => {
 const mdp = (dispatch) => {
     return {
         signup: user => dispatch(signup(user)),
-        loginForm: () => (
-            dispatch(openModal("loginForm")),
-            dispatch(receiveErrors(""))
-        ),
-        // signupForm: () => dispatch(openModal("signupForm")),
+        loginForm: () => {
+            dispatch(openModal("loginForm"));
+            dispatch(receiveErrors(""));
+        },
         closeModal: () => dispatch(closeModal())
     }
 }

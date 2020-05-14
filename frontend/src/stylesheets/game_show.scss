@@ -1,8 +1,6 @@
 .show-main {
     display: flex;
     flex-direction: row;
-    // justify-content: right;
-    // padding-left: 20px;
     background-color: $back-tone;
     color: $light-sec-highlight;
     min-height: 900px;
@@ -142,7 +140,6 @@
         margin-top: .6rem;
     }
     h3:last-of-type{
-        // margin-bottom: 1rem;
         margin-top: 1.2rem;
         border-bottom: 1px solid $light-sec-highlight;;
         width: fit-content;
@@ -193,7 +190,6 @@
     height: 50px;
     align-self: start;
     box-sizing: border-box;
-
 }
 
 .show-battle-headers {
@@ -246,13 +242,10 @@
 }
 
 .show-battle-hp {
-    // width: 20%;
-        flex-grow: 2;
-
+    flex-grow: 2;
 }
 
 .show-battle-other {
-    // width: 50%;
         flex-grow: 2;
 
 }

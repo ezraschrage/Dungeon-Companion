@@ -1,8 +1,6 @@
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import { Link, Route, Switch } from 'react-router-dom';
-import LoginFormContainer from './session_forms/login_form_container';
-import SignupFormContainer from './session_forms/signup_form_container';
+import { Switch } from 'react-router-dom';
 import NavContainer from './nav/nav_container';
 import Modal from './modal/modal';
 import SplashContainer from './splash/splash_container'
@@ -14,7 +12,6 @@ import GameIndexContainer from './game/game_index_container';
 import GameShowContainer from './game/game_show_container';
 import GameCreateContainer from './game/game_create_container';
 import gitImg from '../assets/images/git2.png';
-// import MainPage from './main/main_page';
 
 const App = () => (
     <div>
@@ -32,8 +29,7 @@ const App = () => (
             <ProtectedRoute exact path="/characters" component={CharacterIndexContainer} />
         </Switch>
         <footer>
-                {/* <div href="https://github.com/ezraschrage/Dungeon-Companion" /> */}
-                <a href="https://github.com/ezraschrage/Dungeon-Companion" target="_blank" ><img className="git" src={gitImg} /></a>
+                <a href="https://github.com/ezraschrage/Dungeon-Companion" target="_blank" ><img className="git" src={gitImg} alt="git symbol"/></a>
         </footer>
     </div>
 

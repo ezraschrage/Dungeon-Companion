@@ -11,7 +11,6 @@ const mdp = dispatch => {
     return {
         getCharacter: (charId) => dispatch(getCharacter(charId)),
         deleteCharacter: (charId) => dispatch(deleteCharacter(charId)),
-
     };
 };
 

@@ -37,7 +37,6 @@ class GameCreate extends React.Component{
             players: Object.values(this.state.characters),
             monsters: this.state.monsters,
         }
-        // debugger
         this.props.createGame(newGame)
         .then((data) => {
             if(data){

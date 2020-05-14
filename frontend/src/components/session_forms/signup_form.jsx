@@ -15,14 +15,6 @@ class SignupForm extends React.Component {
         this.clearedErrors = false;
     }
 
-    // componentWillReceiveProps(nextProps) {
-    //     if (nextProps.signedIn === true) {
-    //         this.props.history.push('/login');
-    //     }
-
-    //     this.setState({ errors: nextProps.errors })
-    // }
-
     update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value
@@ -84,14 +76,13 @@ class SignupForm extends React.Component {
                 <br />
                 {this.renderErrors()}
                 <input className="submitButton" type="submit" value="Submit" />
-                <div
-                  className="login"
+                <br/>
+                <button className="login"
                   onClick={() => {
                     this.props.loginForm();
-                  }}
-                >
-                  Already a member? Sign in!
-                </div>
+                  }}>
+                    Already a member? Log in!
+                </button>
               </div>
             </form>
           </div>

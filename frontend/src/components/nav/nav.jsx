@@ -1,7 +1,5 @@
 import React from 'react'
-import { withRouter, Link } from 'react-router-dom';
-
-
+import { Link } from 'react-router-dom';
 
 const Nav = ({ currentUser, logout, openLoginModal, openSignupModal }) => {
     const signedOutNav = () => (
