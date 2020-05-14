@@ -13,7 +13,7 @@ class CharacterIndex extends React.Component{
 
     sendDelete(){
         this.props.deleteCharacter(this.props.character._id)
-        .then(this.props.history.push('/characters/'))
+        .then(this.props.history.push('/profile/'))
     }
 
     render(){

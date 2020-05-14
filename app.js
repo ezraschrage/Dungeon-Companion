@@ -15,7 +15,7 @@ const path = require('path');
 mongoose
     .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => ("Connected to MongoDB successfully"))
-    .catch(err => console.log(err));
+    .catch(err => {});
 
 const port = process.env.PORT || 5000;
 
