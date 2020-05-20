@@ -38,44 +38,44 @@ they are removed from the battlefield and skipped over in the next round of comb
 the character and monster display functions. These functions allow for the display of just the names or the full statistics.
 
 ```Javascript
-    setOrder(game){
-        const order = game.monsters.concat(game.players);
-        return order.sort((a,b) => Math.sign(b.initiative - a.initiative));
-    }
+setOrder(game){
+    const order = game.monsters.concat(game.players);
+    return order.sort((a,b) => Math.sign(b.initiative - a.initiative));
+}
 
-    showMonster(monster){
-        return (e) => {
-            if(!this.props.monsters[monster.name]){
-                this.props.fetchMonster(monster.index)
-                .then((newMonst) => this.setState({monsterInfo: newMonst.monster }))
-            }else{
-                this.setState({monsterInfo: this.props.monsters[monster.name]})
-            }
+showMonster(monster){
+    return (e) => {
+        if(!this.props.monsters[monster.name]){
+            this.props.fetchMonster(monster.index)
+            .then((newMonst) => this.setState({monsterInfo: newMonst.monster }))
+        }else{
+            this.setState({monsterInfo: this.props.monsters[monster.name]})
         }
     }
+}
 
-    showCharacter(character){
-        return (e) => {
-            if(!this.props.characters[character.id]){
-                this.props.getCharacter(character.id)
-                .then(({character}) => this.setState({characterInfo: character }))
-                .catch(() => this.setState({characterInfo: 'Error'}));
-            }
-            else{
-                this.setState({characterInfo: this.props.characters[character.id]})
-            }
+showCharacter(character){
+    return (e) => {
+        if(!this.props.characters[character.id]){
+            this.props.getCharacter(character.id)
+            .then(({character}) => this.setState({characterInfo: character }))
+            .catch(() => this.setState({characterInfo: 'Error'}));
+        }
+        else{
+            this.setState({characterInfo: this.props.characters[character.id]})
         }
     }
+}
 
-    adjustHpCreature(idx){
-        return (e) => {
-            let oldState = {...this.state}
-            let newHp = this.state.order[idx].hp + parseInt(e.currentTarget.value);
-            oldState.order[idx].hp = newHp
-            this.setState(oldState);
-            e.currentTarget.value = 0;
-        }
+adjustHpCreature(idx){
+    return (e) => {
+        let oldState = {...this.state}
+        let newHp = this.state.order[idx].hp + parseInt(e.currentTarget.value);
+        oldState.order[idx].hp = newHp
+        this.setState(oldState);
+        e.currentTarget.value = 0;
     }
+}
 ```
 
 ### CRUD functionality
@@ -83,24 +83,24 @@ the character and monster display functions. These functions allow for the displ
 When you create a character or battle, you can be assured your progress and edits will not be lost. Add as many characters as you need and delete them when they're no longer needed. In addition, your login info is secured using bcrypt hashing.
 
 ```Javascript
-          bcrypt.genSalt(10, (err, salt) => {
-            bcrypt.hash(newUser.password, salt, (err, hash) => {
-              if (err) throw err;
-              newUser.password = hash;
-              newUser.save()
-                .then(user => {
-                    const payload = { id: user.id, username: user.username, email: user.email};
+bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(newUser.password, salt, (err, hash) => {
+        if (err) throw err;
+        newUser.password = hash;
+        newUser.save()
+        .then(user => {
+            const payload = { id: user.id, username: user.username, email: user.email};
 
-                    jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
-                        res.json({
-                        success: true,
-                        token: "Bearer " + token
-                        });
-                    });
-                })
-                .catch(err => (err));
-            })
-          })
+            jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
+                res.json({
+                success: true,
+                token: "Bearer " + token
+                });
+            });
+        })
+        .catch(err => (err));
+    })
+})
 ```
 
 Attributions
