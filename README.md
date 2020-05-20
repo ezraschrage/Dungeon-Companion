@@ -7,14 +7,6 @@ aims to be a tool for players and dungeon masters alike. Players can create and 
 Dungeon masters can craft battles to help them keep track of combat by monitoring initiative, turn order, and health points. So prepare your
 spell sheets and ready your weapons, because it is time for Dungeon Companion!
 
-### Features
-
-- Character creator using Dungeons & Dragons 5th edition rules, with customization of statistics, class, proficiencies, and fantasy race
-- Battle creator that allows user to create a list of particpants from a list of saved characters as well as monsters
-- Battle manager that tracks the initiative, health points, and current turn of all participants in a battle
-- Battle manager and creator use an API for the monsters to retrieve all of their statistics from the monster manual
-- CRUD functionality for users, characters, and battles
-
 ### Technologies
 - MongoDB for database
 - Express for server framework
@@ -22,6 +14,60 @@ spell sheets and ready your weapons, because it is time for Dungeon Companion!
 - NodeJS for package management
 - SASS
 - HTML
+
+In readme, instead of having features and highlights, you should have a header 
+for each feature you're calling out and they should each have a code snippet and/or image or gif accompanying them
+
+### Character Creator
+
+
+
+![Character creator screenshot](frontend/src/assets/images/character_creator.png)
+
+### Battle Creator
+
+
+### Battle Manager
+
+
+### CRUD functionality
+
+
+
+```Javascript
+          bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(newUser.password, salt, (err, hash) => {
+              if (err) throw err;
+              newUser.password = hash;
+              newUser.save()
+                .then(user => {
+                    const payload = { id: user.id, username: user.username, email: user.email};
+
+                    jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
+                        res.json({
+                        success: true,
+                        token: "Bearer " + token
+                        });
+                    });
+                })
+                .catch(err => (err));
+            })
+          })
+```
+
+
+
+
+
+
+
+- Character creator using Dungeons & Dragons 5th edition rules, with customization of statistics, class, proficiencies, and fantasy race
+- Battle creator that allows user to create a list of particpants from a list of saved characters as well as monsters
+- Battle manager that tracks the initiative, health points, and current turn of all participants in a battle
+- Battle manager and creator use an API for the monsters to retrieve all of their statistics from the monster manual
+- CRUD functionality for users, characters, and battles
+
+
 
 ### Highlights
 
