@@ -15,69 +15,21 @@ spell sheets and ready your weapons, because it is time for Dungeon Companion!
 - SASS
 - HTML
 
-In readme, instead of having features and highlights, you should have a header 
-for each feature you're calling out and they should each have a code snippet and/or image or gif accompanying them
-
 ### Character Creator
 
-Character creator using Dungeons & Dragons 5th edition rules, with customization of statistics, class, proficiencies, and fantasy race. Select your stats or let the website roll the dice for you. Saved to your profile and can be edited at any time.
+Character creator using Dungeons & Dragons 5th edition rules, with customization of statistics, class, proficiencies, and fantasy race. Select your stats or let the character creator roll the dice for you. Save the character for later and edit them as they level up.
 
 ![Character creator screenshot](frontend/src/assets/images/character_creator.png)
 
 ### Battle Creator
 
-Battle creator lets you craft an upcoming encounter by letting you select players and creatues.
-Add your characters from you profile and any monster in the Monster Manual. An API that searches the manual 
-
-### Battle Manager
-
-
-### CRUD functionality
-
-
-
-```Javascript
-          bcrypt.genSalt(10, (err, salt) => {
-            bcrypt.hash(newUser.password, salt, (err, hash) => {
-              if (err) throw err;
-              newUser.password = hash;
-              newUser.save()
-                .then(user => {
-                    const payload = { id: user.id, username: user.username, email: user.email};
-
-                    jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
-                        res.json({
-                        success: true,
-                        token: "Bearer " + token
-                        });
-                    });
-                })
-                .catch(err => (err));
-            })
-          })
-```
-
-
-
-
-
-
-
-- Character creator using Dungeons & Dragons 5th edition rules, with customization of statistics, class, proficiencies, and fantasy race
-- Battle creator that allows user to create a list of particpants from a list of saved characters as well as monsters
-- Battle manager that tracks the initiative, health points, and current turn of all participants in a battle
-- Battle manager and creator use an API for the monsters to retrieve all of their statistics from the monster manual
-- CRUD functionality for users, characters, and battles
-
-
-
-### Highlights
-
-The battle creator would be functional but not as helpful without the ability to put in monsters with pre-built statistics. To make this feature more convenient,
+Battle creator lets you craft an upcoming encounter. To add convenience,
 a D&D rules API allows the user to look up in real time any monster. This will also call the monster's attacks, special abilities, challenge rating, and 
 statistics. No more will a user need to comb through the manual to look up every monster entry.
 
 ![Demonstration of call to rulebook API](frontend/src/assets/images/api.gif)
+
+### Battle Manager
 
 The battle manager was created with the goal of taking as much busy work out of the hands of the dungeon master as possible. To that end, battle manager
 will roll the dice for each character and monster to determine who goes first based on their dice roll and inherent bonuses. Once this initiative is determined,
@@ -126,7 +78,30 @@ the character and monster display functions. These functions allow for the displ
     }
 ```
 
+### CRUD functionality
 
+When you create a character or battle, you can be assured your progress and edits will not be lost. Add as many characters as you need and delete them when they're no longer needed. In addition, your login info is secured using bcrypt hashing.
+
+```Javascript
+          bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(newUser.password, salt, (err, hash) => {
+              if (err) throw err;
+              newUser.password = hash;
+              newUser.save()
+                .then(user => {
+                    const payload = { id: user.id, username: user.username, email: user.email};
+
+                    jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
+                        res.json({
+                        success: true,
+                        token: "Bearer " + token
+                        });
+                    });
+                })
+                .catch(err => (err));
+            })
+          })
+```
 
 Attributions
 
