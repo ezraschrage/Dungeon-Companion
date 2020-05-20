@@ -178,9 +178,9 @@ class CharacterCreateForm extends React.Component {
                         <div className="create-field">
                             <label>Race: </label>
                             <div>
-                                <select id="race" name="race" onChange={this.handleInput('race')}>
+                                <select id="race" name="race" defaultValue={this.props.character.race} onChange={this.handleInput('race')}>
                                     {races.map((race, i) => (
-                                        <option key={race} defaultValue={this.props.character.race === race ? 'selected': '' } value={race}>{race}</option>
+                                        <option key={race}  value={race}>{race}</option>
                                     ))}
                                 </select>
                             </div>
@@ -190,9 +190,9 @@ class CharacterCreateForm extends React.Component {
                             <label>Class: </label>
                             <br />
                             <div>
-                                <select id="klass" name="klass" onChange={this.handleInput('klass')}>
+                                <select id="klass" name="klass" defaultValue={this.props.character.klass} onChange={this.handleInput('klass')}>
                                     {klasses.map(klass => (
-                                        <option key={klass} defaultValue={this.props.character.klass === klass ? 'selected': '' }  value={klass}>{klass}</option>
+                                        <option key={klass}   value={klass}>{klass}</option>
                                     ))}
                                 </select>
                             </div>
