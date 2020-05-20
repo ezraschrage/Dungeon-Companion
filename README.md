@@ -20,12 +20,14 @@ for each feature you're calling out and they should each have a code snippet and
 
 ### Character Creator
 
-
+Character creator using Dungeons & Dragons 5th edition rules, with customization of statistics, class, proficiencies, and fantasy race. Select your stats or let the website roll the dice for you. Saved to your profile and can be edited at any time.
 
 ![Character creator screenshot](frontend/src/assets/images/character_creator.png)
 
 ### Battle Creator
 
+Battle creator lets you craft an upcoming encounter by letting you select players and creatues.
+Add your characters from you profile and any monster in the Monster Manual. An API that searches the manual 
 
 ### Battle Manager
 
